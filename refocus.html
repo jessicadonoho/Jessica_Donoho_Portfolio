@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<!--
+  ==========================================================================
+  CASE STUDY — Focus Friend: Refocus (personal project)
+  Content migrated from the old Framer page.
+
+  PAGE MAP (each section has an id; the sidebar links to them):
+    #overview      about the project, problem, context
+    #research      user research (Perplexity, Reddit, John Green) + assumptions
+    #mapping       interaction map of the current app
+    #problem       refined problem statement
+    #comparative   competitor analysis (Finch, Pokémon Sleep, Forest)
+    #personas      George + second persona
+    #design        wireframes + goals/badges
+    #areas         focus areas feature
+    #final         final screens
+    #reflection    what I learned
+
+  IMAGES: all live in images/refocus/.
+  ==========================================================================
+-->
+<html lang="en" class="no-js">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Focus Friend: Refocus — Jessica Donoho</title>
+  <meta name="description" content="A personal UX case study redesigning motivation in Focus Friend, a cozy focus-timer app: research, competitive analysis, personas, and new goal and focus-area features." />
+  <link rel="icon" href="images/favicon.ico" sizes="any" />
+  <link rel="icon" href="images/favicon-32.png" type="image/png" sizes="32x32" />
+  <link rel="apple-touch-icon" href="images/apple-touch-icon.png" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;700&family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+
+<body>
+
+  <!-- ======================================================================
+       SITE HEADER (same as index.html; links point back to the home page)
+       ====================================================================== -->
+  <header class="site-header">
+    <nav class="nav container" aria-label="Main">
+      <a class="logo" href="index.html">
+        <img src="images/logo.png" alt="" width="34" height="34" />
+        jess donoho
+      </a>
+      <button class="nav-toggle" aria-label="Open menu" aria-expanded="false" aria-controls="nav-links">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16" /></svg>
+      </button>
+      <ul class="nav-links" id="nav-links">
+        <li><a href="projects.html" aria-current="page">Projects</a></li>
+        <li><a href="index.html#about">About</a></li>
+        <li><a href="index.html#photos">Photos</a></li>
+        <li><a href="index.html#contact">Contact</a></li>
+        <li><a href="resume.pdf" target="_blank" rel="noopener">Resume</a></li>
+      </ul>
+    </nav>
+  </header>
+
+
+  <main>
+
+    <!-- ====================================================================
+         CASE STUDY HERO
+         ==================================================================== -->
+    <section class="cs-hero">
+      <div class="container">
+        <a class="back" href="projects.html">← all projects</a>
+
+        <span class="hand-label">personal case study · focus friend</span>
+        <h1>Focus Friend: Refocus</h1>
+        <p class="lede">
+          Focus Friend is a cozy focus-timer app where a little bean knits while you work.
+          Users loved it, then ran out of reasons to open it. I researched why motivation
+          drops off and designed goals, badges, and focus areas to keep people coming back.
+        </p>
+
+        <div class="meta-grid">
+          <div>
+            <h4>My role</h4>
+            <p>UX Designer</p>
+          </div>
+          <div>
+            <h4>Team</h4>
+            <p>Independent</p>
+          </div>
+          <div>
+            <h4>Timeline</h4>
+            <p>Jan 8 – Feb 3, 2026<br />~4 weeks</p>
+          </div>
+          <div>
+            <h4>Tools</h4>
+            <p>Figma · Perplexity</p>
+          </div>
+        </div>
+
+        <figure class="shot reveal">
+          <img src="images/refocus/cover.png" alt="Three Focus Friend screens: the Focus Areas toggles, the bean's room with the Focus button, and the Goals clipboard" />
+          <figcaption>Focus areas and goals, designed to match Focus Friend's original look</figcaption>
+        </figure>
+
+        <div class="callout">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="9" /><path d="M12 8v4M12 16h.01" /></svg>
+          <p style="margin:0;">This is an independent concept project. I'm not affiliated with Focus Friend or its developers.</p>
+        </div>
+      </div>
+    </section>
+
+
+    <div class="container cs-layout">
+
+      <nav class="toc" aria-label="Case study sections">
+        <span class="hand-label">trail map</span>
+        <ol>
+          <li><a href="#overview">Overview</a></li>
+          <li><a href="#research">Research</a></li>
+          <li><a href="#mapping">Interaction map</a></li>
+          <li><a href="#problem">Problem</a></li>
+          <li><a href="#comparative">Comparative analysis</a></li>
+          <li><a href="#personas">Personas</a></li>
+          <li><a href="#design">Wireframes</a></li>
+          <li><a href="#areas">Focus areas</a></li>
+          <li><a href="#final">Final screens</a></li>
+          <li><a href="#reflection">Reflection</a></li>
+        </ol>
+      </nav>
+
+      <article>
+
+        <!-- 01 · OVERVIEW -->
+        <section class="cs-section" id="overview">
+          <span class="hand-label">01 · overview</span>
+          <h2>About the project</h2>
+          <p>
+            I took this on at the start of Winter semester with a simple goal: learn the design
+            process end to end and get comfortable in Figma.
+          </p>
+
+          <div class="tldr reveal">
+            <h3>tl;dr</h3>
+            <p>
+              Focus Friend users need a way to stay motivated that isn't only about collecting
+              in-game currency, because they want to keep using the app after they've bought all
+              the furniture. I designed personal goals, badges, and customizable focus areas that
+              give people a reason to come back.
+            </p>
+          </div>
+
+          <h3 style="margin-top: 28px;">Context</h3>
+          <p>
+            Focus Friend is a "cozy gaming" focus app for iOS and Android. When you set a focus
+            timer, the main character (a bean) knits socks and scarves for you. You trade those for
+            furniture and house expansions. A recently released feature tracks how often you focus,
+            and the app is branded as an ADHD-friendly tool.
+          </p>
+          <figure class="shot reveal">
+            <img src="images/refocus/originalff.png" alt="The original Focus Friend app: welcome screen, the bean knitting during a focus timer, and the reward screen showing socks earned" />
+            <figcaption>The original app: meet your bean, focus, get socks</figcaption>
+          </figure>
+        </section>
+
+
+        <!-- 02 · RESEARCH -->
+        <section class="cs-section" id="research">
+          <span class="hand-label">02 · research</span>
+          <h2>What users were saying</h2>
+          <p>
+            I used Perplexity to find real user comments online, then read through the most
+            relevant links to find the problems people kept running into.
+          </p>
+
+          <div class="cards">
+            <div class="card reveal">
+              <span class="tag">source 1</span>
+              <h3>John Green</h3>
+              <p>Said it was too easy to get through the content. Once he had, he lost motivation to use the app.</p>
+            </div>
+            <div class="card reveal">
+              <span class="tag">source 2</span>
+              <h3>Reddit</h3>
+              <p>Many users said the same thing: once they "burned" through the content, they stopped opening it. Many also wanted more clothing for the bean and more detailed stats.</p>
+            </div>
+            <div class="card reveal">
+              <span class="tag">how it's used</span>
+              <h3>Many kinds of focus</h3>
+              <p>Studying, family time, limiting screen time, chores, watching TV, and language learning.</p>
+            </div>
+          </div>
+
+          <h3 style="margin-top: 28px;">Assumptions going in</h3>
+          <ul class="owned">
+            <li class="reveal"><strong>Varied use</strong><span>People use Focus Friend to study, do chores, spend family time, stop scrolling, and more.</span></li>
+            <li class="reveal"><strong>Motivation gap</strong><span>People want to use it more but lack the motivation.</span></li>
+            <li class="reveal"><strong>Content is loved</strong><span>People enjoy the current content and art style.</span></li>
+          </ul>
+        </section>
+
+
+        <!-- 03 · INTERACTION MAP -->
+        <section class="cs-section" id="mapping">
+          <span class="hand-label">03 · interaction map</span>
+          <h2>Mapping the features people already use</h2>
+          <p>I sketched a simple interaction map of the current app to see which features these users relied on most.</p>
+          <figure class="shot reveal">
+            <img src="images/refocus/flow.png" alt="Interaction map connecting Focus Friend's focus stats, room, and focus timer screens" />
+            <figcaption>Interaction map: room → focus timer → stats</figcaption>
+          </figure>
+        </section>
+
+
+        <!-- 04 · PROBLEM -->
+        <section class="cs-section" id="problem">
+          <span class="hand-label">04 · the problem</span>
+          <h2>Refining the problem statement</h2>
+          <blockquote class="quote reveal">
+            <p>Focus Friend users lose motivation over time because the app's content, rewards, and progression can feel limited after continued use. Users enjoy the focus tools and overall experience, but without fresh incentives it's harder to stay engaged.</p>
+            <cite>Problem statement</cite>
+          </blockquote>
+        </section>
+
+
+        <!-- 05 · COMPARATIVE ANALYSIS -->
+        <section class="cs-section" id="comparative">
+          <span class="hand-label">05 · comparative analysis</span>
+          <h2>How similar apps keep people coming back</h2>
+          <div class="cards">
+            <div class="card reveal">
+              <span class="tag">competitor</span>
+              <h3>Finch</h3>
+              <p>A self-care app where checking off goals earns gems to dress your finch and decorate its room. Similar theme and very popular, but much more complex.</p>
+            </div>
+            <div class="card reveal">
+              <span class="tag">competitor</span>
+              <h3>Pokémon Sleep</h3>
+              <p>A gamified sleep tracker built around cooking recipes and logging sleep. Chosen for how well it brings people back even after everything is unlocked.</p>
+            </div>
+            <div class="card reveal">
+              <span class="tag">competitor</span>
+              <h3>Forest</h3>
+              <p>A cozy focus app that blocks other apps, has two timer types, lets you tag sessions, and uses emotional nudges to keep you from breaking focus.</p>
+            </div>
+          </div>
+          <figure class="shot reveal">
+            <img src="images/refocus/comparison.png" alt="Feature comparison grid of Focus Friend, Pokémon Sleep, Finch, and Forest across focus timer, labeling, daily quests, room design, cumulative efforts, custom goals, events, and statistics" loading="lazy" />
+            <figcaption>Feature comparison: Focus Friend was missing labeling, quests, custom goals, and events</figcaption>
+          </figure>
+        </section>
+
+
+        <!-- 06 · PERSONAS -->
+        <section class="cs-section" id="personas">
+          <span class="hand-label">06 · personas</span>
+          <h2>Who I was designing for</h2>
+          <p>From my research and assumptions I built two personas to guide the design.</p>
+          <div class="before-after">
+            <figure class="shot reveal">
+              <img src="images/refocus/persona_man.png" alt="Persona: Proud Dad George, 33, a salesman learning Spanish who wants to stop using his phone at family time" loading="lazy" />
+            </figure>
+            <figure class="shot reveal">
+              <img src="images/refocus/persona_woman.png" alt="Persona: Busy Bea, 19, a pre-med student at UCLA who uses Focus Friend for schoolwork and screen time but often forgets to open it" loading="lazy" />
+            </figure>
+          </div>
+
+          <h3 style="margin-top: 28px;">What the research pointed to</h3>
+          <p>
+            The comparative analysis and personas both pointed to goals and session labeling.
+            Labeling came up in many Reddit threads, and most popular competitors already had it.
+            It would also strengthen the goals section and give people a reason to open the app
+            more often.
+          </p>
+        </section>
+
+
+        <!-- 07 · WIREFRAMES -->
+        <section class="cs-section" id="design">
+          <span class="hand-label">07 · wireframes</span>
+          <h2>From grey boxes to the Focus Friend look</h2>
+          <p>
+            I wanted goals that users could personalize as well as goals set by the app. I
+            wireframed a few ways to show this information, then matched the final version to
+            the app's original visual style. This is where I learned auto-layout and how to keep
+            components consistent in Figma.
+          </p>
+          <figure class="shot reveal">
+            <img src="images/refocus/wireframes.png" alt="Low-fidelity wireframes for awards, goals, a weekly progress ring, and categorized goal lists" loading="lazy" />
+            <figcaption>Lo-fi explorations: awards, weekly goals, and categorized goal lists</figcaption>
+          </figure>
+          <figure class="shot reveal">
+            <img src="images/refocus/goals.png" alt="Hi-fi badges screen and three states of the goals screen: in progress, ready to claim, and completed" loading="lazy" />
+            <figcaption>Hi-fi: badges plus daily, weekly, monthly, and custom goals moving from in progress to claimed</figcaption>
+          </figure>
+        </section>
+
+
+        <!-- 08 · FOCUS AREAS -->
+        <section class="cs-section" id="areas">
+          <span class="hand-label">08 · focus areas</span>
+          <h2>Adding focus areas</h2>
+          <p>
+            Next I worked out how "areas" could work. People use the app in so many ways that it
+            needed to be customizable, but most people only use it for a handful of things. Going
+            back to my personas and problem statement kept the feature small: a few areas you can
+            turn on, rename, and track toward badges.
+          </p>
+          <div class="before-after">
+            <figure class="shot reveal">
+              <img src="images/refocus/area_button.png" alt="Timer screen with a new Area button next to Start" loading="lazy" />
+              <figcaption>A new "Area" button next to Start</figcaption>
+            </figure>
+            <figure class="shot reveal">
+              <img src="images/refocus/focus-areas.png" alt="Focus areas modal with yarn-ball toggles for school, chores, and screentime, shown in view and edit states" loading="lazy" />
+              <figcaption>Yarn-ball toggles for each area, with an edit state</figcaption>
+            </figure>
+          </div>
+        </section>
+
+
+        <!-- 09 · FINAL SCREENS -->
+        <section class="cs-section" id="final">
+          <span class="hand-label">09 · final screens</span>
+          <h2>The redesign, in context</h2>
+          <div class="screens">
+            <figure class="reveal"><img src="images/refocus/phone_home.png" alt="Focus Friend home screen showing the bean's room" loading="lazy" /><figcaption>home</figcaption></figure>
+            <figure class="reveal"><img src="images/refocus/phone_timer.png" alt="Focus timer screen with the new Area button" loading="lazy" /><figcaption>timer + area</figcaption></figure>
+            <figure class="reveal"><img src="images/refocus/phone-focus-areas.png" alt="Focus areas modal on a phone" loading="lazy" /><figcaption>focus areas</figcaption></figure>
+            <figure class="reveal"><img src="images/refocus/phone-focus-areas-edit.png" alt="Focus areas modal in edit mode on a phone" loading="lazy" /><figcaption>editing areas</figcaption></figure>
+          </div>
+          <div class="screens">
+            <figure class="reveal"><img src="images/refocus/phone_goals.png" alt="Goals screen on a phone" loading="lazy" /><figcaption>goals</figcaption></figure>
+            <figure class="reveal"><img src="images/refocus/phone_goals2.png" alt="Goals screen with goals ready to claim" loading="lazy" /><figcaption>claiming goals</figcaption></figure>
+            <figure class="reveal"><img src="images/refocus/phone_badges.png" alt="Badges screen showing minutes per focus area and minutes until the next badge" loading="lazy" /><figcaption>badges</figcaption></figure>
+          </div>
+        </section>
+
+
+        <!-- 10 · REFLECTION
+             DRAFT: the Framer page didn't have a reflection. These are starting
+             points, so rewrite them in your own words. -->
+        <section class="cs-section" id="reflection">
+          <span class="hand-label">10 · reflection</span>
+          <h2>What I learned</h2>
+          <div class="cards">
+            <div class="card reveal">
+              <span class="tag">lesson 1</span>
+              <h3>Public comments are a starting point</h3>
+              <p>Reddit threads and reviews surfaced real patterns fast, but they're assumptions until I talk to users directly.</p>
+            </div>
+            <div class="card reveal">
+              <span class="tag">lesson 2</span>
+              <h3>Fit the existing style</h3>
+              <p>Matching Focus Friend's look made new features feel native, and taught me auto-layout and components in Figma.</p>
+            </div>
+            <div class="card reveal">
+              <span class="tag">next time</span>
+              <h3>Test it</h3>
+              <p>My next step would be usability testing the goals and areas flows with real Focus Friend users.</p>
+            </div>
+          </div>
+
+          <div class="next-project reveal" style="margin-top: 40px;">
+            <div>
+              <span class="hand-label">next up</span>
+              <h3 style="margin:0;">The Trevor Project</h3>
+            </div>
+            <a class="btn btn--primary" href="trevor-project.html">View project →</a>
+          </div>
+        </section>
+
+      </article>
+    </div>
+  </main>
+
+
+  <footer class="site-footer" style="margin-top: 64px;">
+    <div class="container">
+      <span>© <span data-year>2026</span> Jessica Donoho · Ann Arbor, MI</span>
+      <span><a href="projects.html">← all projects</a></span>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>

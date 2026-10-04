@@ -1,0 +1,687 @@
+<!DOCTYPE html>
+<!--
+  ==========================================================================
+  CASE STUDY — The Trevor Project dashboard redesign
+  Framed around product management & workflow, with research/design support.
+
+  PAGE MAP (each section has an id; the sidebar links to them):
+    #overview        TL;DR + headline results
+    #role            what I owned
+    #problem         the problems we were asked to solve
+    #workflow        how the project ran, phase by phase
+    #research        research ops: interviews, heuristic eval, persona
+    #prioritization  turning findings into a scoped plan
+    #wireframes      lo-fi / mid-fi tabs with image carousels
+    #design          design system, shipped solutions
+    #testing         usability testing + iterations
+    #outcomes        results + stakeholder feedback
+    #reflection      what I learned about running product work
+
+  Look for "TODO" comments: those are spots to add your own specifics
+  (tools, cadence, dates) that I didn't want to guess.
+  Look for "DRAFT" comments: text written for you to rewrite in your own voice.
+
+  IMAGES: save them in images/trevor/ using the file names in each <img>.
+  Only use images you have permission to share, with all confidential data removed.
+  ==========================================================================
+-->
+<html lang="en" class="no-js">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>The Trevor Project — Jessica Donoho</title>
+  <meta name="description" content="How I planned and coordinated the redesign of The Trevor Project's crisis-monitoring dashboard: research, prioritization, prototyping, and testing." />
+  <link rel="icon" href="images/favicon.ico" sizes="any" />
+  <link rel="icon" href="images/favicon-32.png" type="image/png" sizes="32x32" />
+  <link rel="apple-touch-icon" href="images/apple-touch-icon.png" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;700&family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+
+<body>
+
+  <!-- ======================================================================
+       SITE HEADER (same as index.html; links point back to the home page)
+       ====================================================================== -->
+  <header class="site-header">
+    <nav class="nav container" aria-label="Main">
+      <a class="logo" href="index.html">
+        <img src="images/logo.png" alt="" width="34" height="34" />
+        jess donoho
+      </a>
+      <button class="nav-toggle" aria-label="Open menu" aria-expanded="false" aria-controls="nav-links">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16" /></svg>
+      </button>
+      <ul class="nav-links" id="nav-links">
+        <li><a href="projects.html" aria-current="page">Projects</a></li>
+        <li><a href="index.html#about">About</a></li>
+        <li><a href="index.html#photos">Photos</a></li>
+        <li><a href="index.html#contact">Contact</a></li>
+        <li><a href="resume.pdf" target="_blank" rel="noopener">Resume</a></li>
+      </ul>
+    </nav>
+  </header>
+
+
+  <main>
+
+    <!-- ====================================================================
+         CASE STUDY HERO — title, summary, meta info
+         ==================================================================== -->
+    <section class="cs-hero">
+      <div class="container">
+        <a class="back" href="projects.html">← all projects</a>
+
+        <span class="hand-label">case study · the trevor project</span>
+        <h1>Running a dashboard redesign for crisis-support supervisors</h1>
+        <p class="lede">
+          The Trevor Project's supervisors watch live crisis conversations with LGBTQ+ young
+          people in real time. I helped plan and run the redesign of the dashboard they depend on.
+          I coordinated research, turned findings into a prioritized plan, and kept design,
+          testing, and stakeholders moving together over one summer.
+        </p>
+
+        <!-- Role / Team / Timeline / Tools -->
+        <div class="meta-grid">
+          <div>
+            <h4>My role</h4>
+            <!-- TODO: adjust the title to match how you describe the role on your resume -->
+            <p>Product &amp; workflow lead<br />UX research · design support</p>
+          </div>
+          <div>
+            <h4>Team</h4>
+            <p>Jessica Donoho (Product Manager/Designer)<br />Victor Fang (Lead Designer)<br />Zayd Alghazali</p>
+          </div>
+          <div>
+            <h4>Timeline</h4>
+            <p>June – September 2026<br />Summer internship</p>
+          </div>
+          <div>
+            <h4>Tools</h4>
+            <!-- TODO: add the planning tools you used (e.g. Jira, Trello, Notion, Google Sheets) -->
+            <p>Figma · FigJam · Claude Design</p>
+          </div>
+        </div>
+
+        <!-- Main hero image: images/trevor/hero-dashboard.png -->
+        <figure class="shot reveal">
+          <img src="images/trevor/dash_overview.png" alt="The redesigned crisis-monitoring dashboard, shown with dummy data" />
+          <figcaption>The redesigned dashboard (all data shown is dummy data)</figcaption>
+        </figure>
+
+        <!-- Confidentiality note -->
+        <div class="callout">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><rect x="4" y="11" width="16" height="10" rx="2" /><path d="M8 11V7a4 4 0 0 1 8 0v4" /></svg>
+          <p style="margin:0;">Under our confidentiality agreement, all confidential data and personally identifiable information has been replaced with realistic dummy data.</p>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ====================================================================
+         BODY — sidebar table of contents + all sections
+         ==================================================================== -->
+    <div class="container cs-layout">
+
+      <!-- Sidebar "trail map". Links must match the section ids below. -->
+      <nav class="toc" aria-label="Case study sections">
+        <span class="hand-label">trail map</span>
+        <ol>
+          <li><a href="#overview">Overview</a></li>
+          <li><a href="#role">What I owned</a></li>
+          <li><a href="#problem">The problem</a></li>
+          <li><a href="#workflow">How we worked</a></li>
+          <li><a href="#research">Research</a></li>
+          <li><a href="#prioritization">Prioritization</a></li>
+          <li><a href="#wireframes">Wireframes</a></li>
+          <li><a href="#design">Design &amp; build</a></li>
+          <li><a href="#testing">Test &amp; iterate</a></li>
+          <li><a href="#outcomes">Outcomes</a></li>
+          <li><a href="#reflection">Reflection</a></li>
+        </ol>
+      </nav>
+
+      <article>
+
+        <!-- ================================================================
+             01 · OVERVIEW — TL;DR + results up front (recruiters skim!)
+             ================================================================ -->
+        <section class="cs-section" id="overview">
+          <span class="hand-label">01 · overview</span>
+          <h2>The short version</h2>
+
+          <div class="tldr reveal">
+            <h3>tl;dr</h3>
+            <p>
+              As The Trevor Project's operations grew, its monitoring dashboard hadn't kept up.
+              Supervisors were wading through extra data, Lifeline staff avoided the tool, and
+              night-shift users dealt with eye strain. Our team ran interviews and a heuristic
+              review, prioritized five problems, designed four features, and tested and iterated
+              before handoff.
+            </p>
+          </div>
+
+          <!-- Headline results -->
+          <div class="stats">
+            <div class="stat reveal">
+              <div class="num">8</div>
+              <p class="label">usability issues resolved</p>
+              <p>All issues found in the initial heuristic evaluation were addressed by the redesign.</p>
+            </div>
+            <div class="stat reveal">
+              <div class="num">100%</div>
+              <p class="label">of participants</p>
+              <p>confirmed that more than 86% of the new designs and features improved their daily workflow.</p>
+            </div>
+            <div class="stat reveal">
+              <div class="num">95%</div>
+              <p class="label">average ease-of-learning</p>
+              <p>New features were rated easy to learn by testing participants.</p>
+            </div>
+          </div>
+        </section>
+
+
+        <!-- ================================================================
+             02 · WHAT I OWNED — your PM contributions, plus design/research
+             ================================================================ -->
+        <section class="cs-section" id="role">
+          <span class="hand-label">02 · my role</span>
+          <h2>What I owned</h2>
+          <p>
+            I owned how the project ran: the plan, the research logistics, the scope decisions,
+            and communication with stakeholders. I also worked hands-on in research and design
+            alongside our lead designer.
+          </p>
+
+          <h3 style="margin-top: 28px;">Product &amp; workflow</h3>
+          <!-- TODO: add one concrete detail to each (e.g. "weekly standups", "a 12-week roadmap in Notion") -->
+          <ul class="owned">
+            <li class="reveal"><strong>Planning &amp; timeline</strong><span>Broke the summer into phases and milestones, tracked tasks, and ran team check-ins so research, design, and testing stayed on schedule.</span></li>
+            <li class="reveal"><strong>Stakeholder communication</strong><span>Coordinated with team leads and our mentor, presented findings, and brought feedback back into the plan.</span></li>
+            <li class="reveal"><strong>Research operations</strong><span>Recruited and scheduled participants, wrote interview guides, and led synthesis so insights were ready when design needed them.</span></li>
+            <li class="reveal"><strong>Prioritization &amp; scope</strong><span>Ranked pain points by impact and turned them into a scoped set of features the team could deliver in one summer.</span></li>
+            <li class="reveal"><strong>Design ideation</strong><span>Ideated some of the core features we built into the design like the conversation dock, the search feature, and the improved 'Assign to Me' feature.</span></li>
+          </ul>
+
+          <h3 style="margin-top: 36px;">Research &amp; design</h3>
+          <ul class="chips">
+            <li class="chip">User interviews</li>
+            <li class="chip">Heuristic evaluation</li>
+            <li class="chip chip--sun">Layout redesign</li>
+            <li class="chip chip--pink">Design system</li>
+            <li class="chip chip--sky">Hi-fi prototype</li>
+            <li class="chip">Usability testing</li>
+          </ul>
+        </section>
+
+
+        <!-- ================================================================
+             03 · THE PROBLEM
+             ================================================================ -->
+        <section class="cs-section" id="problem">
+          <span class="hand-label">03 · the problem</span>
+          <h2>A critical tool that hadn't kept up with the team</h2>
+          <p>
+            The Trevor Project provides suicide prevention and crisis intervention for LGBTQ+
+            young people. Supervisors and monitors use the dashboard to assess risk levels and
+            step in quickly. As the organization grew, five problems kept slowing them down:
+          </p>
+
+          <!-- Five problem cards. Icons are simple inline SVGs. -->
+          <div class="cards">
+            <div class="card reveal">
+              <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M3 6h18M3 12h18M3 18h10" /></svg></div>
+              <h3>Unnecessary data</h3>
+              <p>Columns that were excessive, too long, or badly formatted created cognitive overload.</p>
+            </div>
+            <div class="card reveal">
+              <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 1.9.7 2.8a2 2 0 0 1-.5 2.1L8 9.9a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.8.7a2 2 0 0 1 1.7 2Z" /></svg></div>
+              <h3>Missing Lifeline features</h3>
+              <p>Lifeline users rarely opened the dashboard because it couldn't monitor live calls.</p>
+            </div>
+            <div class="card reveal">
+              <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8Z" /></svg></div>
+              <h3>Night-shift eye strain</h3>
+              <p>A bright interface made long overnight shifts physically uncomfortable.</p>
+            </div>
+            <div class="card reveal">
+              <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="3" y="4" width="18" height="16" rx="2" /><path d="M9 4v16M15 4v16" /></svg></div>
+              <h3>Limited monitoring</h3>
+              <p>Users could only watch 3 conversations at once but often needed to track 5 or more.</p>
+            </div>
+            <div class="card reveal">
+              <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9" /><path d="M12 3v18" /><path d="M12 3a9 9 0 0 1 0 18" fill="currentColor" /></svg></div>
+              <h3>Low contrast</h3>
+              <p>Several areas fell below WCAG contrast guidelines, making text hard to read.</p>
+            </div>
+          </div>
+        </section>
+
+
+        <!-- ================================================================
+             04 · HOW WE WORKED — the project workflow, phase by phase
+             ================================================================ -->
+        <section class="cs-section" id="workflow">
+          <span class="hand-label">04 · how we worked</span>
+          <h2>The project workflow</h2>
+          <p>
+            I planned the summer as five phases. Each phase fed the next, so the team always knew
+            what it was working toward and what "done" meant before moving on.
+          </p>
+
+          <!-- TODO: add rough dates or week ranges under each phase title -->
+          <ol class="phases">
+            <li class="reveal"><h3>Discover</h3><p>Moderated interviews and a heuristic evaluation of the current dashboard.</p></li>
+            <li class="reveal"><h3>Define</h3><p>Synthesized findings, built the persona, and prioritized problems into scope.</p></li>
+            <li class="reveal"><h3>Design</h3><p>Lo-fi and mid-fi wireframes, a design system, then a hi-fi prototype.</p></li>
+            <li class="reveal"><h3>Test</h3><p>Usability testing with dashboard users to find remaining friction.</p></li>
+            <li class="reveal"><h3>Iterate</h3><p>Fixed issues from testing, measured results, and prepared the handoff.</p></li>
+          </ol>
+
+          <!-- Optional: a photo of your roadmap / FigJam board / task tracker -->
+        </section>
+
+
+        <!-- ================================================================
+             05 · RESEARCH — interviews, heuristic evaluation, persona
+             ================================================================ -->
+        <section class="cs-section" id="research">
+          <span class="hand-label">05 · research</span>
+          <h2>Finding out what was really getting in the way</h2>
+          <p>
+            I set up and ran the research logistics (recruiting, scheduling, interview guides,
+            synthesis) so we could move from questions to evidence quickly.
+          </p>
+
+          <h3 style="margin-top: 28px;">User interviews → 3 pain points</h3>
+          <div class="cards">
+            <div class="card reveal">
+              <span class="tag">pain point 1</span>
+              <h3>Unique worflows</h3>
+              <p><strong>Opportunity:</strong> let users customize and reorder columns so critical data is easy to reach.</p>
+            </div>
+            <div class="card reveal">
+              <span class="tag">pain point 2</span>
+              <h3>Only three monitors at a time</h3>
+              <p><strong>Opportunity:</strong> redesign the "Monitoring Conversations" dock so users can track more conversations.</p>
+            </div>
+            <div class="card reveal">
+              <span class="tag">pain point 3</span>
+              <h3>Night-shift eye strain</h3>
+              <p><strong>Opportunity:</strong> add a dark mode for low-light environments.</p>
+            </div>
+          </div>
+
+          <h3 style="margin-top: 28px;">Heuristic evaluation → 2 critical issues</h3>
+          <div class="cards">
+            <div class="card reveal">
+              <span class="tag">flexibility &amp; efficiency</span>
+              <h3>Lack of consistency/Real World Match</h3>
+              <p><strong>Fix:</strong> Create a clear design system with reliable button and tag appearance </p>
+            </div>
+            <div class="card reveal">
+              <span class="tag">consistency &amp; standards</span>
+              <h3>Contrast below 4.5:1</h3>
+              <p><strong>Fix:</strong> raise contrast and font weight to meet WCAG.</p>
+            </div>
+          </div>
+
+          <!-- Personas: built from interview synthesis.
+               Full persona cards: images/trevor/persona1.png, persona2.png
+               Photos are CC0 (public domain) from StockSnap. No credit required:
+                 persona-kim.jpg  ← https://stocksnap.io/photo/smiling-woman-W6GFOSFAXA
+                 persona-alex.jpg ← https://stocksnap.io/photo/business-woman-FPQIEQBMPA -->
+          <h3 style="margin-top: 28px;">Who we were designing for</h3>
+          <p>We turned interview findings into personas for the roles that rely on the dashboard most.</p>
+
+          <div class="persona reveal">
+            <figure class="polaroid tilt-left">
+              <img src="images/trevor/persona-kim.jpg" alt="Persona photo for Kim Gómez" />
+              <figcaption>meet kim</figcaption>
+            </figure>
+            <div>
+              <span class="tag">principal crisis worker</span>
+              <h3>Kim Gómez · 29 · they/them</h3>
+              <p>Kim monitors live crisis conversations across digital platforms and steps in when a counselor needs support. With 7 years of experience, they often support several people at once, but the dashboard's layout keeps them from seeing information and monitoring conversations effectively.</p>
+              <blockquote class="persona-quote">"I wish I could customize the dashboard. Everybody wants to see the information in a slightly different order."</blockquote>
+              <div class="persona-cols">
+                <div>
+                  <p><strong>Goals</strong></p>
+                  <ul>
+                    <li>Transfer chats so counselors can take breaks</li>
+                    <li>Monitor chats for requests and address them</li>
+                  </ul>
+                </div>
+                <div>
+                  <p><strong>Needs</strong></p>
+                  <ul>
+                    <li>Rearrange columns to find specific information</li>
+                    <li>Notifications when a conversation is updated</li>
+                  </ul>
+                </div>
+                <div>
+                  <p><strong>Frustrations</strong></p>
+                  <ul>
+                    <li>Too much time scrolling to find information</li>
+                    <li>Losing track while monitoring multiple conversations</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="persona reveal">
+            <figure class="polaroid tilt-right">
+              <img src="images/trevor/persona-alex.jpg" alt="Persona photo for Alex Trần" />
+              <figcaption>meet alex</figcaption>
+            </figure>
+            <div>
+              <span class="tag">team lead</span>
+              <h3>Alex Tran · 31 · she/her</h3>
+              <p>Alex bounces between the supervisor dashboard and the workspace to watch active conversations and help counselors. During high-volume shifts, system resets and cluttered layouts make it hard to tell what needs attention.</p>
+              <blockquote class="persona-quote">"When the dashboard disappears during a reset, I have no idea if it's routine or a serious tech issue."</blockquote>
+              <div class="persona-cols">
+                <div>
+                  <p><strong>Goals</strong></p>
+                  <ul>
+                    <li>Prioritize urgent cases and triage support needs quickly</li>
+                    <li>See Lifeline and Digital queues in one view</li>
+                  </ul>
+                </div>
+                <div>
+                  <p><strong>Needs</strong></p>
+                  <ul>
+                    <li>A warning and visible indicator when the system resets or has issues</li>
+                    <li>Group and filter Lifeline and Digital sources together</li>
+                  </ul>
+                </div>
+                <div>
+                  <p><strong>Frustrations</strong></p>
+                  <ul>
+                    <li>No way to group Digital and Lifeline together</li>
+                    <li>Resets wipe the dashboard with no warning, causing shift anxiety</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+
+        <!-- ================================================================
+             06 · PRIORITIZATION — findings → scoped plan
+             ================================================================ -->
+        <section class="cs-section" id="prioritization">
+          <span class="hand-label">06 · prioritization</span>
+          <h2>From findings to a plan we could ship</h2>
+          <p>
+            With five problems and one summer, I mapped each finding to its evidence, who it
+            affected, and the feature that would address it. That map became our build plan.
+          </p>
+
+          <!-- TODO: if you used a framework (impact/effort, MoSCoW, RICE), name it
+               here and add a column for it. -->
+          <div class="table-wrap reveal">
+            <table>
+              <thead>
+                <tr><th>Problem</th><th>Evidence</th><th>Who it affects</th><th>Planned solution</th></tr>
+              </thead>
+              <tbody>
+                <tr><td>Too many / misformatted columns</td><td>Interviews</td><td>Principal crisis workers (Kim)</td><td>Column customization</td></tr>
+                <tr><td>Can only monitor 3 conversations</td><td>Heuristic eval</td><td>Principal crisis workers (Kim)</td><td>Expandable dock</td></tr>
+                <tr><td>No live call monitoring</td><td>Interviews</td><td>Team leads (Alex) &amp; Lifeline staff</td><td>Lifeline integration</td></tr>
+                <tr><td>Eye strain on night shifts</td><td>Interviews</td><td>Overnight staff</td><td>Dark mode</td></tr>
+                <tr><td>Low color contrast</td><td>Heuristic eval</td><td>Everyone</td><td>Design system with WCAG-compliant contrast</td></tr>
+              </tbody>
+            </table>
+          </div>
+
+          <h3 style="margin-top: 28px;">Guardrails for the redesign</h3>
+          <div class="cards">
+            <div class="card reveal"><span class="tag">principle 1</span><h3>Protect mental models</h3><p>Keep the core framework so no one has to be retrained mid-crisis.</p></div>
+            <div class="card reveal"><span class="tag">principle 2</span><h3>Lower cognitive load</h3><p>Remove clutter, redundant icons, and unnecessary formatting.</p></div>
+            <div class="card reveal"><span class="tag">principle 3</span><h3>Make room to grow</h3><p>Leave space for new features without breaking the layout.</p></div>
+          </div>
+        </section>
+
+
+        <!-- ================================================================
+             07 · WIREFRAMES — lo-fi / mid-fi tabs, each with an image carousel
+             Both carousels walk through the same four states of the
+             monitoring dock: closed → 1 conversation → several → all.
+             Add or remove a <figure class="carousel-slide"> to change the
+             count; the arrows, dots, and "1 / 4" counter update automatically.
+             ================================================================ -->
+        <section class="cs-section" id="wireframes">
+          <span class="hand-label">07 · wireframes</span>
+          <h2>From sketches to structure</h2>
+          <p>
+            We started with low-fidelity wireframes to agree on layout, then moved to mid-fidelity
+            to test the structure and interactions before adding visual design.
+          </p>
+
+          <div class="wf-tabs" role="tablist" aria-label="Wireframe fidelity">
+            <button class="wf-tab" role="tab" id="tab-lofi" aria-selected="true" aria-controls="panel-lofi">Lo-fi</button>
+            <button class="wf-tab" role="tab" id="tab-midfi" aria-selected="false" aria-controls="panel-midfi" tabindex="-1">Mid-fi</button>
+          </div>
+
+          <!-- Lo-fi panel -->
+          <div class="wf-panel" role="tabpanel" id="panel-lofi" aria-labelledby="tab-lofi">
+            <div class="carousel" aria-roledescription="carousel" aria-label="Lo-fi wireframes">
+              <div class="carousel-frame">
+                <figure class="shot carousel-slide"><img src="images/trevor/lofi-alldash.png" alt="Lo-fi wireframe: full-width conversation table with the monitoring dock collapsed to a tab on the right" /><figcaption>Lo-fi 1 · full dashboard, monitoring dock collapsed</figcaption></figure>
+                <figure class="shot carousel-slide"><img src="images/trevor/lofi-wireframe-smallconvo.png" alt="Lo-fi wireframe: table narrowed to the left with one conversation open in the dock" /><figcaption>Lo-fi 2 · monitoring one conversation beside the table</figcaption></figure>
+                <figure class="shot carousel-slide"><img src="images/trevor/lofi-dash34convo.png" alt="Lo-fi wireframe: narrow table with several conversation panels open in a grid" /><figcaption>Lo-fi 3 · monitoring several conversations at once</figcaption></figure>
+                <figure class="shot carousel-slide"><img src="images/trevor/lofi-wireframe-all%20convos.png" alt="Lo-fi wireframe: table collapsed to a side tab so the dock fills the screen with conversations" /><figcaption>Lo-fi 4 · dock expanded to full width</figcaption></figure>
+                <button class="carousel-btn prev" aria-label="Previous image">←</button>
+                <button class="carousel-btn next" aria-label="Next image">→</button>
+              </div>
+              <div class="carousel-foot">
+                <span class="carousel-count" aria-live="polite"></span>
+                <div class="carousel-dots"></div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Mid-fi panel -->
+          <div class="wf-panel" role="tabpanel" id="panel-midfi" aria-labelledby="tab-midfi" hidden>
+            <div class="carousel" aria-roledescription="carousel" aria-label="Mid-fi wireframes">
+              <div class="carousel-frame">
+                <figure class="shot carousel-slide"><img src="images/trevor/wireframe-moredetail.png" alt="Mid-fi wireframe: dashboard with Digital and Lifeline tabs, filters, and a detailed case table, dock collapsed" /><figcaption>Mid-fi 1 · Digital / Lifeline tabs, filters, and case table</figcaption></figure>
+                <figure class="shot carousel-slide"><img src="images/trevor/wireframe-detail-2.png" alt="Mid-fi wireframe: case table beside one open conversation with risk tags" /><figcaption>Mid-fi 2 · one conversation open with risk tags</figcaption></figure>
+                <figure class="shot carousel-slide"><img src="images/trevor/wireframe-detail-3.png" alt="Mid-fi wireframe: narrowed case table beside two open conversations with an Assign to Me button" /><figcaption>Mid-fi 3 · two conversations side by side</figcaption></figure>
+                <figure class="shot carousel-slide"><img src="images/trevor/wireframe-detail-4.png" alt="Mid-fi wireframe: case table collapsed to a side tab, three conversations across the full width" /><figcaption>Mid-fi 4 · table collapsed, three conversations across</figcaption></figure>
+                <button class="carousel-btn prev" aria-label="Previous image">←</button>
+                <button class="carousel-btn next" aria-label="Next image">→</button>
+              </div>
+              <div class="carousel-foot">
+                <span class="carousel-count" aria-live="polite"></span>
+                <div class="carousel-dots"></div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+
+        <!-- ================================================================
+             08 · DESIGN & BUILD — design system, solutions
+             ================================================================ -->
+        <section class="cs-section" id="design">
+          <span class="hand-label">08 · design &amp; build</span>
+          <h2>A design system and four features</h2>
+          <p>
+            With the structure settled, we built a design system on The Trevor Project's official
+            palette before moving to a hi-fi prototype: primary, secondary, and neutral color
+            scales, Inter type in four roles, a shared icon set, and components with every state
+            defined.
+          </p>
+
+          <!-- Design system collage: hover (or tab to) a tile and it grows while
+               the others shrink. Layout + animation live in css/styles.css
+               ("Design system collage"). -->
+          <div class="ds-collage reveal">
+            <figure class="ds-tile" tabindex="0">
+              <img src="images/trevor/Design%20System%20-%20Colors.png" alt="Color system: primary navy, secondary coral, and neutral grey scales from 100 to 900, plus categorical colors for tags and chat headings" />
+              <figcaption>colors</figcaption>
+            </figure>
+            <figure class="ds-tile" tabindex="0">
+              <img src="images/trevor/Design%20System%20-%20Font.png" alt="Typography: Inter in four roles, Section Title 40 bold, Critical Data 32 bold, Sub Title 24 bold, and Body 16 regular" />
+              <figcaption>typography</figcaption>
+            </figure>
+            <figure class="ds-tile" tabindex="0">
+              <img src="images/trevor/Design%20System%20-%20Icons.png" alt="Icon set with default, hover, and active states" />
+              <figcaption>icons</figcaption>
+            </figure>
+            <figure class="ds-tile" tabindex="0">
+              <img src="images/trevor/Design%20System%20-%20UI%20Elements.png" alt="UI elements: primary and secondary buttons, dropdowns, tabs, and risk tags, each shown in all states" />
+              <figcaption>ui elements</figcaption>
+            </figure>
+          </div>
+
+          <!-- Four shipped solutions: image + short explanation each -->
+          <h3 style="margin-top: 28px;">Solution 1 · Dashboard customization</h3>
+          <p>Users can add, remove, and reorder columns in an "Add Columns / Manage Column Order" modal, so critical data is always within reach.</p>
+          <figure class="shot reveal"><img src="images/trevor/convo_arrange_popup.png" alt="Column customization modal over the dashboard" /></figure>
+
+          <h3 style="margin-top: 28px;">Solution 2 · Expandable monitoring dock</h3>
+          <p>The "Monitoring Conversations" dock expands so users can track several conversations side by side, with the dashboard still visible behind it.</p>
+          <figure class="shot reveal"><img src="images/trevor/dash_overview_w_chatsopen.png" alt="Expanded monitoring dock on the right side of the dashboard" /></figure>
+
+          <h3 style="margin-top: 28px;">Solution 3 · Details and Notes</h3>
+          <p>Hidden data and notes feature are contained in an expandable accordion - allowing for ease of use when transferring conversations.</p>
+          <figure class="shot reveal"><img src="images/trevor/dash_convo_details.png" alt="Dashboard layout with Lifeline call monitoring" /></figure>
+
+          <h3 style="margin-top: 28px;">Solution 4 · Card Mode</h3>
+          <p>Important overview data of counselors and available support are displayed in a way that allows for less cognitive load.</p>
+          <figure class="shot reveal"><img src="images/trevor/queue_overview_card.png" alt="Dashboard in dark mode" /></figure>
+          <figure class="shot reveal"><img src="images/trevor/queue_arrange_popup.png" alt="Dashboard in dark mode" /></figure>
+
+          <h3 style="margin-top: 28px;">Solution 5 · Dark mode</h3>
+          <p>High-contrast text on dark grey reduces eye strain during long night shifts.</p>
+          <figure class="shot reveal"><img src="images/trevor/dark_mode.png" alt="Dashboard in dark mode" /></figure>
+        </section>
+
+
+        <!-- ================================================================
+             09 · TEST & ITERATE — usability testing, before/after
+             ================================================================ -->
+        <section class="cs-section" id="testing">
+          <span class="hand-label">09 · test &amp; iterate</span>
+          <h2>Testing surfaced two more gaps</h2>
+          <p>Usability testing with dashboard users turned up two issues we hadn't caught. We fixed both before handoff.</p>
+
+          <h3 style="margin-top: 28px;">Iteration 1 · Flexible message search</h3>
+          <p>Users could only search chat logs with preset tags. We replaced the tags with a free-text search bar that covers the full message history.</p>
+          <div class="carousel ba-carousel ba-carousel--narrow reveal" aria-roledescription="carousel" aria-label="Before and after">
+            <div class="carousel-frame">
+              <figure class="shot carousel-slide before"><span class="label">before</span><img src="images/trevor/search_with_tags.png" alt="Before: search limited to preset tags" /></figure>
+              <figure class="shot carousel-slide after"><span class="label">after</span><img src="images/trevor/search_with_bar.png" alt="After: free-text search bar" /></figure>
+              <button class="carousel-btn prev" aria-label="Previous image"><span aria-hidden="true">←</span></button>
+              <button class="carousel-btn next" aria-label="Next image"><span aria-hidden="true">→</span></button>
+            </div>
+            <div class="carousel-foot">
+              <span class="carousel-count" aria-live="polite"></span>
+              <div class="carousel-dots"></div>
+            </div>
+          </div>
+
+          <h3 style="margin-top: 28px;">Iteration 2 · Accordion Button</h3>
+          <p>The details section was originally opened through the case number, usability testing revealed that the case number is a hyperlinked pathway.</p>
+          <div class="carousel ba-carousel reveal" aria-roledescription="carousel" aria-label="Before and after">
+            <div class="carousel-frame">
+              <figure class="shot carousel-slide before"><span class="label">before</span><img src="images/trevor/detailsopenedfromcasenumber.png" alt="Before: notes without timestamps" /></figure>
+              <figure class="shot carousel-slide after"><span class="label">after</span><img src="images/trevor/detailsopenedfromside.png" alt="After: notes with timestamps and author names" /></figure>
+              <button class="carousel-btn prev" aria-label="Previous image"><span aria-hidden="true">←</span></button>
+              <button class="carousel-btn next" aria-label="Next image"><span aria-hidden="true">→</span></button>
+            </div>
+            <div class="carousel-foot">
+              <span class="carousel-count" aria-live="polite"></span>
+              <div class="carousel-dots"></div>
+            </div>
+          </div>
+        </section>
+
+
+        <!-- ================================================================
+             10 · OUTCOMES — results + stakeholder quotes
+             ================================================================ -->
+        <section class="cs-section" id="outcomes">
+          <span class="hand-label">10 · outcomes</span>
+          <h2>What changed</h2>
+
+          <div class="stats">
+            <div class="stat reveal"><div class="num">8</div><p class="label">heuristic issues resolved</p><p>Every issue from the initial evaluation was addressed.</p></div>
+            <div class="stat reveal"><div class="num">100%</div><p class="label">saw workflow gains</p><p>All participants said more than 86% of new features improved their daily work.</p></div>
+            <div class="stat reveal"><div class="num">95%</div><p class="label">ease of learning</p><p>Average rating for the new features.</p></div>
+          </div>
+
+          <h3 style="margin-top: 28px;">What stakeholders said</h3>
+          <blockquote class="quote reveal">
+            <p>I found the ability to monitor multiple chats most valuable. Side-by-side interaction viewing beats toggling. The customization aspect allows focus-based personalization. Excellent design aspect.</p>
+            <cite>Lisa Stewart, Team Lead</cite>
+          </blockquote>
+          <blockquote class="quote reveal">
+            <p>Visual layout increases readability and accessibility. Lifeline conversation monitoring would enhance safety for counselors and contacts.</p>
+            <cite>Team Lead (anonymous)</cite>
+          </blockquote>
+        </section>
+
+
+        <!-- ================================================================
+             11 · REFLECTION
+             DRAFT: these are starting points. Rewrite them in your own words
+             with a specific moment from the project for each.
+             ================================================================ -->
+        <section class="cs-section" id="reflection">
+          <span class="hand-label">11 · reflection</span>
+          <h2>What I learned about running product work</h2>
+          <div class="cards">
+            <div class="card reveal">
+              <span class="tag">lesson 1</span>
+              <h3>Evidence makes scope easier</h3>
+              <p>Tying every feature to an interview or heuristic finding made "what's in, what's out" conversations faster and less personal.</p>
+            </div>
+            <div class="card reveal">
+              <span class="tag">lesson 2</span>
+              <h3>Research ops is product work</h3>
+              <p>Getting participants scheduled early set the pace for the whole summer. When research slipped, everything slipped.</p>
+            </div>
+            <div class="card reveal">
+              <span class="tag">lesson 3</span>
+              <h3>Test before you call it done</h3>
+              <p>Two important gaps (search and note history) only showed up in testing. Budgeting time to iterate paid off.</p>
+            </div>
+          </div>
+
+          <!-- Next project link -->
+          <div class="next-project reveal" style="margin-top: 40px;">
+            <div>
+              <span class="hand-label">next up</span>
+              <h3 style="margin:0;">ctrl^shift</h3>
+            </div>
+            <a class="btn btn--primary" href="ctrl-shift.html">View project →</a>
+          </div>
+        </section>
+
+      </article>
+    </div>
+  </main>
+
+
+  <!-- ======================================================================
+       SITE FOOTER
+       ====================================================================== -->
+  <footer class="site-footer" style="margin-top: 64px;">
+    <div class="container">
+      <span>© <span data-year>2026</span> Jessica Donoho · Ann Arbor, MI</span>
+      <span><a href="index.html">← back home</a></span>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>

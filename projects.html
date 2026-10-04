@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<!--
+  ==========================================================================
+  PROJECTS — projects.html
+  All case studies in one place. The "Projects" tab in the nav points here.
+  To add a project: copy one <article class="project"> block (and add it to
+  the WORK section of index.html too if you want it on the home page).
+  ==========================================================================
+-->
+<html lang="en" class="no-js">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Projects — Jessica Donoho</title>
+  <meta name="description" content="UX research, product, and interaction design case studies by Jessica Donoho." />
+  <link rel="icon" href="images/favicon.ico" sizes="any" />
+  <link rel="icon" href="images/favicon-32.png" type="image/png" sizes="32x32" />
+  <link rel="apple-touch-icon" href="images/apple-touch-icon.png" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;700&family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+
+<body>
+
+  <!-- ======================================================================
+       SITE HEADER
+       ====================================================================== -->
+  <header class="site-header">
+    <nav class="nav container" aria-label="Main">
+      <a class="logo" href="index.html">
+        <img src="images/logo.png" alt="" width="34" height="34" />
+        jess donoho
+      </a>
+      <button class="nav-toggle" aria-label="Open menu" aria-expanded="false" aria-controls="nav-links">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16" /></svg>
+      </button>
+      <ul class="nav-links" id="nav-links">
+        <li><a href="projects.html" aria-current="page">Projects</a></li>
+        <li><a href="index.html#about">About</a></li>
+        <li><a href="index.html#photos">Photos</a></li>
+        <li><a href="index.html#contact">Contact</a></li>
+        <li><a href="resume.pdf" target="_blank" rel="noopener">Resume</a></li>
+      </ul>
+    </nav>
+  </header>
+
+
+  <main>
+    <section class="section">
+      <div class="container">
+        <div class="section-head reveal">
+          <span class="hand-label">field notes · all projects</span>
+          <h1>Projects</h1>
+          <p>Research, product, and design work, with notes on how each project was run and what I learned.</p>
+        </div>
+
+        <div class="projects">
+
+          <!-- ---------- The Trevor Project (featured) ---------- -->
+          <article class="project reveal">
+            <div class="project-media">
+              <span class="badge">FEATURED</span>
+              <figure class="polaroid tilt-left">
+                <img src="images/trevor/dash_overview.png" alt="Redesigned crisis-monitoring dashboard for The Trevor Project" />
+                <figcaption>summer 2026 internship</figcaption>
+              </figure>
+            </div>
+            <div>
+              <p class="kicker">The Trevor Project · Internship</p>
+              <h2 class="h3-like">Running a dashboard redesign for crisis-support supervisors</h2>
+              <p>
+                I planned and coordinated the redesign of an internal monitoring dashboard,
+                from interviews and heuristic reviews through prioritization, prototyping, and
+                usability testing.
+              </p>
+              <ul class="chips">
+                <li class="chip">Product workflow</li>
+                <li class="chip chip--sun">UX Research</li>
+                <li class="chip chip--pink">Prioritization</li>
+                <li class="chip chip--sky">Design systems</li>
+              </ul>
+              <a class="btn btn--primary" href="trevor-project.html">Read the case study →</a>
+            </div>
+          </article>
+
+          <!-- ---------- ctrl^shift ---------- -->
+          <article class="project project--flip reveal">
+            <div class="project-media">
+              <figure class="polaroid tilt-right taped">
+                <img src="images/ctrl-shift/overview.png" alt="ctrl^shift app screens: home, onboarding, and user analysis" />
+                <figcaption>ctrl^shift · winter 2026</figcaption>
+              </figure>
+            </div>
+            <div>
+              <p class="kicker">Interaction Design · Course project</p>
+              <h2 class="h3-like">ctrl^shift: taking back control from the algorithm</h2>
+              <p>
+                Interviews, personas, paper and hi-fi prototypes, and three rounds of usability
+                testing for an app that helps people see past their social media algorithm.
+              </p>
+              <ul class="chips">
+                <li class="chip">IxD</li>
+                <li class="chip chip--sun">User interviews</li>
+                <li class="chip chip--pink">Usability testing</li>
+                <li class="chip chip--sky">Digital wellbeing</li>
+              </ul>
+              <a class="btn btn--primary" href="ctrl-shift.html">Read the case study →</a>
+            </div>
+          </article>
+
+          <!-- ---------- Focus Friend: Refocus ---------- -->
+          <article class="project reveal">
+            <div class="project-media">
+              <figure class="polaroid tilt-left taped taped--pink">
+                <img src="images/refocus/cover.png" alt="Three Focus Friend screens: the Focus Areas toggles, the bean's room with the Focus button, and the Goals clipboard" />
+                <figcaption>focus friend: refocus</figcaption>
+              </figure>
+            </div>
+            <div>
+              <p class="kicker">UX Design · Personal project</p>
+              <h2 class="h3-like">Focus Friend: Refocus</h2>
+              <p>
+                Why do people stop opening a focus app they love? Research, competitive analysis,
+                and new goals, badges, and focus areas to keep motivation going.
+              </p>
+              <ul class="chips">
+                <li class="chip">Habit design</li>
+                <li class="chip chip--sun">Research</li>
+                <li class="chip chip--pink">Figma</li>
+              </ul>
+              <a class="btn btn--primary" href="refocus.html">Read the case study →</a>
+            </div>
+          </article>
+
+        </div>
+      </div>
+    </section>
+  </main>
+
+
+  <footer class="site-footer">
+    <div class="container">
+      <span>© <span data-year>2026</span> Jessica Donoho · Ann Arbor, MI</span>
+      <span><a href="index.html">← back home</a></span>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>

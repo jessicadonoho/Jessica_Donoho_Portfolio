@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<!--
+  ==========================================================================
+  HOME PAGE — index.html
+
+  PAGE MAP (search these names to jump to a section):
+    <head>            fonts, page title, description
+    SITE HEADER       logo + navigation (copy any change to every page!)
+    HERO              name, tagline, portrait
+    ABOUT             short bio + "currently" sticky note
+    WORK              project cards (add new projects here)
+    PHOTO ROLL        film-strip photo gallery
+    EXPERIENCE        timeline + education
+    CONTACT           email / LinkedIn / Flickr / resume
+    SITE FOOTER
+
+  IMAGES: put files in /images using the exact names in each <img src="...">.
+  Until a file exists, the page shows a dashed placeholder with the file name.
+  ==========================================================================
+-->
+<html lang="en" class="no-js">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- Tab title + search/social description -->
+  <title>Jessica Donoho — UX Research & Product</title>
+  <meta name="description" content="Jessica Donoho — UX researcher and product-minded designer at the University of Michigan School of Information." />
+
+  <!-- Browser tab icon (a little leaf) -->
+  <link rel="icon" href="images/favicon.ico" sizes="any" />
+  <link rel="icon" href="images/favicon-32.png" type="image/png" sizes="32x32" />
+  <link rel="apple-touch-icon" href="images/apple-touch-icon.png" />
+
+  <!-- Fonts: Fraunces (headings), Nunito (body), Caveat (handwriting) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;700&family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet" />
+
+  <!-- All styling lives here -->
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+
+<body>
+
+  <!-- ======================================================================
+       SITE HEADER
+       Same on every page. If you add/rename a link, update the other pages too.
+       ====================================================================== -->
+  <header class="site-header">
+    <nav class="nav container" aria-label="Main">
+      <a class="logo" href="index.html">
+        <img src="images/logo.png" alt="" width="34" height="34" />
+        jess donoho
+      </a>
+
+      <!-- Hamburger button (only visible on phones) -->
+      <button class="nav-toggle" aria-label="Open menu" aria-expanded="false" aria-controls="nav-links">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16" /></svg>
+      </button>
+
+      <ul class="nav-links" id="nav-links">
+        <li><a href="projects.html">Projects</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#photos">Photos</a></li>
+        <li><a href="#contact">Contact</a></li>
+        <!-- Resume PDF: save your resume as images/../resume.pdf in the project root -->
+        <li><a href="resume.pdf" target="_blank" rel="noopener">Resume</a></li>
+      </ul>
+    </nav>
+  </header>
+
+
+  <main>
+
+    <!-- ====================================================================
+         HERO
+         ==================================================================== -->
+    <section class="hero">
+      <!-- Floating decorations (purely visual) -->
+      <svg class="float-deco sun" viewBox="0 0 100 100" aria-hidden="true">
+        <circle cx="50" cy="50" r="22" fill="#F2C46D" />
+        <g stroke="#F2C46D" stroke-width="5" stroke-linecap="round">
+          <path d="M50 8v12M50 80v12M8 50h12M80 50h12M20 20l8 8M72 72l8 8M20 80l8-8M72 28l8-8" />
+        </g>
+      </svg>
+      <svg class="float-deco leaf1" viewBox="0 0 40 40" aria-hidden="true"><path d="M6 34C6 16 16 6 34 6 34 24 24 34 6 34Z" fill="#6B8F5E" /><path d="M6 34 22 18" stroke="#F6F1E6" stroke-width="2" /></svg>
+      <svg class="float-deco leaf2" viewBox="0 0 40 40" aria-hidden="true"><path d="M6 34C6 16 16 6 34 6 34 24 24 34 6 34Z" fill="#F2C9CF" /></svg>
+
+      <div class="container grid-2">
+        <!-- Left: intro text -->
+        <div class="reveal">
+          <span class="hand-label">hi there, i'm jess!</span>
+          <h1>I research how people <span class="wave">really</span> work, then help teams build for it.</h1>
+          <p class="lede">
+            UX researcher and product-minded designer studying User-Centered Agile
+            Development at the University of Michigan School of Information.
+          </p>
+          <div class="actions">
+            <a class="btn btn--primary" href="#work">See my work ↓</a>
+            <a class="btn btn--ghost" href="#about">About me</a>
+          </div>
+        </div>
+
+        <!-- Right: portrait in a polaroid with viewfinder corners -->
+        <div class="reveal" style="position: relative; max-width: 380px; justify-self: center;">
+          <div class="viewfinder">
+            <span class="vf-corner tl"></span><span class="vf-corner tr"></span>
+            <span class="vf-corner bl"></span><span class="vf-corner br"></span>
+
+            <!-- PORTRAIT: save your photo as images/portrait.jpg -->
+            <figure class="polaroid tilt-right taped">
+              <img src="images/photos/jessica_d.jpg" alt="Portrait of Jessica Donoho" />
+              <figcaption>ann arbor, mi</figcaption>
+            </figure>
+          </div>
+          <p class="exif" style="text-align:center; margin-top:8px;">f/1.8 · 1/250 · ISO 200</p>
+        </div>
+      </div>
+
+      <!-- Rolling hills at the bottom of the hero -->
+      <svg class="hills" viewBox="0 0 1440 120" preserveAspectRatio="none" aria-hidden="true">
+        <path d="M0 70 C 240 10, 420 110, 720 60 S 1200 20, 1440 70 V120 H0Z" fill="#D6E5CB" />
+        <path d="M0 95 C 300 55, 520 125, 860 85 S 1260 70, 1440 95 V120 H0Z" fill="#EDE4D0" />
+      </svg>
+    </section>
+
+
+    <!-- ====================================================================
+         WORK — PROJECT CARDS
+         To add a project: copy one <article class="project"> … </article>
+         block and change the text, link, and image. Add "project--flip" to
+         the class to put the image on the right instead of the left.
+         ==================================================================== -->
+    <section class="section section--tinted" id="work">
+      <div class="container">
+        <div class="section-head reveal">
+          <span class="hand-label">field notes · selected work</span>
+          <h2>Projects</h2>
+          <p>Research, product, and design work, with notes on how each project was run and what the team shipped.</p>
+          <p><a href="projects.html">See all projects →</a></p>
+        </div>
+
+        <div class="projects">
+
+          <!-- ---------- PROJECT 1: The Trevor Project (featured) ---------- -->
+          <article class="project reveal">
+            <div class="project-media">
+              <span class="badge">FEATURED</span>
+              <figure class="polaroid tilt-left">
+                <!-- Thumbnail: images/trevor/cover.png -->
+                <img style="object-fit: cover; object-position: left" src="images/trevor/dash_overview.png" alt="Redesigned crisis-monitoring dashboard for The Trevor Project" />
+                <figcaption>summer 2026 internship</figcaption>
+              </figure>
+            </div>
+            <div>
+              <p class="kicker">The Trevor Project · Internship</p>
+              <h3>Running a dashboard redesign for crisis-support supervisors</h3>
+              <p>
+                I planned and coordinated the redesign of an internal monitoring dashboard,
+                from interviews and heuristic reviews through prioritization, prototyping, and
+                usability testing.
+              </p>
+              <ul class="chips">
+                <li class="chip">Product workflow</li>
+                <li class="chip chip--sun">UX Research</li>
+                <li class="chip chip--pink">Prioritization</li>
+                <li class="chip chip--sky">Design systems</li>
+              </ul>
+              <a class="btn btn--primary" href="trevor-project.html">Read the case study →</a>
+            </div>
+          </article>
+
+          <!-- ---------- PROJECT 2: Focus Friend ---------- -->
+          <article class="project project--flip reveal">
+            <div class="project-media">
+              <figure class="polaroid tilt-right taped taped--pink">
+                <img src="images/refocus/cover.png" alt="Three Focus Friend screens: the Focus Areas toggles, the bean's room with the Focus button, and the Goals clipboard" />
+                <figcaption>focus friend: refocus</figcaption>
+              </figure>
+            </div>
+            <div>
+              <p class="kicker">UX Research · Concept</p>
+              <h3>Focus Friend: Refocus</h3>
+              <p>Why do people stop opening a focus app they love? Research, competitive analysis, and new goals, badges, and focus areas to keep motivation going.</p>
+              <ul class="chips">
+                <li class="chip">Habit design</li>
+                <li class="chip chip--sun">Research</li>
+              </ul>
+              <a class="btn btn--ghost" href="refocus.html">Read the case study →</a>
+            </div>
+          </article>
+
+          <!-- ---------- PROJECT 3: ctrl^shift ---------- -->
+          <article class="project reveal">
+            <div class="project-media">
+              <figure class="polaroid tilt-left">
+                <img src="images/ctrl-shift/overview.png" alt="ctrl^shift app screens: home, onboarding, and user analysis" />
+                <figcaption>ctrl^shift</figcaption>
+              </figure>
+            </div>
+            <div>
+              <p class="kicker">Interaction Design</p>
+              <h3>ctrl^shift</h3>
+              <p>Interviews, personas, paper and hi-fi prototypes, and three rounds of usability testing for an app that helps people see past their social media algorithm.</p>
+              <ul class="chips">
+                <li class="chip">IxD</li>
+                <li class="chip chip--sky">Digital wellbeing</li>
+              </ul>
+              <a class="btn btn--ghost" href="ctrl-shift.html">Read the case study →</a>
+            </div>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ====================================================================
+         ABOUT
+         ==================================================================== -->
+    <section class="section" id="about">
+      <div class="container grid-2">
+        <div class="about-text reveal">
+          <span class="hand-label">a little about me</span>
+          <h2>From classrooms in Okinawa to UX research</h2>
+          <p>
+            Before grad school I spent two years in Okinawa as an Assistant Language Teacher
+            with the JET Program. Running a classroom taught me to pay close attention to
+            people: noticing where they get stuck and changing plans on the fly.
+          </p>
+          <p>
+            Now I'm a Master's student at the University of Michigan School of Information,
+            focusing on UX research and User-Centered Agile Development. I'm drawn to
+            mission-driven work, where good research can make a real difference in people's day.
+          </p>
+          <p>
+            Away from the laptop I'm writing, doing fiber arts, reading manga, or out with my
+            camera. I picked up photography while exploring villages in Japan, and that's where
+            this site's look comes from.
+          </p>
+        </div>
+
+        <!-- Sticky note: edit this list as things change -->
+        <aside class="note-card taped reveal" aria-label="Currently">
+          <h3>currently…</h3>
+          <ul>
+            <li>M.S. Information @ UMSI, class of 2027</li>
+            <li>GSI for <em>Designing Complex Websites</em></li>
+            <li>Returning Student Ambassador</li>
+            <li>Practicing Japanese (JLPT N3)</li>
+            <li>Looking for UX research roles at mission-driven orgs</li>
+          </ul>
+        </aside>
+      </div>
+    </section>
+
+
+    <!-- ====================================================================
+         PHOTO ROLL — film-strip gallery
+         Save photos as images/photos/photo-01.jpg … photo-06.jpg
+         (landscape, ~1200px wide works well). Add or remove <figure> blocks
+         to change how many show. Edit the captions to match your photos.
+         ==================================================================== -->
+    <section class="section section--tinted" id="photos">
+      <div class="container">
+        <div class="section-head reveal">
+          <span class="hand-label">off the clock</span>
+          <h2>Photo roll</h2>
+          <p>Some photos from my walks. Scroll sideways to see more.</p>
+        </div>
+
+        <div class="film-strip reveal">
+          <div class="film-frames" tabindex="0" aria-label="Photo gallery, scrolls horizontally">
+            <figure><img src="images/photos/photoex1.jpg" alt="a hand grabbing a crab" loading="lazy" /><figcaption>frame 01 · okinawa</figcaption></figure>
+            <figure><img src="images/photos/photoex2.jpg" alt="window with curtains" loading="lazy" /><figcaption>frame 02 · village walk</figcaption></figure>
+            <figure><img src="images/photos/photoex3.jpg" alt="busan intersection with two people talking" loading="lazy" /><figcaption>frame 03 · busan intersection</figcaption></figure>
+            <figure><img src="images/photos/photoex4.jpg" alt="curled up dead leaf" loading="lazy" /><figcaption>frame 04 · near winter</figcaption></figure>
+            <figure><img src="images/photos/photoex5.jpg" alt="boat in a jungle overgrown with foliage" loading="lazy" /><figcaption>frame 05 · jungle boat</figcaption></figure>
+            <figure><img src="images/photos/photoex6.jpg" alt="flowers at a flower stand" loading="lazy" /><figcaption>frame 06 · for a lover</figcaption></figure>
+            <figure><img src="images/photos/photoex7.jpg" alt="building with cute grafiti" loading="lazy" /><figcaption>frame 06 · seoul city walk</figcaption></figure>
+
+          </div>
+        </div>
+
+        <div class="photo-roll-foot">
+          <span class="exif">roll 01 · 7 exposures</span>
+          <a class="btn btn--ghost" href="https://www.flickr.com/photos/201592639@N07/" target="_blank" rel="noopener">More on Flickr ↗</a>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ====================================================================
+         EXPERIENCE — "trail" timeline + education
+         Add class="is-now" to an <li> to give it an orange (current) marker.
+         Newest roles go at the top.
+         ==================================================================== -->
+    <section class="section" id="experience">
+      <div class="container grid-2" style="align-items: start;">
+        <div class="reveal">
+          <span class="hand-label">the trail so far</span>
+          <h2>Experience</h2>
+          <ol class="trail">
+            <li class="is-now">
+              <span class="when">2026 – present</span>
+              <h3>Graduate Student Instructor · UMSI</h3>
+              <p>GSI for Designing Complex Websites.</p>
+            </li>
+            <li>
+              <span class="when">Summer 2026</span>
+              <h3>Intern · The Trevor Project</h3>
+              <p>Planned and co-led the redesign of an internal crisis-monitoring dashboard: interviews, heuristic evaluation, prioritization, design system, and hi-fi prototype.</p>
+            </li>
+            <li class="is-now">
+              <span class="when">Sept 2025 – present</span>
+              <h3>Event Ambassador · U-M Student Affairs</h3>
+              <p>Counsel prospective students and connect them with programs.</p>
+            </li>
+            <li>
+              <span class="when">Aug 2023 – Aug 2025</span>
+              <h3>Assistant Language Teacher · JET Program</h3>
+              <p>Managed the World Classroom platform and coordinated four cultural exchange events in Okinawa.</p>
+            </li>
+          </ol>
+        </div>
+
+        <div class="reveal">
+          <span class="hand-label">school</span>
+          <h2>Education</h2>
+          <div class="edu-card">
+            <h3>M.S. Information · University of Michigan</h3>
+            <p>User-Centered Agile Development · Aug 2025 – May 2027</p>
+          </div>
+          <div class="edu-card">
+            <h3>B.S. Cognitive Science · UC Davis</h3>
+            <p>Graduated June 2023</p>
+          </div>
+
+          <span class="hand-label" style="margin-top: 16px;">toolkit</span>
+          <ul class="chips">
+            <li class="chip">User interviews</li>
+            <li class="chip">Heuristic evaluation</li>
+            <li class="chip">Usability testing</li>
+            <li class="chip chip--sun">Agile / Scrum</li>
+            <li class="chip chip--sun">Roadmapping</li>
+            <li class="chip chip--pink">Figma &amp; FigJam</li>
+            <li class="chip chip--pink">Design systems</li>
+            <li class="chip chip--sky">HTML / CSS</li>
+            <li class="chip chip--sky">Japanese (N3)</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ====================================================================
+         CONTACT
+         ==================================================================== -->
+    <section class="section" id="contact" style="padding-top: 0;">
+      <div class="container">
+        <div class="contact-card reveal">
+          <span class="hand-label" style="color: var(--golden);">say hello!</span>
+          <h2>Let's make something thoughtful together</h2>
+          <p>I'm looking for UX research and product roles at mission-driven organizations. I'd love to hear from you.</p>
+          <div class="contact-links">
+            <a href="mailto:jdonoho@umich.edu">jdonoho@umich.edu</a>
+            <!-- TODO: replace with your LinkedIn profile URL -->
+            <a href="https://www.linkedin.com/in/YOUR-HANDLE" target="_blank" rel="noopener">LinkedIn ↗</a>
+            <a href="https://www.flickr.com/photos/201592639@N07/" target="_blank" rel="noopener">Flickr ↗</a>
+            <a href="resume.pdf" target="_blank" rel="noopener">Resume (PDF) ↗</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+
+  <!-- ======================================================================
+       SITE FOOTER
+       ====================================================================== -->
+  <footer class="site-footer">
+    <div class="container">
+      <span>© <span data-year>2026</span> Jessica Donoho · Ann Arbor, MI</span>
+      <span>Hand-coded with care · <a href="#top" onclick="window.scrollTo(0,0);return false;">back to top ↑</a></span>
+    </div>
+  </footer>
+
+  <!-- Shared scripts (menu, image placeholders, animations) -->
+  <script src="js/main.js"></script>
+</body>
+</html>

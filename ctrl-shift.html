@@ -1,0 +1,549 @@
+<!DOCTYPE html>
+<!--
+  ==========================================================================
+  CASE STUDY — ctrl^shift (Interaction Design course)
+  Content migrated from the old Framer page.
+
+  PAGE MAP (each section has an id; the sidebar links to them):
+    #overview     problem + design question
+    #process      six-step process
+    #interviews   interview research + key findings
+    #personas     Cautious Cam + Easy-going Emily
+    #flows        user flow
+    #evolution    how the design changed stage to stage
+    #paper        paper prototype
+    #hifi         wireframes → hi-fi + usability testing
+    #final        final design screens, flow by flow
+    #system       design system / style guide
+    #features     feature descriptions
+    #defects      top defects table
+    #reflection   what I learned
+    #prototype    embedded Figma prototype
+
+  IMAGES: all live in images/ctrl-shift/.
+  ==========================================================================
+-->
+<html lang="en" class="no-js">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ctrl^shift — Jessica Donoho</title>
+  <meta name="description" content="An interaction design case study about helping people take back control of their social media algorithms: interviews, personas, paper prototypes, hi-fi design, and three rounds of usability testing." />
+  <link rel="icon" href="images/favicon.ico" sizes="any" />
+  <link rel="icon" href="images/favicon-32.png" type="image/png" sizes="32x32" />
+  <link rel="apple-touch-icon" href="images/apple-touch-icon.png" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;700&family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+
+<body>
+
+  <!-- ======================================================================
+       SITE HEADER (same as index.html; links point back to the home page)
+       ====================================================================== -->
+  <header class="site-header">
+    <nav class="nav container" aria-label="Main">
+      <a class="logo" href="index.html">
+        <img src="images/logo.png" alt="" width="34" height="34" />
+        jess donoho
+      </a>
+      <button class="nav-toggle" aria-label="Open menu" aria-expanded="false" aria-controls="nav-links">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16" /></svg>
+      </button>
+      <ul class="nav-links" id="nav-links">
+        <li><a href="projects.html" aria-current="page">Projects</a></li>
+        <li><a href="index.html#about">About</a></li>
+        <li><a href="index.html#photos">Photos</a></li>
+        <li><a href="index.html#contact">Contact</a></li>
+        <li><a href="resume.pdf" target="_blank" rel="noopener">Resume</a></li>
+      </ul>
+    </nav>
+  </header>
+
+
+  <main>
+
+    <!-- ====================================================================
+         CASE STUDY HERO
+         ==================================================================== -->
+    <section class="cs-hero">
+      <div class="container">
+        <a class="back" href="projects.html">← all projects</a>
+
+        <span class="hand-label">case study · interaction design</span>
+        <h1>ctrl^shift: algorithms aren't working for us</h1>
+        <p class="lede">
+          Social media algorithms push people toward doomscrolling and one-sided information,
+          and get in the way of what they actually opened the app to do. ctrl^shift is a
+          companion app that lets people see past their algorithm and decide how they spend
+          their time.
+        </p>
+
+        <div class="meta-grid">
+          <div>
+            <h4>My role</h4>
+            <p>UX Designer / Researcher</p>
+          </div>
+          <div>
+            <h4>Team</h4>
+            <p>Independent</p>
+          </div>
+          <div>
+            <h4>Timeline</h4>
+            <p>Jan – Apr 2026<br />Interaction Design course</p>
+          </div>
+          <div>
+            <h4>Tools</h4>
+            <p>Paper · Figma</p>
+          </div>
+        </div>
+
+        <figure class="shot reveal">
+          <img src="images/ctrl-shift/overview.png" alt="Three phones showing ctrl^shift: the home screen with groups and quick actions, the welcome screen, and the user analysis screen" />
+          <figcaption>Home, onboarding, and user analysis in the final hi-fi prototype</figcaption>
+        </figure>
+      </div>
+    </section>
+
+
+    <div class="container cs-layout">
+
+      <nav class="toc" aria-label="Case study sections">
+        <span class="hand-label">trail map</span>
+        <ol>
+          <li><a href="#overview">Overview</a></li>
+          <li><a href="#process">Process</a></li>
+          <li><a href="#interviews">Interviews</a></li>
+          <li><a href="#personas">Personas</a></li>
+          <li><a href="#flows">User flow</a></li>
+          <li><a href="#evolution">Design evolution</a></li>
+          <li><a href="#paper">Paper prototype</a></li>
+          <li><a href="#hifi">Hi-fi &amp; testing</a></li>
+          <li><a href="#final">Final design</a></li>
+          <li><a href="#system">Design system</a></li>
+          <li><a href="#features">Features</a></li>
+          <li><a href="#defects">Top defects</a></li>
+          <li><a href="#reflection">Reflection</a></li>
+          <li><a href="#prototype">Prototype</a></li>
+        </ol>
+      </nav>
+
+      <article>
+
+        <!-- 01 · OVERVIEW -->
+        <section class="cs-section" id="overview">
+          <span class="hand-label">01 · overview</span>
+          <h2>About the project</h2>
+
+          <div class="tldr reveal">
+            <h3>tl;dr</h3>
+            <p>
+              Social media users, especially on Instagram, need a way to take back control of
+              how they use it. Current algorithms interfere with their goals and can lead to
+              doomscrolling and biased information. That affects how they talk to the people
+              they know and how they see the world every day.
+            </p>
+          </div>
+
+          <blockquote class="quote reveal" style="margin-top: 36px;">
+            <p>How might we help social media users see content that their personalized algorithms won't show them?</p>
+            <cite>Design question</cite>
+          </blockquote>
+
+          <div class="stats">
+            <div class="stat reveal"><div class="num">3</div><p class="label">user interviews</p><p>Semi-structured, after two mock interviews to refine the questions.</p></div>
+            <div class="stat reveal"><div class="num">3</div><p class="label">rounds of testing</p><p>Tracking error rates and qualitative feedback to drive revisions.</p></div>
+            <div class="stat reveal"><div class="num">6</div><p class="label">defects resolved</p><p>From high-severity naming issues to small text-size fixes.</p></div>
+          </div>
+        </section>
+
+
+        <!-- 02 · PROCESS -->
+        <section class="cs-section" id="process">
+          <span class="hand-label">02 · process</span>
+          <h2>From interviews to prototype</h2>
+          <ol class="phases phases--6">
+            <li class="reveal"><h3>User research</h3><p>In-depth interviews on behaviors, frustrations, and mental models around social media and filter bubbles.</p></li>
+            <li class="reveal"><h3>Competitive analysis</h3><p>Ground News, Shinigami Eyes, and manual workarounds: what exists, what works, and where the gaps are.</p></li>
+            <li class="reveal"><h3>Personas &amp; scenarios</h3><p>A cautious skeptic and an easy-going adopter, with scenario narratives to guide decisions.</p></li>
+            <li class="reveal"><h3>Paper prototype</h3><p>Explored information architecture and flows on paper before going digital.</p></li>
+            <li class="reveal"><h3>Wireframe → hi-fi</h3><p>Iterated from rough wireframes to a full hi-fi prototype in Figma.</p></li>
+            <li class="reveal"><h3>Usability testing</h3><p>Three rounds with real participants, tracking errors and feedback.</p></li>
+          </ol>
+        </section>
+
+
+        <!-- 03 · INTERVIEWS -->
+        <section class="cs-section" id="interviews">
+          <span class="hand-label">03 · interviews</span>
+          <h2>What people told me about their feeds</h2>
+          <p>
+            I ran three semi-structured interviews after testing my questions in two mock
+            interviews. Two were by phone and one over Zoom. Every participant actively used
+            social media and knew platforms like Instagram, Reddit, X, YouTube, and Bluesky.
+          </p>
+
+          <div class="cards">
+            <div class="card reveal">
+              <span class="tag">finding 1</span>
+              <h3>Connection is the core need</h3>
+              <p>Every interviewee said staying connected with people they know is why they stay, not the content.</p>
+            </div>
+            <div class="card reveal">
+              <span class="tag">finding 2</span>
+              <h3>Control feels impossible</h3>
+              <p>"You can't really control it." The algorithm shows what it wants, overriding what people intended.</p>
+            </div>
+            <div class="card reveal">
+              <span class="tag">finding 3</span>
+              <h3>Habit loops resist change</h3>
+              <p>"Muscle memory of opening Instagram." Even people who wanted to quit found themselves back without deciding to.</p>
+            </div>
+            <div class="card reveal">
+              <span class="tag">finding 4</span>
+              <h3>Spreading out as a strategy</h3>
+              <p>Tech-savvy users spread their use across platforms on purpose, so no single source controls what they see.</p>
+            </div>
+          </div>
+
+          <blockquote class="quote reveal">
+            <p>Unless I'm the one designing the algorithm, I can't trust this black box.</p>
+            <cite>Interview participant, on algorithmic trust</cite>
+          </blockquote>
+
+          <div class="callout">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="9" /><path d="M12 8v4M12 16h.01" /></svg>
+            <p style="margin:0;"><strong>Limitation:</strong> all participants knew Instagram well, so many examples centered on it. Two were also very aware of recommendation algorithms, which may have shaped their answers.</p>
+          </div>
+        </section>
+
+
+        <!-- 04 · PERSONAS -->
+        <section class="cs-section" id="personas">
+          <span class="hand-label">04 · personas</span>
+          <h2>Two ways of living with the algorithm</h2>
+          <p>
+            I compared responses across participants to find patterns in behaviors, motivations,
+            and frustrations, then turned them into two personas.
+          </p>
+          <figure class="shot reveal">
+            <img src="images/ctrl-shift/persona_ctrl2.png" alt="Primary persona: Cautious Cam, 32, a non-binary media-literacy educator in Boulder who limits social media to avoid echo chambers" loading="lazy" />
+            <figcaption>Primary persona: Cautious Cam</figcaption>
+          </figure>
+          <figure class="shot reveal">
+            <img src="images/ctrl-shift/persona_ctrl1.png" alt="Secondary persona: Easy-going Emily, 27, a physical therapist in training in Tacoma who uses Instagram for friends and cooking ideas" loading="lazy" />
+            <figcaption>Secondary persona: Easy-going Emily</figcaption>
+          </figure>
+        </section>
+
+
+        <!-- 05 · USER FLOW -->
+        <section class="cs-section" id="flows">
+          <span class="hand-label">05 · user flow</span>
+          <h2>Mapping the path before drawing screens</h2>
+          <p>
+            The user flow mapped each step from entry to completing core tasks. It showed me
+            gaps and unnecessary steps early, so I could move to a paper prototype with confidence.
+          </p>
+          <figure class="shot reveal">
+            <img src="images/ctrl-shift/user_flow.jpg" alt="User flow diagram covering account creation and linking, and social media control paths like setting a goal, schedule, and viewing similar posts" loading="lazy" />
+            <figcaption>User flow: account creation / linking and social media control</figcaption>
+          </figure>
+        </section>
+
+
+        <!-- 06 · DESIGN EVOLUTION -->
+        <section class="cs-section" id="evolution">
+          <span class="hand-label">06 · design evolution</span>
+          <h2>How the design found its shape</h2>
+          <div class="cards">
+            <div class="card reveal"><span class="tag">stage 01</span><h3>Paper: a rotary dial</h3><p>Groups sat in a circle, a nod to analog phones. Fast to iterate, but it wouldn't scale.</p></div>
+            <div class="card reveal"><span class="tag">stage 02</span><h3>Wireframe: to screen</h3><p>The circle broke navigation, so groups became a vertical list and "Timer" became "Schedule."</p></div>
+            <div class="card reveal"><span class="tag">stage 03</span><h3>Hi-fi: visual language</h3><p>A dark teal identity emerged, and onboarding was split into focused steps.</p></div>
+            <div class="card reveal"><span class="tag">stage 04</span><h3>Post-testing</h3><p>Simplified scheduling logic and moved key features somewhere people could find them.</p></div>
+          </div>
+        </section>
+
+
+        <!-- 07 · PAPER PROTOTYPE -->
+        <section class="cs-section" id="paper">
+          <span class="hand-label">07 · paper prototype</span>
+          <h2>Eight screens on a table</h2>
+          <p>
+            Before any digital wireframes, I drew an eight-screen paper prototype, played the wizard behind the curtain, and tested it with one user in an informal session.
+          </p>
+          <div class="screens screens--paper">
+            <figure class="reveal"><img src="images/ctrl-shift/paper_home.png" alt="Paper home screen with groups arranged in a circle around a dial" loading="lazy" /><figcaption>home dial</figcaption></figure>
+            <figure class="reveal"><img src="images/ctrl-shift/paper_topics.png" alt="Paper News group screen with a post, fact check and On This Topic buttons, an AI tagline, and a topic dropdown" loading="lazy" /><figcaption>news group</figcaption></figure>
+            <figure class="reveal"><img src="images/ctrl-shift/paper_settings.png" alt="Paper Settings screen with disable scroll, trusted news sources, fact-check preference, and group management" loading="lazy" /><figcaption>settings</figcaption></figure>
+            <figure class="reveal"><img src="images/ctrl-shift/timer.png" alt="Paper Set a Timer screen with schedule, minutes per day, minutes per session, and what the timer affects" loading="lazy" /><figcaption>set a timer</figcaption></figure>
+          </div>
+          <div class="screens screens--paper">
+            <figure class="reveal"><img src="images/ctrl-shift/algorithm.png" alt="Paper View Algorithm screen with content you see, see less of, and political and sensitive content toggles" loading="lazy" /><figcaption>view algorithm</figcaption></figure>
+            <figure class="reveal"><img src="images/ctrl-shift/like_this.png" alt="Paper On This Topic screen splitting posts into Agree and Disagree" loading="lazy" /><figcaption>on this topic</figcaption></figure>
+            <figure class="reveal"><img src="images/ctrl-shift/analytics.png" alt="Paper User Analysis screen showing content that keeps your attention, ads you see, and information being sold" loading="lazy" /><figcaption>user analysis</figcaption></figure>
+          </div>
+        </section>
+
+
+        <!-- 08 · WIREFRAMES, HI-FI & TESTING -->
+        <section class="cs-section" id="hifi">
+          <span class="hand-label">08 · hi-fi &amp; testing</span>
+          <h2>Wireframes, hi-fi, and three rounds of testing</h2>
+
+          <h3 style="margin-top: 28px;">Creating the wireframe</h3>
+          <p>
+            Using the paper prototype as a blueprint, I built the wireframe in Figma at real screen
+            sizes, with consistent spacing, realistic placeholder text, and linked frames. That step
+            showed gaps the sketch had glossed over: elements competing for attention, and flows
+            that worked on paper but broke once you had to click through them.
+          </p>
+
+          <h3 style="margin-top: 28px;">Iterating from testing</h3>
+          <p>
+            Where people hesitated, misclicked, or asked questions pointed straight to what needed
+            to change. At low fidelity those fixes were quick. Participants sometimes struggled to
+            engage with grey boxes, but that kept feedback on structure instead of looks.
+          </p>
+
+          <h3 style="margin-top: 28px;">Hi-fi and usability testing</h3>
+          <p>
+            In the hi-fi prototype, testing focused on algorithm customization and scheduling.
+            The biggest issues were discoverability and clarity, especially the algorithm
+            preference controls and vague terms like "session." Some patterns followed familiar
+            social media conventions, but people still needed clearer guidance. I simplified
+            interactions, improved labels, moved "User Analysis" to the home screen, and replaced
+            "On This Topic" with clearer wording.
+          </p>
+        </section>
+
+
+        <!-- 09 · FINAL DESIGN
+             Screens exported from Figma. Until a file exists, its slot shows a
+             dashed box with the file name to add to images/ctrl-shift/. -->
+        <section class="cs-section" id="final">
+          <span class="hand-label">09 · final design</span>
+          <h2>The final design, flow by flow</h2>
+          <p>
+            The overall flow didn't change much from the user flow to the hi-fi prototype. What
+            changed was the detail: clearer wording, a longer onboarding, and features moved to
+            where people looked for them.
+          </p>
+
+          <h3 style="margin-top: 28px;">Onboarding</h3>
+          <p>
+            Testing showed that people didn't understand key ideas when they ran into them in the
+            app, so I split one long block of text into short steps: groups, scheduling, and goals.
+            The goals people pick here shape their home screen.
+          </p>
+          <p class="hover-hint" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 3l7 17 2.5-7.5L21 10z" /></svg>hover a screen to zoom in</p>
+          <div class="hifi-collage reveal" role="group" aria-label="Onboarding screens">
+            <figure tabindex="0"><img src="images/ctrl-shift/hifi-welcome.png" alt="Welcome screen explaining the three things ctrl^shift does, with Log In and Get Started buttons" loading="lazy" /><figcaption>welcome</figcaption></figure>
+            <figure tabindex="0"><img src="images/ctrl-shift/hifi-choose-groups.png" alt="Onboarding step explaining content groups like Friends, News, and Fitness" loading="lazy" /><figcaption>choose your groups</figcaption></figure>
+            <figure tabindex="0"><img src="images/ctrl-shift/hifi-schedule-use.png" alt="Onboarding step explaining daily limit, session length, and break duration" loading="lazy" /><figcaption>schedule use</figcaption></figure>
+            <figure tabindex="0"><img src="images/ctrl-shift/hifi-set-goals.png" alt="Onboarding step where users pick what's important to them and their main goal" loading="lazy" /><figcaption>set your goals</figcaption></figure>
+          </div>
+
+          <h3 style="margin-top: 28px;">Home, settings, and tools</h3>
+          <p>
+            Before browsing, people have to pick a group, so the app never opens straight into a
+            feed. Settings and tools sit at the bottom of the home screen, where they're easy to
+            reach. Scheduling sets when and how long people can scroll. The schedule can change
+            once a week, and there's an emergency stop that works three times a month.
+          </p>
+          <p class="hover-hint" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 3l7 17 2.5-7.5L21 10z" /></svg>hover a screen to zoom in</p>
+          <div class="hifi-collage reveal" role="group" aria-label="Home, settings, and tools screens">
+            <figure tabindex="0"><img src="images/ctrl-shift/hifi-home.png" alt="Home screen with group buttons, quick actions, and settings tools" loading="lazy" /><figcaption>home</figcaption></figure>
+            <figure tabindex="0"><img src="images/ctrl-shift/hifi-settings.png" alt="Settings screen with toggles for disabling scroll, dark mode, and reels, plus fact-check preferences" loading="lazy" /><figcaption>settings</figcaption></figure>
+            <figure tabindex="0"><img src="images/ctrl-shift/hifi-schedule.png" alt="Schedule Usage screen with days, minutes per day, session length, breaks, and exclusions" loading="lazy" /><figcaption>schedule</figcaption></figure>
+            <figure tabindex="0"><img src="images/ctrl-shift/hifi-manage-algorithm.png" alt="Manage Algorithm screen with content tags to see and not see, and political and sensitive content toggles" loading="lazy" /><figcaption>manage algorithm</figcaption></figure>
+            <figure tabindex="0"><img src="images/ctrl-shift/hifi-user-analysis.png" alt="User Analysis screen showing usage, ad targeting, data sold to brokers, and a mood chart" loading="lazy" /><figcaption>user analysis</figcaption></figure>
+          </div>
+
+          <h3 style="margin-top: 28px;">Groups</h3>
+          <p>
+            Groups are themed containers for parts of the feed. Friends is built around staying
+            connected. News adds a topic filter. Hidden Content shows posts the algorithm usually
+            keeps from you, and explains why each one was hidden.
+          </p>
+          <p class="hover-hint" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 3l7 17 2.5-7.5L21 10z" /></svg>hover a screen to zoom in</p>
+          <div class="hifi-collage reveal" role="group" aria-label="Group screens">
+            <figure tabindex="0"><img src="images/ctrl-shift/hifi-friends.png" alt="Friends group showing a friend's post with comments" loading="lazy" /><figcaption>friends</figcaption></figure>
+            <figure tabindex="0"><img src="images/ctrl-shift/hifi-news.png" alt="News group with a Filter Topics button and Fact Check and Similar Posts buttons under a post" loading="lazy" /><figcaption>news</figcaption></figure>
+            <figure tabindex="0"><img src="images/ctrl-shift/hifi-hidden-content.png" alt="Hidden Content group with a note explaining why the post was hidden" loading="lazy" /><figcaption>hidden content</figcaption></figure>
+          </div>
+
+          <h3 style="margin-top: 28px;">Discovery and reflection</h3>
+          <p>
+            Fact Check and Similar Posts sit under posts in most groups. Similar Posts shows
+            matching and contrasting opinions together. I briefly split them apart after one tester
+            said they didn't want to see opinions they disagreed with, but I went back to showing
+            both, because seeing both sides is the point. When a session ends, people can log how
+            they feel, and that mood shows up later in User Analysis.
+          </p>
+          <p class="hover-hint" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 3l7 17 2.5-7.5L21 10z" /></svg>hover a screen to zoom in</p>
+          <div class="hifi-collage reveal" role="group" aria-label="Discovery and reflection screens">
+            <figure tabindex="0"><img src="images/ctrl-shift/hifi-fact-check.png" alt="Fact Check opening a browser search on the post's claim" loading="lazy" /><figcaption>fact check</figcaption></figure>
+            <figure tabindex="0"><img src="images/ctrl-shift/hifi-similar-posts.png" alt="Similar Posts screen showing same-opinion and contrasting-opinion posts together" loading="lazy" /><figcaption>similar posts</figcaption></figure>
+            <figure tabindex="0"><img src="images/ctrl-shift/hifi-session-complete.png" alt="Session Complete screen with a session summary and mood buttons" loading="lazy" /><figcaption>session complete</figcaption></figure>
+          </div>
+        </section>
+
+
+        <!-- 10 · DESIGN SYSTEM -->
+        <section class="cs-section" id="system">
+          <span class="hand-label">10 · design system</span>
+          <h2>A brand about shifting control</h2>
+          <p>
+            The style guide sets up ctrl^shift as a brand about shifting control from social media
+            platforms back to the people using them. It defines the color ramp, type, and core
+            components I used across the hi-fi prototype.
+          </p>
+          <figure class="shot shot--narrow reveal">
+            <img src="images/ctrl-shift/style_guide.png" alt="ctrl^shift style guide: a color ramp from near-black through deep teal and sage to pale mint, monospace type, buttons, toggles, select menus, a Create a Group card, icon buttons for Manage Algorithm, Settings, and Set Schedule, and a moodboard of retro computers set in greenery" loading="lazy" />
+            <figcaption>ctrl^shift style guide</figcaption>
+          </figure>
+          <div class="cards">
+            <div class="card reveal">
+              <span class="tag">color</span>
+              <h3>Dark teal to mint</h3>
+              <p>Six steps from near-black through deep teal and sage to pale mint. Dark screens with light mint for actions and selected states.</p>
+            </div>
+            <div class="card reveal">
+              <span class="tag">type</span>
+              <h3>Monospace throughout</h3>
+              <p>One monospace family in bold and regular, which fits the keyboard-shortcut name.</p>
+            </div>
+            <div class="card reveal">
+              <span class="tag">components</span>
+              <h3>A small, reusable kit</h3>
+              <p>Group tiles, pill buttons, toggles, select menus, input cards, and icon buttons for Manage Algorithm, Settings, and Set Schedule.</p>
+            </div>
+            <div class="card reveal">
+              <span class="tag">mood</span>
+              <h3>Tech in the garden</h3>
+              <p>A moodboard of retro computers set in overgrown greenery and glowing green textures.</p>
+            </div>
+          </div>
+        </section>
+
+
+        <!-- 11 · FEATURES -->
+        <section class="cs-section" id="features">
+          <span class="hand-label">11 · features</span>
+          <h2>What ctrl^shift does</h2>
+          <div class="cards">
+            <div class="card reveal">
+              <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="13" r="8" /><path d="M12 9v4l2 2M9 2h6" /></svg></div>
+              <h3>Session scheduler</h3>
+              <p>Set time limits and choose which days scrolling is allowed. Testing showed "session" wasn't immediately clear.</p>
+            </div>
+            <div class="card reveal">
+              <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="3" y="4" width="18" height="16" rx="2" /><path d="M7 9h10M7 13h10M7 17h6" /></svg></div>
+              <h3>News group feed</h3>
+              <p>Pulls Instagram and Bluesky posts on a topic, with a "Similar Posts" button to find other viewpoints. Renamed from "On This Topic."</p>
+            </div>
+            <div class="card reveal">
+              <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 21v-7M4 10V3M12 21v-9M12 8V3M20 21v-5M20 12V3M1 14h6M9 8h6M17 16h6" /></svg></div>
+              <h3>Manage algorithm</h3>
+              <p>Tag content preferences and see a chart of your engagement. "User Analysis" moved to the home screen after testing.</p>
+            </div>
+            <div class="card reveal">
+              <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7S2 12 2 12Z" /><circle cx="12" cy="12" r="3" /></svg></div>
+              <h3>Hidden Content</h3>
+              <p>A group of posts the algorithm usually keeps from you, each with a note explaining why it was hidden.</p>
+            </div>
+            <div class="card reveal">
+              <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9" /><path d="M8 14s1.5 2 4 2 4-2 4-2M9 9h.01M15 9h.01" /></svg></div>
+              <h3>Session reflection</h3>
+              <p>When a session ends, log how you feel. Moods show up later in User Analysis, because how people feel after scrolling is part of the problem, not just what they see.</p>
+            </div>
+          </div>
+        </section>
+
+
+        <!-- 12 · DEFECTS -->
+        <section class="cs-section" id="defects">
+          <span class="hand-label">12 · top defects</span>
+          <h2>What testing caught, by severity</h2>
+          <div class="table-wrap reveal">
+            <table>
+              <thead>
+                <tr><th>Location</th><th>Issue</th><th>Severity</th><th>Resolution</th></tr>
+              </thead>
+              <tbody>
+                <tr><td>News Group</td><td>"On This Topic" too vague; similar posts buttons confusing</td><td>High</td><td>Renamed to "Similar Posts"; removed dropdown</td></tr>
+                <tr><td>Manage Algorithm</td><td>Button looked greyed out; User Analysis hard to find</td><td>High</td><td>Moved User Analysis to the home screen</td></tr>
+                <tr><td>Schedule</td><td>Include/exclude logic confusing; "session" unclear</td><td>High</td><td>Removed Include; kept Exclude only</td></tr>
+                <tr><td>Log In</td><td>"Add" button mistaken for submit; explanation too long</td><td>Medium</td><td>Clarified the button; shortened the explanation</td></tr>
+                <tr><td>User Analysis</td><td>Bar graph colors unexplained; threshold setting unclear</td><td>Medium</td><td>Added a legend and inline explanation</td></tr>
+                <tr><td>Scrolling</td><td>Disabled-scroll warning text too small</td><td>Low</td><td>Increased text size</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+
+
+        <!-- 13 · REFLECTION -->
+        <section class="cs-section" id="reflection">
+          <span class="hand-label">13 · reflection</span>
+          <h2>What I learned</h2>
+          <div class="cards">
+            <div class="card reveal">
+              <span class="tag">lesson 1</span>
+              <h3>Language is design</h3>
+              <p>Many usability issues came from wording, not interaction. "Session," "On This Topic," "Include/Exclude": naming is a design decision.</p>
+            </div>
+            <div class="card reveal">
+              <span class="tag">lesson 2</span>
+              <h3>Iterating in tension</h3>
+              <p>A "same vs. contrasting opinion" split contradicted user autonomy. Building the hi-fi forced me to resolve that.</p>
+            </div>
+            <div class="card reveal">
+              <span class="tag">lesson 3</span>
+              <h3>The problem evolves</h3>
+              <p>The goal shifted from "escape the filter bubble" to "control your own social media experience," a change that only came from research.</p>
+            </div>
+          </div>
+        </section>
+
+
+        <!-- 14 · PROTOTYPE (Figma embed) -->
+        <section class="cs-section" id="prototype">
+          <span class="hand-label">14 · prototype</span>
+          <h2>Explore it yourself</h2>
+          <p>Load the Figma file below to click around, or open it in Figma.</p>
+          <!-- The iframe is only added when someone clicks "Load prototype"
+               (main.js §9), so Figma's WebGL error can't pop up on its own. -->
+          <div class="embed reveal" data-embed-src="https://embed.figma.com/design/iIownH1xTvT0DW2OszQJfq/582-Wireframes?node-id=1630-1633&amp;embed-host=share" data-embed-title="ctrl^shift Figma prototype">
+            <button class="btn btn--primary embed-load" type="button">Load prototype</button>
+          </div>
+          <p class="embed-link"><a href="https://www.figma.com/design/iIownH1xTvT0DW2OszQJfq/582-Wireframes?node-id=1630-1633&amp;t=WE1U6JLgn1zr69xA-1" target="_blank" rel="noopener">Open in Figma ↗</a></p>
+          
+          <div class="next-project reveal" style="margin-top: 40px;">
+            <div>
+              <span class="hand-label">next up</span>
+              <h3 style="margin:0;">Focus Friend: Refocus</h3>
+            </div>
+            <a class="btn btn--primary" href="refocus.html">View project →</a>
+          </div>
+        </section>
+
+      </article>
+    </div>
+  </main>
+
+
+  <footer class="site-footer" style="margin-top: 64px;">
+    <div class="container">
+      <span>© <span data-year>2026</span> Jessica Donoho · Ann Arbor, MI</span>
+      <span><a href="projects.html">← all projects</a></span>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
