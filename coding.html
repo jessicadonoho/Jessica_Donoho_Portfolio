@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<!--
+  ==========================================================================
+  CODE — coding.html
+  Front-end projects: what I built, and what the commit history shows about
+  my HTML, CSS, JS, testing, and design skills.
+  IMAGES: images/coding/ (screenshots of the live sites).
+  ==========================================================================
+-->
+<html lang="en" class="no-js">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Code — Jessica Donoho</title>
+  <meta name="description" content="Front-end projects by Jessica Donoho: a hand-coded podcast site and a phone-to-phone Love Letter card game." />
+  <link rel="icon" href="images/favicon.ico" sizes="any" />
+  <link rel="icon" href="images/favicon-32.png" type="image/png" sizes="32x32" />
+  <link rel="apple-touch-icon" href="images/apple-touch-icon.png" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;700&family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+
+<body>
+
+  <!-- ======================================================================
+       SITE HEADER
+       ====================================================================== -->
+  <header class="site-header">
+    <nav class="nav container" aria-label="Main">
+      <a class="logo" href="index.html">
+        <img src="images/logo.png" alt="" width="34" height="34" />
+        jess donoho
+      </a>
+      <button class="nav-toggle" aria-label="Open menu" aria-expanded="false" aria-controls="nav-links">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16" /></svg>
+      </button>
+      <ul class="nav-links" id="nav-links">
+        <li><a href="projects.html">Projects</a></li>
+        <li><a href="coding.html" aria-current="page">Code</a></li>
+        <li><a href="index.html#about">About</a></li>
+        <li><a href="index.html#photos">Photos</a></li>
+        <li><a href="index.html#contact">Contact</a></li>
+        <li><a href="resume.pdf" target="_blank" rel="noopener">Resume</a></li>
+      </ul>
+    </nav>
+  </header>
+
+
+  <main>
+    <section class="section">
+      <div class="container">
+        <div class="section-head reveal">
+          <span class="hand-label">field notes · code</span>
+          <h1>Code</h1>
+          <p>
+            I design better when I know how things get built. Here are two front-end projects:
+            one written by hand line by line, and one built quickly with AI, where my job was
+            deciding what to build, testing it, and fixing what didn't work.
+          </p>
+        </div>
+
+        <div class="projects">
+
+          <!-- ---------- Jess' Listening Hub (SI 539) ---------- -->
+          <article class="project reveal">
+            <div class="project-media">
+              <figure class="polaroid tilt-left taped">
+                <img src="images/coding/podcast-guessing.jpg" alt="The podcast guessing game: an episode title above a grid of podcast covers, each tagged with a genre" />
+                <figcaption>jess' listening hub · si 539</figcaption>
+              </figure>
+            </div>
+            <div>
+              <p class="kicker">Hand-coded · SI 539 final project · Apr 2026</p>
+              <h2 class="h3-like">Jess' Listening Hub</h2>
+              <p>
+                A four-page podcast site written from scratch in HTML, CSS, and JavaScript, with no
+                frameworks. It has a ranked list you can save from, a guessing game, and a quiz
+                that recommends a podcast.
+              </p>
+              <ul class="chips">
+                <li class="chip">HTML</li>
+                <li class="chip chip--sun">CSS</li>
+                <li class="chip chip--pink">JavaScript</li>
+                <li class="chip chip--sky">Accessibility</li>
+              </ul>
+              <p style="display:flex; gap:12px; flex-wrap:wrap; margin:0;">
+                <a class="btn btn--primary" href="https://jessicadonoho.github.io/final-project-w26/" target="_blank" rel="noopener">Visit the site ↗</a>
+                <a class="btn btn--ghost" href="https://github.com/jessicadonoho/final-project-w26" target="_blank" rel="noopener">Code on GitHub ↗</a>
+              </p>
+            </div>
+          </article>
+
+          <div class="code-detail reveal">
+            <h3>What I built</h3>
+            <ul class="code-list">
+              <li><strong>Guessing game.</strong> Press Start and the page shows a random episode title from one of 13 podcasts. You guess which cover it belongs to. Hint narrows the covers down to one genre, and a correct guess shows links to listen on Spotify, Apple Podcasts, and YouTube.</li>
+              <li><strong>"Podcast 4 U!" quiz.</strong> Every answer adds points to one or two listening styles. The quiz adds up the scores and recommends a podcast from the highest one. A few answers act as tie-breakers.</li>
+              <li><strong>Save-for-later ranking.</strong> Checking a podcast adds it to "My List", which is saved in the browser so it's still there when you come back.</li>
+              <li><strong>Dark mode.</strong> It follows the system setting, has a toggle that also works from the keyboard, and remembers your choice. It even swaps the decorative sound-wave images to a light version.</li>
+              <li><strong>Small touches.</strong> A collapsible FAQ, inspiration photos that zoom on hover, and custom icons for the theme toggle.</li>
+            </ul>
+          </div>
+
+          <div class="shot-grid">
+            <figure class="shot reveal"><img src="images/coding/podcast-home.jpg" alt="Home page in light mode: a peach and purple layout with inspiration photos and an FAQ" loading="lazy" /><figcaption>Home, light mode</figcaption></figure>
+            <figure class="shot reveal"><img src="images/coding/podcast-ranking-dark.jpg" alt="Ranking page in dark mode: podcast covers in cards, each with an Add to My List checkbox" loading="lazy" /><figcaption>Ranking, dark mode</figcaption></figure>
+            <figure class="shot reveal"><img src="images/coding/podcast-quiz.jpg" alt="The Podcast 4 U quiz: large, easy-to-tap answer options under each question" loading="lazy" /><figcaption>Recommendation quiz</figcaption></figure>
+            <figure class="shot reveal"><img src="images/coding/podcast-guessing.jpg" alt="Guessing game after pressing Start, with an episode title and cover options" loading="lazy" /><figcaption>Guessing game</figcaption></figure>
+          </div>
+
+          <div class="code-detail reveal">
+            <h3>What the commit history shows</h3>
+            <p>
+              21 commits over twelve days (Apr 11–22) and about 3,500 lines of code. The first
+              upload had the core pages. Later commits added the guessing game, a full dark theme,
+              and new favicons. I rewrote the recommendation page and its quiz logic, keeping the
+              old version as a reference while I rebuilt it. The last few days went to polish:
+              footer icon colors on every page, file-path fixes, and spacing. I noted
+              in the code wherever I used AI, which was for two FAQ blurbs and for collecting
+              episode titles for the game.
+            </p>
+          </div>
+
+
+          <!-- ---------- Love Letter ---------- -->
+          <article class="project project--flip reveal" style="margin-top: 48px;">
+            <div class="project-media">
+              <figure class="polaroid polaroid--fit tilt-right taped taped--pink">
+                <img src="images/coding/loveletter-turn.jpg" alt="Love Letter on a phone: your hand of two illustrated cards, the player list with heart tokens, and a Use this card bar" />
+                <figcaption>love letter · fall 2026</figcaption>
+              </figure>
+            </div>
+            <div>
+              <p class="kicker">Built with AI · Personal project · Sep 2026</p>
+              <h2 class="h3-like">Love Letter, phone to phone</h2>
+              <p>
+                A version of the card game Love Letter for 2–6 friends in the same room. Everyone
+                plays on their own phone, with no accounts and no server. The host's phone runs
+                the game and only sends each player the cards they're allowed to see.
+              </p>
+              <ul class="chips">
+                <li class="chip">AI-assisted build</li>
+                <li class="chip chip--sun">Mobile-first</li>
+                <li class="chip chip--pink">User testing</li>
+                <li class="chip chip--sky">Motion design</li>
+              </ul>
+              <p style="display:flex; gap:12px; flex-wrap:wrap; margin:0;">
+                <a class="btn btn--primary" href="https://jessicadonoho.github.io/love-letter/" target="_blank" rel="noopener">Play it ↗</a>
+                <a class="btn btn--ghost" href="https://github.com/jessicadonoho/love-letter" target="_blank" rel="noopener">Code on GitHub ↗</a>
+              </p>
+            </div>
+          </article>
+
+          <div class="code-detail reveal">
+            <h3>What I built</h3>
+            <ul class="code-list">
+              <li><strong>Rooms with a 4-letter code.</strong> One phone hosts, everyone else joins with the code or a share link. Phones connect directly to each other, and anyone who refreshes rejoins automatically.</li>
+              <li><strong>A lobby with turn order.</strong> The host drags players to set the seating, or uses the arrow keys.</li>
+              <li><strong>Clear turns.</strong> Tap a card, choose a player, then confirm with a "Use this card" bar at the bottom of the screen. Every card effect gets its own popup explaining what happened.</li>
+              <li><strong>Custom art and card names.</strong> Each card has an illustration, and four cards are renamed (Maid, Assassin, Mercenary, Viscount). The game has win and lose screens and small thumbnails of discarded cards.</li>
+              <li><strong>Built for real phones.</strong> It keeps the host's screen awake, and it's set up to stamp each deploy with a version so phones don't mix old files with new ones.</li>
+            </ul>
+          </div>
+
+          <div class="screens screens--paper code-phones">
+            <figure class="reveal"><img src="images/coding/loveletter-home.jpg" alt="Love Letter home screen with a name field, a room code field, and a Host a new room button" loading="lazy" /><figcaption>join or host</figcaption></figure>
+            <figure class="reveal"><img src="images/coding/loveletter-lobby.jpg" alt="Lobby showing room code KJJD, two players with drag handles, and a Start game button" loading="lazy" /><figcaption>lobby &amp; turn order</figcaption></figure>
+            <figure class="reveal"><img src="images/coding/loveletter-guest.jpg" alt="The other player's phone: their single card and a note that the host is playing" loading="lazy" /><figcaption>another player's view</figcaption></figure>
+          </div>
+
+          <div class="code-detail reveal">
+            <h3>Bringing the table to phones</h3>
+            <p>
+              Love Letter is a game of bluffing, guessing, and sudden knockouts. That's easy to
+              feel across a table, but easy to lose when everyone is looking at their own screen.
+              User testing showed that players needed to see the big moments happen, not just
+              read about them in a log. So every card effect gets its own popup that slides in for
+              everyone: a 🎯 when a Maid guess lands, a 👀 when someone peeks at your hand, a 🛡️
+              when you're protected.
+            </p>
+            <p>
+              Animations add the tension and the payoff. When a player is knocked out, their name
+              crumbles to dust. When the Chancellor is played, cards are dealt in and two slide
+              back to the bottom of the deck. The winner gets a burst of falling confetti and
+              hearts. People who have reduced motion turned on in their device settings get the
+              same information without the movement.
+            </p>
+          </div>
+
+          <div class="code-detail reveal">
+            <h3>What the commit history shows</h3>
+            <p>
+              Nine commits over two days (Sep 28–29). After the first working version, later
+              commits fixed and added things: a confusing Maid popup, a layout bug in Firefox,
+              new popups for the Chancellor, King, and Assassin, a rule change so the Countess
+              also counts the Chancellor, and edits to the card art. The project has about 70 automated tests
+              covering every card, players leaving mid-game, and the card layout at phone and
+              desktop sizes, and they're set up to run before every deploy.
+            </p>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ==================================================================
+         SKILLS
+         ================================================================== -->
+    <section class="section section--tinted">
+      <div class="container">
+        <div class="section-head reveal">
+          <span class="hand-label">what this adds up to</span>
+          <h2>Skills</h2>
+        </div>
+        <div class="cards">
+          <div class="card reveal">
+            <span class="tag">html</span>
+            <h3>Semantic and accessible</h3>
+            <p>Skip links, labeled form fields grouped with fieldset and legend, alt text on images, and keyboard support for custom controls like the theme toggle and the game covers.</p>
+          </div>
+          <div class="card reveal">
+            <span class="tag">css</span>
+            <h3>Systems, not one-offs</h3>
+            <p>A two-layer color system (raw colors, then named roles) that makes a full dark theme a few dozen lines. Mobile-first breakpoints, CSS grid and flexbox, and support for reduced-motion settings.</p>
+          </div>
+          <div class="card reveal">
+            <span class="tag">javascript</span>
+            <h3>Interactive features</h3>
+            <p>Data-driven pages built from arrays of podcasts, a weighted scoring quiz, a randomized game with hints, and choices saved in the browser.</p>
+          </div>
+          <div class="card reveal">
+            <span class="tag">testing</span>
+            <h3>Checking it actually works</h3>
+            <p>User testing Love Letter with players, plus automated tests for game rules and layout, cross-browser fixes, and keyboard checks. For more structured research, see the usability rounds in <a href="ctrl-shift.html">ctrl^shift</a> and <a href="trevor-project.html">The Trevor Project</a>.</p>
+          </div>
+          <div class="card reveal">
+            <span class="tag">design sense</span>
+            <h3>A clear point of view</h3>
+            <p>A playful peach and purple identity for the podcast site, and a quiet, text-first game screen where the card art carries the personality.</p>
+          </div>
+          <div class="card reveal">
+            <span class="tag">working with ai</span>
+            <h3>Directing, then verifying</h3>
+            <p>I use AI to move fast, but I decide what gets built, test it on real devices, and keep fixing until it works. I note in the code where AI helped.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+
+  <footer class="site-footer">
+    <div class="container">
+      <span>© <span data-year>2026</span> Jessica Donoho · Ann Arbor, MI</span>
+      <span><a href="index.html">← back home</a></span>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
