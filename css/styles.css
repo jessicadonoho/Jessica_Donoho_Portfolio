@@ -380,6 +380,12 @@ img { max-width: 100%; display: block; }
 .float-deco.leaf1 { top: 58%; left: 3%; width: 46px; animation: sway 6s ease-in-out infinite; }
 .float-deco.leaf2 { top: 18%; left: 44%; width: 34px; animation: sway 8s ease-in-out infinite reverse; }
 
+/* Once the side margin is too narrow for leaf1 to sit beside the text,
+   drop it into the hero's empty bottom padding instead of over the copy. */
+@media (max-width: 1260px) {
+  .float-deco.leaf1 { top: auto; bottom: 36px; width: 38px; }
+}
+
 @keyframes bob  { 50% { transform: translateY(-10px); } }
 @keyframes sway { 50% { transform: rotate(14deg) translateY(-6px); } }
 
@@ -447,6 +453,60 @@ img { max-width: 100%; display: block; }
   padding: 6px 14px; border-radius: 4px;
   transform: rotate(4deg);
   box-shadow: var(--shadow);
+}
+
+/* "cd coding" link on the Projects page: a tiny terminal window
+   with pastel window dots, a blinking cursor and a handwritten aside. */
+.term-link {
+  position: relative;
+  display: inline-flex; align-items: center; gap: 12px;
+  max-width: 100%;
+  margin-top: 6px;
+  padding: 10px 18px 10px 14px;
+  background: #2C3A2E;
+  border: 2px solid var(--moss-dark);
+  border-radius: var(--radius-sm);
+  box-shadow: 4px 4px 0 var(--fern);
+  text-decoration: none;
+  transition: transform .2s, box-shadow .2s;
+}
+.term-link:hover,
+.term-link:focus-visible {
+  transform: translate(-2px, -2px) rotate(-1deg);
+  box-shadow: 6px 6px 0 var(--blossom);
+}
+.term-dots { display: flex; gap: 5px; flex-shrink: 0; }
+.term-dots i { width: 9px; height: 9px; border-radius: 50%; background: var(--blossom); }
+.term-dots i:nth-child(2) { background: var(--golden); }
+.term-dots i:nth-child(3) { background: var(--fern); }
+.term-link code {
+  font-family: ui-monospace, "SFMono-Regular", Menlo, monospace;
+  font-size: .95rem;
+  color: #F6F1E6;
+  white-space: nowrap;
+}
+.term-prompt { color: #A9C99B; margin-right: 4px; }
+.term-cursor {
+  display: inline-block;
+  width: .55em; height: 1.05em;
+  margin-left: 3px;
+  vertical-align: text-bottom;
+  background: var(--golden);
+  animation: term-blink 1s steps(1) infinite;
+}
+@keyframes term-blink { 50% { opacity: 0; } }
+.term-note {
+  position: absolute;
+  top: 50%; left: calc(100% + 16px);           /* sits beside the button, on the page background */
+  font-family: var(--font-hand);
+  font-size: 1.2rem;
+  color: var(--sunset);
+  transform: translateY(-50%) rotate(-4deg);
+  white-space: nowrap;
+}
+@media (max-width: 720px) {
+  .term-prompt { display: none; }               /* keep it on one line on phones */
+  .term-note { left: calc(100% + 10px); font-size: 1.05rem; }
 }
 
 
@@ -1127,6 +1187,7 @@ figure.is-missing::after {
   .hero { padding-bottom: 120px; }
   .hero-note { left: 0; }
   .float-deco.leaf2 { display: none; }
+  .float-deco.leaf1 { left: auto; right: 6%; }    /* keep clear of .hero-note */
   .badge { right: 8px; }
 
   /* Collapse nav into a dropdown */
