@@ -63,6 +63,7 @@
 }
 
 
+
 /* ==========================================================================
    02. BASE / RESET
    ========================================================================== */
@@ -1318,4 +1319,19 @@ figure.is-missing::after {
   *, *::before, *::after { animation: none !important; transition: none !important; }
   html { scroll-behavior: auto; }
   .reveal { opacity: 1; transform: none; }
+}
+
+/* ==============
+Skip to main
+============== */
+.skip-link{
+  padding: 8px;
+  position: absolute;
+  border:#A64B21 solid 2px;
+  top: -1000px;
+  background: var(--paper);
+}
+.skip-link:focus{
+  top: 10px;
+  left: 10px;
 }
