@@ -58,8 +58,8 @@
   --container:    1120px;   /* max width of page content */
   --radius:       18px;     /* rounded corners for cards */
   --radius-sm:    10px;
-  --shadow:       0 10px 30px -12px rgba(44, 58, 46, 0.25);
-  --shadow-lift:  0 18px 40px -14px rgba(44, 58, 46, 0.35);
+  --shadow:       0 2px 6px -2px rgba(44, 58, 46, 0.14);   /* photos and sticky notes only */
+  --shadow-lift:  0 6px 16px -6px rgba(44, 58, 46, 0.22);  /* hover, and controls floating over images */
 }
 
 
@@ -198,6 +198,24 @@ img { max-width: 100%; display: block; }
 }
 .nav-toggle svg { width: 26px; height: 26px; }
 
+/* Sakura petals, added by main.js when a nav link is hovered or the phone menu opens */
+.petal {
+  position: fixed;
+  z-index: 60;
+  pointer-events: none;
+  opacity: 0;
+  background: linear-gradient(135deg, var(--blossom), #E89BAA);
+  border-radius: 100% 10% 100% 35%;
+  animation: petal-fall 2s ease-in forwards;
+}
+@keyframes petal-fall {
+  0%   { opacity: 0; transform: translate(0, 0) rotate(0deg); }
+  12%  { opacity: 1; }
+  35%  { transform: translate(calc(var(--drift) * .7), calc(var(--fall) * .3)) rotate(calc(var(--spin) * .35)); }
+  65%  { opacity: .9; transform: translate(calc(var(--drift) * .2), calc(var(--fall) * .65)) rotate(calc(var(--spin) * .7)); }
+  100% { opacity: 0; transform: translate(var(--drift), var(--fall)) rotate(var(--spin)); }
+}
+
 
 /* ==========================================================================
    05. BUTTONS, CHIPS, LABELS
@@ -212,7 +230,7 @@ img { max-width: 100%; display: block; }
 }
 .btn:hover { transform: translateY(-2px); }
 
-.btn--primary { background: var(--moss); color: #fff; box-shadow: var(--shadow); }
+.btn--primary { background: var(--moss); color: #fff; }
 .btn--primary:hover { background: var(--moss-dark); color: #fff; }
 
 .btn--ghost { border: 2px solid var(--ink); color: var(--ink); }
@@ -369,11 +387,55 @@ img { max-width: 100%; display: block; }
 /* ==========================================================================
    07. HOME: HERO
    ========================================================================== */
-.hero { padding: 72px 0 120px; position: relative; overflow: hidden; }
+.hero { padding: 32px 0 68px; position: relative; overflow: hidden; }
+.hero > .container { position: relative; z-index: 1; }   /* keeps content above the hills */
 
+.hero h1 { font-size: clamp(1.9rem, 3.9vw, 3.25rem); margin-bottom: .35em; }
 .hero h1 span.wave { color: var(--moss); }         /* colored word in the headline */
-.hero .lede { font-size: 1.2rem; color: var(--ink-soft); max-width: 520px; }
+.hero .hand-label { font-size: 1.35rem; }
+.hero .lede { font-size: 1.05rem; color: var(--ink-soft); max-width: 560px; margin-bottom: 12px; }
 .hero .actions { display: flex; gap: 14px; flex-wrap: wrap; margin-top: 28px; }
+
+/* Portrait: small and floated beside the headline on phones,
+   its own column from tablet up (see the media query below). */
+.hero-portrait {
+  float: right;
+  width: 108px;
+  margin: 0 2px 8px 14px;
+  padding: 6px 6px 4px;
+  border: 1px solid var(--line);
+  box-shadow: none;
+}
+.hero-portrait:hover { box-shadow: none; }
+.hero-portrait img { height: auto; aspect-ratio: 4 / 5; }   /* height: auto so the img's height attribute doesn't override the crop */
+.hero-portrait figcaption { display: none; }
+.hero-portrait.taped::before { top: -8px; width: 54px; height: 16px; }
+
+@media (min-width: 721px) {
+  .hero { padding: 40px 0 84px; }
+  .hero-copy {
+    display: grid;
+    grid-template-columns: 1fr 256px;
+    grid-template-rows: auto auto auto 1fr;   /* spare portrait height goes below the chips */
+    column-gap: 54px;
+    padding-right: 20px;
+  }
+  .hero-copy > * { grid-column: 1; }
+  .hero-copy > .hand-label { justify-self: start; }
+  .hero-copy > .chips { align-self: start; }
+  .hero-portrait {
+    float: none;
+    grid-column: 2;
+    grid-row: 1 / span 4;
+    align-self: start;
+    width: auto;
+    margin: 4px 0 0;
+    padding: 10px 10px 8px;
+  }
+  .hero-portrait img { aspect-ratio: 1; }
+  .hero-portrait figcaption { display: block; margin-top: 2px; font-size: 1.05rem; }
+  .hero-portrait.taped::before { top: -12px; width: 90px; height: 24px; }
+}
 
 /* Hand-drawn style note with an arrow, next to the portrait */
 .hero-note {
@@ -430,6 +492,14 @@ img { max-width: 100%; display: block; }
 /* ==========================================================================
    09. HOME: PROJECT CARDS
    ========================================================================== */
+#work { padding-top: 16px; }
+.work-head {
+  display: flex; justify-content: space-between; align-items: flex-end; gap: 16px;
+  margin-bottom: 28px;
+}
+.work-head h2 { margin: 0; }
+.work-head a { font-weight: 700; white-space: nowrap; }
+
 .projects { display: grid; gap: 56px; }
 
 /* One project = image on one side, text on the other.
@@ -455,6 +525,30 @@ img { max-width: 100%; display: block; }
 }
 .project .chips { margin: 14px 0 22px; }
 
+/* Whole project is clickable: the title link stretches over the entire block.
+   Add .project--link to the article and .project-link to the title's <a>. */
+.project--link { position: relative; }
+.project-link { color: inherit; text-decoration: none; transition: color .2s; }
+.project-link::after {
+  content: "";
+  position: absolute; inset: -14px;
+  z-index: 4;
+  border-radius: var(--radius);
+}
+.project-link:focus-visible { outline: none; }
+.project-link:focus-visible::after { outline: 3px solid var(--sunset); outline-offset: 2px; }
+.project-cta {
+  display: inline-flex; align-items: center; gap: 8px;
+  font-weight: 800;
+  color: var(--moss-dark);
+  transition: color .2s;
+}
+.project-cta span { transition: transform .2s; }
+.project--link:hover .project-link,
+.project--link:hover .project-cta { color: var(--sunset); }
+.project--link:hover .project-cta span { transform: translateX(6px); }
+.project--link:hover .polaroid { transform: rotate(0deg) scale(1.02); box-shadow: var(--shadow-lift); }
+
 /* "Featured" ribbon badge */
 .badge {
   position: absolute; top: 22px; right: 8px; z-index: 3;
@@ -462,7 +556,6 @@ img { max-width: 100%; display: block; }
   font-weight: 800; font-size: .75rem; letter-spacing: .08em;
   padding: 6px 14px; border-radius: 4px;
   transform: rotate(4deg);
-  box-shadow: var(--shadow);
 }
 
 /* "cd coding" link on the Projects page: a tiny terminal window
@@ -548,7 +641,7 @@ img { max-width: 100%; display: block; }
   width: 20px; height: 20px;
   border-radius: 50% 0 50% 0;                       /* leaf shape */
   background: var(--moss);
-  box-shadow: 0 0 0 5px var(--paper-deep);
+  box-shadow: 0 0 0 5px var(--paper);
   transform: rotate(-45deg);
 }
 .trail li.is-now::before { background: var(--sunset); }  /* current roles in orange */
@@ -560,7 +653,7 @@ img { max-width: 100%; display: block; }
   background: var(--card);
   border-radius: var(--radius);
   padding: 28px;
-  box-shadow: var(--shadow);
+  border: 1px solid var(--line);
   margin-bottom: 24px;
   position: relative;
 }
@@ -586,13 +679,16 @@ img { max-width: 100%; display: block; }
   display: flex; flex-wrap: wrap; justify-content: center; gap: 12px;
   margin-top: 28px;
 }
-.contact-links a {
+.contact-links a,
+.contact-links button {
   background: var(--paper); color: var(--ink);
   padding: 10px 20px; border-radius: 999px;
   font-weight: 700; text-decoration: none;
   transition: transform .2s, background .2s;
 }
-.contact-links a:hover { background: var(--golden); transform: translateY(-2px); }
+.contact-links button { border: 0; font: inherit; font-weight: 700; cursor: pointer; }
+.contact-links a:hover,
+.contact-links button:hover { background: var(--golden); transform: translateY(-2px); }
 
 
 /* ==========================================================================
@@ -601,7 +697,7 @@ img { max-width: 100%; display: block; }
 /* Rolling hills SVG that sits at the bottom of a section */
 .hills {
   position: absolute; left: 0; right: 0; bottom: -1px;
-  width: 100%; height: 120px;
+  width: 100%; height: 72px;
   pointer-events: none;
 }
 
@@ -637,14 +733,15 @@ img { max-width: 100%; display: block; }
   padding: 26px;
   background: var(--card);
   border-radius: var(--radius);
-  box-shadow: var(--shadow);
+  border: 1px solid var(--line);
 }
-.meta-grid h4 {
+.meta-grid .meta-label {
   font-family: var(--font-body);
   font-size: .78rem; font-weight: 800;
+  line-height: 1.15;
   letter-spacing: .12em; text-transform: uppercase;
   color: var(--sunset);
-  margin-bottom: 6px;
+  margin: 0 0 6px;
 }
 .meta-grid p { margin: 0; font-size: .98rem; }
 
@@ -719,7 +816,7 @@ img { max-width: 100%; display: block; }
   background: var(--card);
   border-radius: var(--radius);
   padding: 24px;
-  box-shadow: var(--shadow);
+  border: 1px solid var(--line);
   border-top: 6px solid var(--moss);
 }
 .stat:nth-child(2) { border-top-color: var(--sunset); }
@@ -738,7 +835,7 @@ img { max-width: 100%; display: block; }
   background: var(--card);
   border-radius: var(--radius);
   padding: 24px;
-  box-shadow: var(--shadow);
+  border: 1px solid var(--line);
   position: relative;
 }
 .card .icon {                        /* round icon bubble at top of a card */
@@ -762,7 +859,7 @@ img { max-width: 100%; display: block; }
   background: var(--card);
   border-radius: var(--radius);
   padding: 20px 18px;
-  box-shadow: var(--shadow);
+  border: 1px solid var(--line);
   position: relative;
   counter-increment: phase;
 }
@@ -781,7 +878,7 @@ img { max-width: 100%; display: block; }
 .owned li {
   background: var(--card); border-radius: var(--radius-sm);
   padding: 18px 20px 18px 54px; position: relative;
-  box-shadow: var(--shadow);
+  border: 1px solid var(--line);
 }
 .owned li::before {
   content: ""; position: absolute; left: 20px; top: 22px;
@@ -792,7 +889,7 @@ img { max-width: 100%; display: block; }
 .owned span { color: var(--ink-soft); font-size: .95rem; }
 
 /* --- Tables (prioritization, testing) --- */
-.table-wrap { overflow-x: auto; margin: 24px 0; border-radius: var(--radius); box-shadow: var(--shadow); }
+.table-wrap { overflow-x: auto; margin: 24px 0; border-radius: var(--radius); border: 1px solid var(--line); }
 table { width: 100%; border-collapse: collapse; background: var(--card); font-size: .95rem; }
 th, td { text-align: left; padding: 14px 18px; border-bottom: 1px solid var(--paper-deep); vertical-align: top; }
 th {
@@ -805,7 +902,7 @@ tr:last-child td { border-bottom: 0; }
 .persona {
   display: grid; grid-template-columns: 1fr; gap: 28px;
   background: var(--card); border-radius: var(--radius);
-  padding: 28px; box-shadow: var(--shadow); margin: 24px 0;
+  padding: 28px; border: 1px solid var(--line); margin: 24px 0;
 }
 .persona { align-items: start; }
 .persona .polaroid img { aspect-ratio: 1; }
@@ -865,7 +962,7 @@ tr:last-child td { border-bottom: 0; }
   background: var(--card);
   border-radius: var(--radius);
   padding: 30px 32px 26px;
-  box-shadow: var(--shadow);
+  border: 1px solid var(--line);
   margin: 0 0 20px;
   position: relative;
 }
@@ -892,7 +989,7 @@ tr:last-child td { border-bottom: 0; }
   font-family: var(--font-hand); font-size: 1.2rem;
   color: var(--ink-soft); text-align: center; margin-top: 6px;
 }
-.screens--paper img { box-shadow: var(--shadow); }
+.screens--paper img { border: 1px solid var(--line); }
 
 /* --- Hi-fi collage ---
    Phones and touch screens: a plain 2-up grid of phone screens.
@@ -918,7 +1015,7 @@ tr:last-child td { border-bottom: 0; }
 }
 .hifi-collage img {
   width: 100%; aspect-ratio: 428 / 926;
-  border-radius: var(--radius-sm); box-shadow: var(--shadow);
+  border-radius: var(--radius-sm);
   transition: box-shadow .5s var(--ds-ease);
 }
 .hifi-collage figcaption {
@@ -982,7 +1079,7 @@ tr:last-child td { border-bottom: 0; }
 .embed iframe {
   width: 100%; height: 100%; display: block;
   border: 1px solid rgba(0, 0, 0, 0.1); border-radius: var(--radius-sm);
-  box-shadow: var(--shadow); background: var(--card);
+  background: var(--card);
 }
 
 /* --- Wireframe tabs (Lo-fi / Mid-fi) --- */
@@ -997,7 +1094,7 @@ tr:last-child td { border-bottom: 0; }
   transition: background .2s, color .2s;
 }
 .wf-tab:hover { color: var(--ink); }
-.wf-tab[aria-selected="true"] { background: var(--moss); color: #fff; box-shadow: var(--shadow); }
+.wf-tab[aria-selected="true"] { background: var(--moss); color: #fff; }
 .wf-tab:focus-visible, .carousel-btn:focus-visible, .carousel-dots button:focus-visible {
   outline: 3px solid var(--golden); outline-offset: 2px;
 }
@@ -1059,7 +1156,7 @@ tr:last-child td { border-bottom: 0; }
   padding: 14px;
   background: #fff;
   border-radius: var(--radius);
-  box-shadow: var(--shadow);
+  border: 1px solid var(--line);
   overflow: hidden;
   transition: box-shadow .6s var(--ds-ease), opacity .6s var(--ds-ease);
 }
@@ -1120,7 +1217,7 @@ tr:last-child td { border-bottom: 0; }
    Once you drop the real file into /images, the placeholder disappears.
    ========================================================================== */
 .shot { margin: 24px 0; }
-.shot img { width: 100%; border-radius: var(--radius-sm); box-shadow: var(--shadow); }
+.shot img { width: 100%; border-radius: var(--radius-sm); border: 1px solid var(--line); }
 .shot--narrow { max-width: 560px; margin-inline: auto; }   /* near-square images that would tower at full width */
 .shot figcaption { font-size: .9rem; color: var(--ink-soft); margin-top: 10px; text-align: center; }
 
@@ -1180,7 +1277,6 @@ figure.is-missing::after {
   .carousel-btn { width: 46px; height: 46px; font-size: 1.3rem; }
   .carousel-btn.prev { left: -18px; }
   .carousel-btn.next { right: -18px; }
-  .hero { padding-bottom: 140px; }
   .hero-note { left: -40px; }
   .float-deco.leaf2 { display: block; }
   .float-deco.leaf1 { left: 3%; right: auto; }

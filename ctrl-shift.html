@@ -8,6 +8,7 @@
     #overview     problem + design question
     #process      six-step process
     #interviews   interview research + key findings
+    #competitive  competitive analysis + what the solution had to support
     #personas     Cautious Cam + Easy-going Emily
     #flows        user flow
     #evolution    how the design changed stage to stage
@@ -28,7 +29,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>ctrl^shift — Jessica Donoho</title>
-  <meta name="description" content="An interaction design case study about helping people take back control of their social media algorithms: interviews, personas, paper prototypes, hi-fi design, and three rounds of usability testing." />
+  <meta name="description" content="An interaction design case study about helping people take back control of their social media algorithms: interviews, personas, paper prototypes, hi-fi design, and two rounds of usability testing that resolved six defects." />
   <link rel="icon" href="images/favicon.ico" sizes="any" />
   <link rel="icon" href="images/favicon-32.png" type="image/png" sizes="32x32" />
   <link rel="apple-touch-icon" href="images/apple-touch-icon.png" />
@@ -83,19 +84,19 @@
 
         <div class="meta-grid">
           <div>
-            <h4>My role</h4>
+            <p class="meta-label">My role</p>
             <p>UX Designer / Researcher</p>
           </div>
           <div>
-            <h4>Team</h4>
+            <p class="meta-label">Team</p>
             <p>Independent</p>
           </div>
           <div>
-            <h4>Timeline</h4>
+            <p class="meta-label">Timeline</p>
             <p>Jan – Apr 2026<br />Interaction Design course</p>
           </div>
           <div>
-            <h4>Tools</h4>
+            <p class="meta-label">Tools</p>
             <p>Paper · Figma</p>
           </div>
         </div>
@@ -116,6 +117,7 @@
           <li><a href="#overview">Overview</a></li>
           <li><a href="#process">Process</a></li>
           <li><a href="#interviews">Interviews</a></li>
+          <li><a href="#competitive">Competitive analysis</a></li>
           <li><a href="#personas">Personas</a></li>
           <li><a href="#flows">User flow</a></li>
           <li><a href="#evolution">Design evolution</a></li>
@@ -142,8 +144,8 @@
             <p>
               Social media users, especially on Instagram, need a way to take back control of
               how they use it. Current algorithms interfere with their goals and can lead to
-              doomscrolling and biased information. That affects how they talk to the people
-              they know and how they see the world every day.
+              doomscrolling and biased information. I designed ctrl^shift to give them that control,
+              and two rounds of usability testing surfaced six defects that I resolved in the final design.
             </p>
           </div>
 
@@ -153,9 +155,9 @@
           </blockquote>
 
           <div class="stats">
+            <div class="stat reveal"><div class="num">6</div><p class="label">usability defects resolved</p><p>Three high severity, two medium, and one low, from confusing names to small text.</p></div>
+            <div class="stat reveal"><div class="num">2</div><p class="label">rounds of usability testing</p><p>At different fidelities, with about three to five participants per round.</p></div>
             <div class="stat reveal"><div class="num">3</div><p class="label">user interviews</p><p>Semi-structured, after two mock interviews to refine the questions.</p></div>
-            <div class="stat reveal"><div class="num">3</div><p class="label">rounds of testing</p><p>Tracking error rates and qualitative feedback to drive revisions.</p></div>
-            <div class="stat reveal"><div class="num">6</div><p class="label">defects resolved</p><p>From high-severity naming issues to small text-size fixes.</p></div>
           </div>
         </section>
 
@@ -170,7 +172,7 @@
             <li class="reveal"><h3>Personas &amp; scenarios</h3><p>A cautious skeptic and an easy-going adopter, with scenario narratives to guide decisions.</p></li>
             <li class="reveal"><h3>Paper prototype</h3><p>Explored information architecture and flows on paper before going digital.</p></li>
             <li class="reveal"><h3>Wireframe → hi-fi</h3><p>Iterated from rough wireframes to a full hi-fi prototype in Figma.</p></li>
-            <li class="reveal"><h3>Usability testing</h3><p>Three rounds with real participants, tracking errors and feedback.</p></li>
+            <li class="reveal"><h3>Usability testing</h3><p>Two rounds at different fidelities, with about three to five participants each.</p></li>
           </ol>
         </section>
 
@@ -220,9 +222,55 @@
         </section>
 
 
-        <!-- 04 · PERSONAS -->
+        <!-- 04 · COMPETITIVE ANALYSIS -->
+        <section class="cs-section" id="competitive">
+          <span class="hand-label">04 · competitive analysis</span>
+          <h2>What already exists, and where it falls short</h2>
+          <p>
+            I compared a direct competitor, the manual advice people find when they try to escape
+            a filter bubble, and an analogous tool that labels who you're seeing online.
+          </p>
+          <div class="cards">
+            <div class="card reveal">
+              <span class="tag">direct competitor</span>
+              <h3>Ground News</h3>
+              <p>Shows which outlets cover a topic and how they lean, highlighting blind spots. Easy to browse by topic, but blind spots remain and some features are hard to intuit.</p>
+            </div>
+            <div class="card reveal">
+              <span class="tag">manual approach</span>
+              <h3>Do-it-yourself fixes</h3>
+              <p>VPNs, new accounts, clearing cookies, and fact-checking. These build media literacy, but they take a lot of time and can take the joy out of social media.</p>
+            </div>
+            <div class="card reveal">
+              <span class="tag">analogous tool</span>
+              <h3>Shinigami Eyes</h3>
+              <p>A browser extension that color-codes social accounts to keep people informed and safe. Easy to use across platforms, but relying on user feedback can make its labels unreliable.</p>
+            </div>
+          </div>
+
+          <h3 style="margin-top: 28px;">What the solution had to support</h3>
+          <ul>
+            <li>Gathering varied viewpoints</li>
+            <li>Organizing content by theme and intended audience</li>
+            <li>Identifying the user</li>
+            <li>Finding new content</li>
+            <li>Giving control to the user</li>
+          </ul>
+          <p>
+            You can see those needs in the final design: Similar Posts for varied viewpoints, groups
+            for themes, Hidden Content for finding something new, and Manage Algorithm for control.
+          </p>
+
+          <blockquote class="quote reveal" style="margin-top: 36px;">
+            <p>Does taking away the manual effort of escaping the filter bubble reduce growth in media literacy? What if the friction is necessary?</p>
+            <cite>A question this analysis left me with</cite>
+          </blockquote>
+        </section>
+
+
+        <!-- 05 · PERSONAS -->
         <section class="cs-section" id="personas">
-          <span class="hand-label">04 · personas</span>
+          <span class="hand-label">05 · personas</span>
           <h2>Two ways of living with the algorithm</h2>
           <p>
             I compared responses across participants to find patterns in behaviors, motivations,
@@ -239,9 +287,9 @@
         </section>
 
 
-        <!-- 05 · USER FLOW -->
+        <!-- 06 · USER FLOW -->
         <section class="cs-section" id="flows">
-          <span class="hand-label">05 · user flow</span>
+          <span class="hand-label">06 · user flow</span>
           <h2>Mapping the path before drawing screens</h2>
           <p>
             The user flow mapped each step from entry to completing core tasks. It showed me
@@ -254,9 +302,9 @@
         </section>
 
 
-        <!-- 06 · DESIGN EVOLUTION -->
+        <!-- 07 · DESIGN EVOLUTION -->
         <section class="cs-section" id="evolution">
-          <span class="hand-label">06 · design evolution</span>
+          <span class="hand-label">07 · design evolution</span>
           <h2>How the design found its shape</h2>
           <div class="cards">
             <div class="card reveal"><span class="tag">stage 01</span><h3>Paper: a rotary dial</h3><p>Groups sat in a circle, a nod to analog phones. Fast to iterate, but it wouldn't scale.</p></div>
@@ -267,31 +315,25 @@
         </section>
 
 
-        <!-- 07 · PAPER PROTOTYPE -->
+        <!-- 08 · PAPER PROTOTYPE -->
         <section class="cs-section" id="paper">
-          <span class="hand-label">07 · paper prototype</span>
+          <span class="hand-label">08 · paper prototype</span>
           <h2>Eight screens on a table</h2>
           <p>
             Before any digital wireframes, I drew an eight-screen paper prototype, played the wizard behind the curtain, and tested it with one user in an informal session.
           </p>
           <div class="screens screens--paper">
-            <figure class="reveal"><img src="images/ctrl-shift/paper_home.png" alt="Paper home screen with groups arranged in a circle around a dial" loading="lazy" /><figcaption>home dial</figcaption></figure>
-            <figure class="reveal"><img src="images/ctrl-shift/paper_topics.png" alt="Paper News group screen with a post, fact check and On This Topic buttons, an AI tagline, and a topic dropdown" loading="lazy" /><figcaption>news group</figcaption></figure>
-            <figure class="reveal"><img src="images/ctrl-shift/paper_settings.png" alt="Paper Settings screen with disable scroll, trusted news sources, fact-check preference, and group management" loading="lazy" /><figcaption>settings</figcaption></figure>
-            <figure class="reveal"><img src="images/ctrl-shift/timer.png" alt="Paper Set a Timer screen with schedule, minutes per day, minutes per session, and what the timer affects" loading="lazy" /><figcaption>set a timer</figcaption></figure>
-          </div>
-          <div class="screens screens--paper">
-            <figure class="reveal"><img src="images/ctrl-shift/algorithm.png" alt="Paper View Algorithm screen with content you see, see less of, and political and sensitive content toggles" loading="lazy" /><figcaption>view algorithm</figcaption></figure>
-            <figure class="reveal"><img src="images/ctrl-shift/like_this.png" alt="Paper On This Topic screen splitting posts into Agree and Disagree" loading="lazy" /><figcaption>on this topic</figcaption></figure>
-            <figure class="reveal"><img src="images/ctrl-shift/analytics.png" alt="Paper User Analysis screen showing content that keeps your attention, ads you see, and information being sold" loading="lazy" /><figcaption>user analysis</figcaption></figure>
+            <figure class="reveal"><img src="images/ctrl-shift/paper_home.png" alt="Paper home screen with groups arranged in a circle around a dial" loading="lazy" /><figcaption>the dial, which later broke navigation</figcaption></figure>
+            <figure class="reveal"><img src="images/ctrl-shift/timer.png" alt="Paper Set a Timer screen with schedule, minutes per day, minutes per session, and what the timer affects" loading="lazy" /><figcaption>"timer," which became "schedule"</figcaption></figure>
+            <figure class="reveal"><img src="images/ctrl-shift/like_this.png" alt="Paper On This Topic screen splitting posts into Agree and Disagree" loading="lazy" /><figcaption>"on this topic," later renamed</figcaption></figure>
           </div>
         </section>
 
 
-        <!-- 08 · WIREFRAMES, HI-FI & TESTING -->
+        <!-- 09 · WIREFRAMES, HI-FI & TESTING -->
         <section class="cs-section" id="hifi">
-          <span class="hand-label">08 · hi-fi &amp; testing</span>
-          <h2>Wireframes, hi-fi, and three rounds of testing</h2>
+          <span class="hand-label">09 · hi-fi &amp; testing</span>
+          <h2>Wireframes, hi-fi, and two rounds of testing</h2>
 
           <h3 style="margin-top: 28px;">Creating the wireframe</h3>
           <p>
@@ -320,11 +362,11 @@
         </section>
 
 
-        <!-- 09 · FINAL DESIGN
+        <!-- 10 · FINAL DESIGN
              Screens exported from Figma. Until a file exists, its slot shows a
              dashed box with the file name to add to images/ctrl-shift/. -->
         <section class="cs-section" id="final">
-          <span class="hand-label">09 · final design</span>
+          <span class="hand-label">10 · final design</span>
           <h2>The final design, flow by flow</h2>
           <p>
             The overall flow didn't change much from the user flow to the hi-fi prototype. What
@@ -392,9 +434,9 @@
         </section>
 
 
-        <!-- 10 · DESIGN SYSTEM -->
+        <!-- 11 · DESIGN SYSTEM -->
         <section class="cs-section" id="system">
-          <span class="hand-label">10 · design system</span>
+          <span class="hand-label">11 · design system</span>
           <h2>A brand about shifting control</h2>
           <p>
             The style guide sets up ctrl^shift as a brand about shifting control from social media
@@ -430,9 +472,9 @@
         </section>
 
 
-        <!-- 11 · FEATURES -->
+        <!-- 12 · FEATURES -->
         <section class="cs-section" id="features">
-          <span class="hand-label">11 · features</span>
+          <span class="hand-label">12 · features</span>
           <h2>What ctrl^shift does</h2>
           <div class="cards">
             <div class="card reveal">
@@ -464,9 +506,9 @@
         </section>
 
 
-        <!-- 12 · DEFECTS -->
+        <!-- 13 · DEFECTS -->
         <section class="cs-section" id="defects">
-          <span class="hand-label">12 · top defects</span>
+          <span class="hand-label">13 · top defects</span>
           <h2>What testing caught, by severity</h2>
           <div class="table-wrap reveal">
             <table>
@@ -486,9 +528,9 @@
         </section>
 
 
-        <!-- 13 · REFLECTION -->
+        <!-- 14 · REFLECTION -->
         <section class="cs-section" id="reflection">
-          <span class="hand-label">13 · reflection</span>
+          <span class="hand-label">14 · reflection</span>
           <h2>What I learned</h2>
           <div class="cards">
             <div class="card reveal">
@@ -507,12 +549,21 @@
               <p>The goal shifted from "escape the filter bubble" to "control your own social media experience," a change that only came from research.</p>
             </div>
           </div>
+
+          <h3 style="margin-top: 36px;">What I'd do differently</h3>
+          <div class="cards">
+            <div class="card reveal">
+              <span class="tag">what I'd change</span>
+              <h3>Weigh feedback against the research</h3>
+              <p>At points I listened to test participants too closely, which pulled the design away from my initial research and the people I was designing for. After one tester said they didn't want to see opinions they disagreed with, I split Similar Posts in two, then went back to showing both. Next time I'd check feedback like that against the research and intended users before changing direction.</p>
+            </div>
+          </div>
         </section>
 
 
-        <!-- 14 · PROTOTYPE (Figma embed) -->
+        <!-- 15 · PROTOTYPE (Figma embed) -->
         <section class="cs-section" id="prototype">
-          <span class="hand-label">14 · prototype</span>
+          <span class="hand-label">15 · prototype</span>
           <h2>Explore it yourself</h2>
           <p>Load the Figma file below to click around, or open it in Figma.</p>
           <!-- The iframe is only added when someone clicks "Load prototype"
@@ -538,7 +589,7 @@
 
   <footer class="site-footer" style="margin-top: 64px;">
     <div class="container">
-      <span>© <span data-year>2026</span> Jessica Donoho · Ann Arbor, MI</span>
+      <span>© <span data-year>2026</span> Jessica Donoho · Ypsilanti, MI</span>
       <span><a href="projects.html">← all projects</a></span>
     </div>
   </footer>

@@ -6,7 +6,7 @@
   PAGE MAP (search these names to jump to a section):
     <head>            fonts, page title, description
     SITE HEADER       logo + navigation (copy any change to every page!)
-    HERO              name, tagline, portrait
+    HERO              name, tagline, keywords, portrait, rolling hills
     ABOUT             short bio + "currently" sticky note
     WORK              project cards (add new projects here)
     PHOTO ROLL        film-strip photo gallery
@@ -76,44 +76,26 @@
          HERO
          ==================================================================== -->
     <section class="hero">
-      <!-- Floating decorations (purely visual) -->
-      <svg class="float-deco sun" viewBox="0 0 100 100" aria-hidden="true">
-        <circle cx="50" cy="50" r="22" fill="#F2C46D" />
-        <g stroke="#F2C46D" stroke-width="5" stroke-linecap="round">
-          <path d="M50 8v12M50 80v12M8 50h12M80 50h12M20 20l8 8M72 72l8 8M20 80l8-8M72 28l8-8" />
-        </g>
-      </svg>
-      <svg class="float-deco leaf1" viewBox="0 0 40 40" aria-hidden="true"><path d="M6 34C6 16 16 6 34 6 34 24 24 34 6 34Z" fill="#6B8F5E" /><path d="M6 34 22 18" stroke="#F6F1E6" stroke-width="2" /></svg>
-      <svg class="float-deco leaf2" viewBox="0 0 40 40" aria-hidden="true"><path d="M6 34C6 16 16 6 34 6 34 24 24 34 6 34Z" fill="#F2C9CF" /></svg>
-
-      <div class="container grid-2">
-        <!-- Left: intro text -->
-        <div class="reveal">
+      <div class="container">
+        <div class="hero-copy reveal">
+          <!-- First in the markup so it floats beside the headline on phones -->
+          <figure class="polaroid tilt-right taped hero-portrait">
+            <img src="images/photos/jessica_d-hero.jpg" alt="Portrait of Jessica Donoho" width="1100" height="822" />
+            <figcaption>okinawa, jp</figcaption>
+          </figure>
           <span class="hand-label">hi there, i'm jess!</span>
           <h1>I research how people <span class="wave">really</span> work, then help teams build for it.</h1>
           <p class="lede">
-            UX researcher and product-minded designer studying User-Centered Agile
-            Development at the University of Michigan School of Information.
+            UX researcher and product-minded designer at the University of Michigan
+            School of Information.
           </p>
-          <div class="actions">
-            <a class="btn btn--primary" href="#work">See my work ↓</a>
-            <a class="btn btn--ghost" href="#about">About me</a>
-          </div>
-        </div>
-
-        <!-- Right: portrait in a polaroid with viewfinder corners -->
-        <div class="reveal" style="position: relative; max-width: 380px; justify-self: center;">
-          <div class="viewfinder">
-            <span class="vf-corner tl"></span><span class="vf-corner tr"></span>
-            <span class="vf-corner bl"></span><span class="vf-corner br"></span>
-
-            <!-- PORTRAIT: save your photo as images/portrait.jpg -->
-            <figure class="polaroid tilt-right taped">
-              <img src="images/photos/jessica_d.jpg" alt="Portrait of Jessica Donoho" />
-              <figcaption>ann arbor, mi</figcaption>
-            </figure>
-          </div>
-          <p class="exif" style="text-align:center; margin-top:8px;">f/1.8 · 1/250 · ISO 200</p>
+          <ul class="chips">
+            <li class="chip">User-obsessed products</li>
+            <li class="chip chip--sun">Research-driven teams</li>
+            <li class="chip chip--sky">Tech</li>
+            <li class="chip chip--pink">Health</li>
+            <li class="chip chip--sun">Entertainment</li>
+          </ul>
         </div>
       </div>
 
@@ -133,17 +115,20 @@
          ==================================================================== -->
     <section class="section section--tinted" id="work">
       <div class="container">
-        <div class="section-head reveal">
-          <span class="hand-label">field notes · selected work</span>
-          <h2>Projects</h2>
-          <p>Research, product, and design work, with notes on how each project was run and what the team shipped.</p>
-          <p><a href="projects.html">See all projects →</a></p>
+        <div class="work-head">
+          <div>
+            <span class="hand-label">selected work</span>
+            <h2>Projects</h2>
+          </div>
+          <a href="projects.html">See all projects →</a>
         </div>
 
         <div class="projects">
 
-          <!-- ---------- PROJECT 1: The Trevor Project (featured) ---------- -->
-          <article class="project reveal">
+          <!-- ---------- PROJECT 1: The Trevor Project (featured) ----------
+               No .reveal: it starts partly on the first screen, and fading it in
+               would leave a blank band on short laptop screens. -->
+          <article class="project project--link">
             <div class="project-media">
               <span class="badge">FEATURED</span>
               <figure class="polaroid tilt-left">
@@ -154,7 +139,7 @@
             </div>
             <div>
               <p class="kicker">The Trevor Project · Internship</p>
-              <h3>Running a dashboard redesign for crisis-support supervisors</h3>
+              <h3><a class="project-link" href="trevor-project.html">Running a dashboard redesign for crisis-support supervisors</a></h3>
               <p>
                 I planned and coordinated the redesign of an internal monitoring dashboard,
                 from interviews and heuristic reviews through prioritization, prototyping, and
@@ -166,47 +151,47 @@
                 <li class="chip chip--pink">Prioritization</li>
                 <li class="chip chip--sky">Design systems</li>
               </ul>
-              <a class="btn btn--primary" href="trevor-project.html">Read the case study →</a>
+              <span class="project-cta" aria-hidden="true">Read the case study <span>→</span></span>
             </div>
           </article>
 
-          <!-- ---------- PROJECT 2: Focus Friend ---------- -->
-          <article class="project project--flip reveal">
+          <!-- ---------- PROJECT 2: ctrl^shift ---------- -->
+          <article class="project project--link project--flip reveal">
             <div class="project-media">
-              <figure class="polaroid tilt-right taped taped--pink">
-                <img src="images/refocus/cover.png" alt="Three Focus Friend screens: the Focus Areas toggles, the bean's room with the Focus button, and the Goals clipboard" />
-                <figcaption>focus friend: refocus</figcaption>
-              </figure>
-            </div>
-            <div>
-              <p class="kicker">UX Research · Concept</p>
-              <h3>Focus Friend: Refocus</h3>
-              <p>Why do people stop opening a focus app they love? Research, competitive analysis, and new goals, badges, and focus areas to keep motivation going.</p>
-              <ul class="chips">
-                <li class="chip">Habit design</li>
-                <li class="chip chip--sun">Research</li>
-              </ul>
-              <a class="btn btn--ghost" href="refocus.html">Read the case study →</a>
-            </div>
-          </article>
-
-          <!-- ---------- PROJECT 3: ctrl^shift ---------- -->
-          <article class="project reveal">
-            <div class="project-media">
-              <figure class="polaroid tilt-left">
+              <figure class="polaroid tilt-right taped">
                 <img src="images/ctrl-shift/overview.png" alt="ctrl^shift app screens: home, onboarding, and user analysis" />
                 <figcaption>ctrl^shift</figcaption>
               </figure>
             </div>
             <div>
               <p class="kicker">Interaction Design</p>
-              <h3>ctrl^shift</h3>
-              <p>Interviews, personas, paper and hi-fi prototypes, and three rounds of usability testing for an app that helps people see past their social media algorithm.</p>
+              <h3><a class="project-link" href="ctrl-shift.html">ctrl^shift</a></h3>
+              <p>An app that helps people see past their social media algorithm. Two rounds of usability testing surfaced six defects, from confusing labels to hard-to-find features, and I resolved them all.</p>
               <ul class="chips">
                 <li class="chip">IxD</li>
                 <li class="chip chip--sky">Digital wellbeing</li>
               </ul>
-              <a class="btn btn--ghost" href="ctrl-shift.html">Read the case study →</a>
+              <span class="project-cta" aria-hidden="true">Read the case study <span>→</span></span>
+            </div>
+          </article>
+
+          <!-- ---------- PROJECT 3: Focus Friend ---------- -->
+          <article class="project project--link reveal">
+            <div class="project-media">
+              <figure class="polaroid tilt-left taped taped--pink">
+                <img src="images/refocus/cover.png" alt="Three Focus Friend screens: the Focus Areas toggles, the bean's room with the Focus button, and the Goals clipboard" />
+                <figcaption>focus friend: refocus</figcaption>
+              </figure>
+            </div>
+            <div>
+              <p class="kicker">UX Design · Untested concept</p>
+              <h3><a class="project-link" href="refocus.html">Focus Friend: Refocus</a></h3>
+              <p>Why do people stop opening a focus app they love? Research, competitive analysis, and new goals, badges, and focus areas to keep motivation going.</p>
+              <ul class="chips">
+                <li class="chip">Habit design</li>
+                <li class="chip chip--sun">Research</li>
+              </ul>
+              <span class="project-cta" aria-hidden="true">Read the case study <span>→</span></span>
             </div>
           </article>
 
@@ -230,8 +215,8 @@
           </p>
           <p>
             Now I'm a Master's student at the University of Michigan School of Information,
-            focusing on UX research and User-Centered Agile Development. I'm drawn to
-            mission-driven work, where good research can make a real difference in people's day.
+            focusing on UX research and human-computer interaction. I'm drawn to
+            research-driven teams, where good research can make a real difference in people's day.
           </p>
           <p>
             Away from the laptop I'm writing, doing fiber arts, reading manga, or out with my
@@ -246,9 +231,8 @@
           <ul>
             <li>M.S. Information @ UMSI, class of 2027</li>
             <li>GSI for <em>Designing Complex Websites</em></li>
-            <li>Returning Student Ambassador</li>
             <li>Practicing Japanese (JLPT N3)</li>
-            <li>Looking for UX research roles at mission-driven orgs</li>
+            <li>Looking for UX research and product roles</li>
           </ul>
         </aside>
       </div>
@@ -277,7 +261,7 @@
             <figure><img src="images/photos/photoex4.jpg" alt="curled up dead leaf" loading="lazy" /><figcaption>frame 04 · near winter</figcaption></figure>
             <figure><img src="images/photos/photoex5.jpg" alt="boat in a jungle overgrown with foliage" loading="lazy" /><figcaption>frame 05 · jungle boat</figcaption></figure>
             <figure><img src="images/photos/photoex6.jpg" alt="flowers at a flower stand" loading="lazy" /><figcaption>frame 06 · for a lover</figcaption></figure>
-            <figure><img src="images/photos/photoex7.jpg" alt="building with cute grafiti" loading="lazy" /><figcaption>frame 06 · seoul city walk</figcaption></figure>
+            <figure><img src="images/photos/photoex7.jpg" alt="building with cute grafiti" loading="lazy" /><figcaption>frame 07 · seoul city walk</figcaption></figure>
 
           </div>
         </div>
@@ -302,19 +286,19 @@
           <h2>Experience</h2>
           <ol class="trail">
             <li class="is-now">
-              <span class="when">2026 – present</span>
+              <span class="when">Aug 2026 – present</span>
               <h3>Graduate Student Instructor · UMSI</h3>
               <p>GSI for Designing Complex Websites.</p>
             </li>
             <li>
               <span class="when">Summer 2026</span>
-              <h3>Intern · The Trevor Project</h3>
+              <h3>UX Design Intern · The Trevor Project</h3>
               <p>Planned and co-led the redesign of an internal crisis-monitoring dashboard: interviews, heuristic evaluation, prioritization, design system, and hi-fi prototype.</p>
             </li>
-            <li class="is-now">
-              <span class="when">Sept 2025 – present</span>
-              <h3>Event Ambassador · U-M Student Affairs</h3>
-              <p>Counsel prospective students and connect them with programs.</p>
+            <li>
+              <span class="when">Sept 2025 – May 2026</span>
+              <h3>Event Ambassador · UMSI Student Affairs</h3>
+              <p>Represented the graduate program at recruitment events, advising prospective students.</p>
             </li>
             <li>
               <span class="when">Aug 2023 – Aug 2025</span>
@@ -329,7 +313,7 @@
           <h2>Education</h2>
           <div class="edu-card">
             <h3>M.S. Information · University of Michigan</h3>
-            <p>User-Centered Agile Development · Aug 2025 – May 2027</p>
+            <p>Human-Computer Interaction · Aug 2025 – May 2027</p>
           </div>
           <div class="edu-card">
             <h3>B.S. Cognitive Science · UC Davis</h3>
@@ -361,11 +345,11 @@
         <div class="contact-card reveal">
           <span class="hand-label" style="color: var(--golden);">say hello!</span>
           <h2>Let's make something thoughtful together</h2>
-          <p>I'm looking for UX research and product roles at mission-driven organizations. I'd love to hear from you.</p>
+          <p>I'm looking for UX research and product roles at user-obsessed, research-driven companies in tech, health, and entertainment. I'd love to hear from you.</p>
           <div class="contact-links">
             <a href="mailto:jdonoho@umich.edu">jdonoho@umich.edu</a>
-            <!-- TODO: replace with your LinkedIn profile URL -->
-            <a href="https://www.linkedin.com/in/YOUR-HANDLE" target="_blank" rel="noopener">LinkedIn ↗</a>
+            <button class="copy-email" type="button" data-copy="jdonoho@umich.edu" aria-live="polite">Copy email</button>
+            <a href="https://www.linkedin.com/in/jessica-donoho/" target="_blank" rel="noopener">LinkedIn ↗</a>
             <a href="https://www.flickr.com/photos/201592639@N07/" target="_blank" rel="noopener">Flickr ↗</a>
             <a href="resume.pdf" target="_blank" rel="noopener">Resume (PDF) ↗</a>
           </div>
@@ -381,8 +365,8 @@
        ====================================================================== -->
   <footer class="site-footer">
     <div class="container">
-      <span>© <span data-year>2026</span> Jessica Donoho · Ann Arbor, MI</span>
-      <span>Hand-coded with care · <a href="#top" onclick="window.scrollTo(0,0);return false;">back to top ↑</a></span>
+      <span>© <span data-year>2026</span> Jessica Donoho · Ypsilanti, MI</span>
+      <span>Built with care · <a href="#top" onclick="window.scrollTo(0,0);return false;">back to top ↑</a></span>
     </div>
   </footer>
 

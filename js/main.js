@@ -13,6 +13,8 @@
      8. Image carousels (arrow buttons, dots, counter)
      9. Click-to-load embeds (e.g. the Figma prototype)
     10. Hover hints (fade once someone has tried the hi-fi collage)
+    11. Sakura petals (nav link hover, or opening the phone menu)
+    12. Copy-email button
    ========================================================================== */
 
 (function () {
@@ -224,5 +226,107 @@
   collages.forEach((collage) => {
     collage.addEventListener("pointerenter", hintSeen, { once: true });
     collage.addEventListener("focusin", hintSeen, { once: true });
+  });
+
+
+  /* ------------------------------------------------------------------------
+     11. SAKURA PETALS
+     Hovering a nav link with a mouse, or opening the phone menu, drops a few
+     petals from that control. The cooldown and on-screen cap stop a sweep
+     across the nav from flooding the page. Petals go on <body> because the
+     header's backdrop-filter would otherwise trap position: fixed.
+     Look of the petals: .petal in css/styles.css.
+     ------------------------------------------------------------------------ */
+  const MAX_PETALS = 18;       // most petals on screen at once
+  const COOLDOWN_MS = 500;     // shortest gap between bursts
+  const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
+  const between = (min, max) => min + Math.random() * (max - min);
+  let petalCount = 0;
+  let lastBurst = -Infinity;
+
+  function releasePetals(source) {
+    const now = performance.now();
+    if (reducedMotion.matches || now - lastBurst < COOLDOWN_MS) return;
+
+    const burst = Math.min(4 + Math.floor(Math.random() * 3), MAX_PETALS - petalCount);
+    if (burst <= 0) return;
+    lastBurst = now;
+
+    const box = source.getBoundingClientRect();
+    for (let i = 0; i < burst; i++) {
+      const petal = document.createElement("span");
+      const duration = between(1500, 2200);
+      const delay = between(0, 250);
+      const size = between(9, 14);
+
+      petal.className = "petal";
+      petal.setAttribute("aria-hidden", "true");
+      petal.style.left = `${between(box.left, box.right)}px`;
+      petal.style.top = `${box.bottom - 4}px`;
+      petal.style.width = `${size}px`;
+      petal.style.height = `${size * 0.8}px`;
+      petal.style.animationDuration = `${duration}ms`;
+      petal.style.animationDelay = `${delay}ms`;
+      petal.style.setProperty("--drift", `${between(-70, 70)}px`);
+      petal.style.setProperty("--fall", `${between(220, 360)}px`);
+      petal.style.setProperty("--spin", `${between(-300, 300)}deg`);
+
+      document.body.appendChild(petal);
+      petalCount++;
+      setTimeout(() => {
+        petal.remove();
+        petalCount--;
+      }, duration + delay);
+    }
+  }
+
+  document.querySelectorAll(".nav-links a").forEach((link) => {
+    link.addEventListener("pointerenter", (e) => {
+      if (e.pointerType === "mouse") releasePetals(link);
+    });
+  });
+
+  if (toggle && links) {
+    toggle.addEventListener("click", () => {
+      if (links.classList.contains("is-open")) releasePetals(toggle);
+    });
+  }
+
+
+  /* ------------------------------------------------------------------------
+     12. COPY-EMAIL BUTTON
+     Markup: <button class="copy-email" data-copy="address">. Shows "Copied!"
+     for two seconds. Browsers only offer the modern clipboard on https, so
+     execCommand is the fallback for other pages.
+     ------------------------------------------------------------------------ */
+  function copyWithSelection(text) {
+    const field = document.createElement("textarea");
+    field.value = text;
+    field.setAttribute("readonly", "");
+    field.style.position = "fixed";
+    field.style.opacity = "0";
+    document.body.appendChild(field);
+    field.select();
+    const copied = document.execCommand("copy");
+    field.remove();
+    return copied;
+  }
+
+  document.querySelectorAll(".copy-email").forEach((button) => {
+    const label = button.textContent;
+    let resetTimer;
+
+    button.addEventListener("click", async () => {
+      let copied = false;
+      try {
+        await navigator.clipboard.writeText(button.dataset.copy);
+        copied = true;
+      } catch {
+        copied = copyWithSelection(button.dataset.copy);
+      }
+      button.textContent = copied ? "Copied!" : "Couldn't copy";
+      clearTimeout(resetTimer);
+      resetTimer = setTimeout(() => (button.textContent = label), 2000);
+    });
   });
 })();
