@@ -162,6 +162,7 @@ img { max-width: 100%; display: block; }
   font-size: 1.2rem;
   color: var(--ink);
   text-decoration: none;
+  font-style: italic;
 }
 .logo img { width: 34px; height: 34px; transition: transform .4s; }
 .logo:hover img { transform: rotate(-12deg); }
