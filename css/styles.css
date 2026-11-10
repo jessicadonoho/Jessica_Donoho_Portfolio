@@ -50,9 +50,9 @@
   --blossom:      #F2C9CF;  /* cherry-blossom pink — the "cute" accent */
 
   /* --- Fonts (loaded from Google Fonts in each HTML <head>) --- */
-  --font-display: "Fraunces", Georgia, serif;          /* headings */
+  --font-display: "Literata", Georgia, serif;          /* headings */
   --font-body:    "Nunito", system-ui, sans-serif;     /* paragraphs */
-  --font-hand:    "Caveat", "Comic Sans MS", cursive;  /* handwritten notes */
+  --font-hand:    "Playpen Sans", "Comic Sans MS", cursive;  /* handwritten notes */
 
   /* --- Sizing --- */
   --container:    1120px;   /* max width of page content */
@@ -251,14 +251,30 @@ img { max-width: 100%; display: block; }
 .chip--pink  { background: var(--blossom); color: #8C3A4A; }
 .chip--sky   { background: var(--sky); color: #2D5566; }
 
-/* Handwritten label that sits above headings, e.g. "field note no. 02" */
+/* Handwritten label that sits above headings, e.g. "field note no. 02".
+   It's a little leaf tag: the two pointed corners echo the logo leaf, and the
+   ::before carries the logo's own silhouette (see images/favicon.svg).
+   The TAG is what tilts — the writing inside stays straight. */
 .hand-label {
-  display: inline-block;
+  display: inline-flex;
+  align-items: center;
+  gap: .45em;
   font-family: var(--font-hand);
-  font-size: 1.5rem;
-  color: var(--sunset);
-  transform: rotate(-2deg);
-  margin-bottom: 4px;
+  font-size: 1.1rem;
+  /* color: var(--moss-dark);
+  background: var(--fern); */
+  color: #2C3A2E;
+  background-color: #c3ccbd;
+  padding: 4px 18px 5px 13px;
+  border-radius: 999px 0 999px 0;   /* pointed bottom-left + top-right */
+  transform: rotate(-1.5deg);
+  margin-bottom: 10px;
+  /* border: 2px var(--moss-dark) solid; */
+}
+.hand-label::before {               /* the leaf itself */
+  content: "";
+  width: .9em; height: .9em; flex: none;
+  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 40'%3E%3Cpath d='M6 34C6 16 16 6 34 6 34 24 24 34 6 34Z' fill='%2343603D'/%3E%3Cpath d='M6 34 22 18' stroke='%23D6E5CB' stroke-width='3' stroke-linecap='round'/%3E%3C/svg%3E") no-repeat center/contain;
 }
 
 
@@ -282,7 +298,7 @@ img { max-width: 100%; display: block; }
 .polaroid img { width: 100%; aspect-ratio: 4 / 5; object-fit: cover; border-radius: 2px; }
 .polaroid figcaption {
   font-family: var(--font-hand);
-  font-size: 1.4rem;
+  font-size: 1.19rem;
   text-align: center;
   margin-top: 10px;
   color: var(--ink-soft);
@@ -379,8 +395,8 @@ img { max-width: 100%; display: block; }
 .film-frames figure:hover img { filter: saturate(1.2) brightness(1.05); }
 .film-frames figcaption {
   color: #CFC8B4;
-  font-family: var(--font-hand);
-  font-size: 1.15rem;
+  font-family: var(--font-body);
+  font-size: .9rem;
   margin-top: 6px;
 }
 
@@ -393,7 +409,7 @@ img { max-width: 100%; display: block; }
 
 .hero h1 { font-size: clamp(1.9rem, 3.9vw, 3.25rem); margin-bottom: .35em; }
 .hero h1 span.wave { color: var(--moss); }         /* colored word in the headline */
-.hero .hand-label { font-size: 1.35rem; }
+.hero .hand-label { font-size: 1.16rem; }
 .hero .lede { font-size: 1.05rem; color: var(--ink-soft); max-width: 560px; margin-bottom: 12px; }
 .hero .actions { display: flex; gap: 14px; flex-wrap: wrap; margin-top: 28px; }
 
@@ -443,9 +459,9 @@ img { max-width: 100%; display: block; }
   position: absolute;
   bottom: -46px; left: 0;
   font-family: var(--font-hand);
-  font-size: 1.5rem;
+  font-size: 1.28rem;
   color: var(--sunset);
-  transform: rotate(-6deg);
+  transform: rotate(3deg);
 }
 
 /* Floating decorative leaves / sun in the hero background */
@@ -485,7 +501,7 @@ img { max-width: 100%; display: block; }
   transform: rotate(1.5deg);
   position: relative;
 }
-.note-card h3 { font-family: var(--font-hand); font-size: 1.9rem; font-weight: 700; }
+.note-card h3 { font-family: var(--font-hand); font-size: 1.62rem; font-weight: 700; }
 .note-card ul { margin: 0; padding-left: 20px; }
 .note-card li { margin-bottom: 6px; }
 
@@ -603,9 +619,9 @@ img { max-width: 100%; display: block; }
   position: absolute;
   top: 50%; left: calc(100% + 10px);           /* sits beside the button, on the page background */
   font-family: var(--font-hand);
-  font-size: 1.05rem;
+  font-size: 0.89rem;
   color: var(--sunset);
-  transform: translateY(-50%) rotate(-4deg);
+  transform: translateY(-50%) rotate(2deg);
   white-space: nowrap;
 }
 @media (min-width: 721px) {
@@ -647,7 +663,7 @@ img { max-width: 100%; display: block; }
 }
 .trail li.is-now::before { background: var(--sunset); }  /* current roles in orange */
 .trail h3 { margin-bottom: 2px; font-size: 1.2rem; }
-.trail .when { font-family: var(--font-hand); font-size: 1.3rem; color: var(--sunset); }
+.trail .when { font-family: var(--font-body); font-size: .9rem; font-weight: 600; color: var(--sunset); }
 .trail p { color: var(--ink-soft); margin: 4px 0 0; }
 
 .edu-card {
@@ -777,7 +793,7 @@ img { max-width: 100%; display: block; }
   top: 96px;
   font-size: .92rem;
 }
-.toc .hand-label { font-size: 1.35rem; }
+.toc .hand-label { font-size: 1.16rem; }
 .toc ol { list-style: none; margin: 8px 0 0; padding: 0; border-left: 2px dashed var(--line); }
 .toc a {
   display: block;
@@ -808,7 +824,7 @@ img { max-width: 100%; display: block; }
   padding: 26px 30px;
   position: relative;
 }
-.tldr h3 { font-family: var(--font-hand); font-size: 1.8rem; margin-bottom: 6px; }
+.tldr h3 { font-family: var(--font-hand); font-size: 1.53rem; margin-bottom: 6px; }
 .tldr p:last-child { margin: 0; }
 
 /* --- Big-number stat cards --- */
@@ -848,7 +864,7 @@ img { max-width: 100%; display: block; }
 .card .icon svg { width: 22px; height: 22px; }
 .card h3 { font-size: 1.15rem; }
 .card p { color: var(--ink-soft); font-size: .97rem; margin: 0; }
-.card .tag { font-family: var(--font-hand); font-size: 1.2rem; color: var(--sunset); }
+.card .tag { font-family: var(--font-hand); font-size: 1.02rem; color: var(--sunset); }
 
 /* --- Workflow phases (a stack of steps; a horizontal path on desktop) --- */
 .phases {
@@ -907,7 +923,7 @@ tr:last-child td { border-bottom: 0; }
 }
 .persona { align-items: start; }
 .persona .polaroid img { aspect-ratio: 1; }
-.persona .tag { font-family: var(--font-hand); font-size: 1.3rem; color: var(--sunset); }
+.persona .tag { font-family: var(--font-hand); font-size: 1.11rem; color: var(--sunset); }
 .persona h3 { margin-bottom: 10px; }
 .persona-quote {
   margin: 16px 0;
@@ -925,7 +941,7 @@ tr:last-child td { border-bottom: 0; }
 /* --- Before / after pair --- */
 .before-after { display: grid; grid-template-columns: 1fr; gap: 24px; margin: 24px 0; }
 .before-after .label {
-  font-family: var(--font-hand); font-size: 1.4rem;
+  font-family: var(--font-body); font-size: .9rem; font-weight: 600;
 }
 .before-after .before .label { color: #B5553A; }
 .before-after .after .label  { color: var(--moss-dark); }
@@ -933,7 +949,7 @@ tr:last-child td { border-bottom: 0; }
 /* Before/after carousel: one image at a time, full size, no cropping.
    The prev/next buttons become invisible click zones over each half. */
 .ba-carousel { margin: 24px 0; }
-.ba-carousel .label { display: block; font-family: var(--font-hand); font-size: 1.4rem; }
+.ba-carousel .label { display: block; font-family: var(--font-body); font-size: .9rem; font-weight: 600; }
 .ba-carousel .before .label { color: #B5553A; }
 .ba-carousel .after .label  { color: var(--moss-dark); }
 .ba-carousel .carousel-slide img { aspect-ratio: auto; object-fit: initial; background: none; }
@@ -987,7 +1003,7 @@ tr:last-child td { border-bottom: 0; }
 .screens figure { margin: 0; }
 .screens img { width: 100%; border-radius: var(--radius-sm); }
 .screens figcaption {
-  font-family: var(--font-hand); font-size: 1.2rem;
+  font-family: var(--font-body); font-size: .9rem;
   color: var(--ink-soft); text-align: center; margin-top: 6px;
 }
 .screens--paper img { border: 1px solid var(--line); }
@@ -1020,7 +1036,7 @@ tr:last-child td { border-bottom: 0; }
   transition: box-shadow .5s var(--ds-ease);
 }
 .hifi-collage figcaption {
-  font-family: var(--font-hand); font-size: 1.15rem; line-height: 1.2;
+  font-family: var(--font-body); font-size: .9rem; line-height: 1.4;
   color: var(--ink-soft); text-align: center; margin-top: 8px;
 }
 .hifi-collage figure:is(:hover, :focus-visible) {
@@ -1046,7 +1062,7 @@ tr:last-child td { border-bottom: 0; }
 .hover-hint {
   display: none; align-items: center; justify-content: center; gap: 8px;
   margin: 20px 0 0;
-  font-family: var(--font-hand); font-size: 1.25rem; color: var(--moss-dark);
+  font-family: var(--font-body); font-size: .9rem; font-weight: 600; color: var(--moss-dark);
   transition: opacity .6s ease;
 }
 .hover-hint svg { width: 20px; height: 20px; animation: hint-cursor 2.4s ease-in-out infinite; }
@@ -1125,7 +1141,7 @@ tr:last-child td { border-bottom: 0; }
 .carousel-foot {
   display: flex; justify-content: center; align-items: center; gap: 16px; margin-top: 4px;
 }
-.carousel-count { font-family: var(--font-hand); font-size: 1.3rem; color: var(--ink-soft); }
+.carousel-count { font-family: var(--font-body); font-size: .9rem; font-weight: 600; color: var(--ink-soft); font-variant-numeric: tabular-nums; }
 .carousel-dots { display: flex; gap: 8px; }
 .carousel-dots button {
   width: 10px; height: 10px; padding: 0; border: 0; border-radius: 50%;
@@ -1166,7 +1182,7 @@ tr:last-child td { border-bottom: 0; }
   position: absolute; right: 12px; top: 10px;
   padding: 0 10px; border-radius: 999px;
   background: var(--fern); color: var(--moss-dark);
-  font-family: var(--font-hand); font-size: 1.2rem;
+  font-family: var(--font-body); font-size: .9rem; font-weight: 600;
 }
 .ds-tile:is(:hover, :focus-visible) { box-shadow: var(--shadow-lift); outline: none; }
 .ds-tile:focus-visible { box-shadow: 0 0 0 3px var(--golden), var(--shadow-lift); }
