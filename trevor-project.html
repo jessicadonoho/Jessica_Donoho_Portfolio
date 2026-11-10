@@ -184,7 +184,7 @@
              ================================================================ -->
         <section class="cs-section" id="role">
           <span class="hand-label">02 · my role</span>
-          <h2>What I owned</h2>
+          <h2>Structured the scope, stakeholder communication, &amp; design iteration</h2>
           <p>
             I owned how the project ran: the plan, the research logistics, the scope decisions,
             and communication with stakeholders. I also worked hands-on in research and design
@@ -193,21 +193,23 @@
 
           <h3 style="margin-top: 28px;">Product &amp; workflow</h3>
           <ul class="owned">
-            <li class="reveal"><strong>Planning &amp; timeline</strong><span>Broke the summer into phases and milestones, tracked tasks, and ran team check-ins so research, design, and testing stayed on schedule.</span></li>
-            <li class="reveal"><strong>Stakeholder communication</strong><span>Coordinated with team leads and our mentor through 10+ recurring check-ins, presented findings to the engineering team and leadership, and brought feedback back into the plan.</span></li>
+            <!-- <li class="reveal"><strong>Planning &amp; timeline</strong><span>Broke the summer into phases and milestones, tracked tasks, and ran team check-ins so research, design, and testing stayed on schedule.</span></li>
+            <li class="reveal"><strong>Stakeholder communication</strong><span>Coordinated with team leads and our mentor through 10+ recurring check-ins, presented findings to the engineering team and leadership, and brought feedback back into the plan.</span></li> -->
+            <li class="reveal"><strong>Timeline and management</strong><span>Organized and tracked the timeline of the project, coordinated with team leads and mentor, presented findings to leadership, and iterated on feedback</span></li>
             <li class="reveal"><strong>Research operations</strong><span>Recruited and scheduled participants, wrote interview guides, and led synthesis so insights were ready when design needed them.</span></li>
             <li class="reveal"><strong>Prioritization &amp; scope</strong><span>Ranked pain points by impact and turned them into a scoped set of features the team could deliver in one summer.</span></li>
-            <li class="reveal"><strong>Design ideation</strong><span>Ideated some of the core features we built into the design like the conversation dock, the search feature, and the improved 'Assign to Me' feature.</span></li>
+            <li class="reveal"><strong>Design iteration</strong><span>Spearheaded the iteration process of our designs through ideation and identifying key points and prioritization on the dashboard.</span></li>
+            <!-- <li class="reveal"><strong>Design ideation</strong><span>Ideated some of the core features we built into the design like the conversation dock, the search feature, and the improved 'Assign to Me' feature.</span></li> -->
           </ul>
 
           <h3 style="margin-top: 36px;">Research &amp; design</h3>
           <ul class="chips">
             <li class="chip">User interviews</li>
-            <li class="chip">Heuristic evaluation</li>
-            <li class="chip chip--sun">Layout redesign</li>
-            <li class="chip chip--pink">Design system</li>
-            <li class="chip chip--sky">Hi-fi prototype</li>
-            <li class="chip">Usability testing</li>
+            <li class="chip chip--sun">Heuristic evaluation</li>
+            <li class="chip chip--pink">Layout redesign</li>
+            <li class="chip chip--sky">Design system</li>
+            <li class="chip">Hi-fi prototype</li>
+            <li class="chip chip--sun">Usability testing</li>
           </ul>
         </section>
 
@@ -260,11 +262,9 @@
              ================================================================ -->
         <section class="cs-section" id="workflow">
           <span class="hand-label">04 · how we worked</span>
-          <h2>The project workflow</h2>
+          <h2>Iterative workflow meant our phases weren't always linear</h2>
           <p>
-            The summer built on research from our January – May course project. I planned the work
-            as five phases, each feeding the next, so the team always knew what it was working
-            toward and what "done" meant before moving on.
+            The summer built on research from our January – May course project. I planned the work as five phases, which gave the team a shared vocabulary for where we were — but we moved between them more than through them. Testing the redesign sent us back into design, and those fixes changed what we tested next.
           </p>
 
           <ol class="phases">
@@ -301,8 +301,8 @@
             </div>
             <div class="card reveal">
               <span class="tag">pain point 2</span>
-              <h3>Only three monitors at a time</h3>
-              <p><strong>Opportunity:</strong> redesign the "Monitoring Conversations" dock so users can track more conversations.</p>
+              <h3>Only three chats at once</h3>
+              <p><strong>Opportunity:</strong> redesign the user flow so users can track more conversations.</p>
             </div>
             <div class="card reveal">
               <span class="tag">pain point 3</span>
@@ -320,12 +320,12 @@
               <p><strong>Recommendation:</strong> raise contrast and font weight to meet the WCAG 4.5:1 minimum.</p>
             </div>
             <div class="card reveal">
-              <span class="tag">flexibility &amp; minimalist design</span>
+              <span class="tag">flexibility &amp; simple design</span>
               <h3>Redundant table data</h3>
               <p><strong>Recommendation:</strong> remove overlapping columns like Source and Priority to make tables easier to scan.</p>
             </div>
             <div class="card reveal">
-              <span class="tag">recognition &amp; real-world match</span>
+              <span class="tag">real-world match</span>
               <h3>Unclear terminology</h3>
               <p><strong>Recommendation:</strong> use plain-language labels, and add tooltips to abbreviations like CW and RS.</p>
             </div>
@@ -511,7 +511,7 @@
              ================================================================ -->
         <section class="cs-section" id="design">
           <span class="hand-label">08 · design &amp; build</span>
-          <h2>A design system and eight new features</h2>
+          <h2>Created a grounded design system and eight new features</h2>
           <p>
             With the structure settled, we built a design system on The Trevor Project's official
             palette before moving to a hi-fi prototype: primary, secondary, and neutral color
@@ -582,32 +582,16 @@
 
           <h3 style="margin-top: 28px;">Iteration 1 · Flexible message search</h3>
           <p>Users could only search chat logs with preset tags. We replaced the tags with a free-text search bar that covers the full message history.</p>
-          <div class="carousel ba-carousel ba-carousel--narrow reveal" aria-roledescription="carousel" aria-label="Before and after">
-            <div class="carousel-frame">
-              <figure class="shot carousel-slide before"><span class="label">before</span><img src="images/trevor/search_with_tags.png" alt="Before: searching a chat was limited to preset tags like IP-SH, RS, Suicide, and Abuse" /></figure>
-              <figure class="shot carousel-slide after"><span class="label">after</span><img src="images/trevor/search_with_bar.png" alt="After: a free-text search box in each conversation, with a match counter and previous and next arrows" /></figure>
-              <button class="carousel-btn prev" aria-label="Previous image"><span aria-hidden="true">←</span></button>
-              <button class="carousel-btn next" aria-label="Next image"><span aria-hidden="true">→</span></button>
-            </div>
-            <div class="carousel-foot">
-              <span class="carousel-count" aria-live="polite"></span>
-              <div class="carousel-dots"></div>
-            </div>
+          <div class="before-after before-after--match">
+            <figure class="shot before reveal"><span class="label">before</span><img src="images/trevor/search_with_tags.png" alt="Before: searching a chat was limited to preset tags like IP-SH, RS, Suicide, and Abuse" loading="lazy" /></figure>
+            <figure class="shot after reveal"><span class="label">after</span><img src="images/trevor/search_with_bar.png" alt="After: a free-text search box in each conversation, with a match counter and previous and next arrows" loading="lazy" /></figure>
           </div>
 
           <h3 style="margin-top: 28px;">Iteration 2 · Accordion button</h3>
           <p>The details section originally opened from the case number, but usability testing revealed that the case number is a hyperlinked pathway. We moved details to their own accordion button beside it.</p>
-          <div class="carousel ba-carousel reveal" aria-roledescription="carousel" aria-label="Before and after">
-            <div class="carousel-frame">
-              <figure class="shot carousel-slide before"><span class="label">before</span><img src="images/trevor/detailsopenedfromcasenumber.png" alt="Before: a wireframe where the case number opens the details section below the row" /></figure>
-              <figure class="shot carousel-slide after"><span class="label">after</span><img src="images/trevor/detailsopenedfromside.png" alt="After: a separate Toggle details button beside each case number" /></figure>
-              <button class="carousel-btn prev" aria-label="Previous image"><span aria-hidden="true">←</span></button>
-              <button class="carousel-btn next" aria-label="Next image"><span aria-hidden="true">→</span></button>
-            </div>
-            <div class="carousel-foot">
-              <span class="carousel-count" aria-live="polite"></span>
-              <div class="carousel-dots"></div>
-            </div>
+          <div class="before-after">
+            <figure class="shot before reveal"><span class="label">before</span><img src="images/trevor/details_from_casenumber_zoom.png" alt="Before: a small chevron sits beside the case number CN-52831, and the details panel opens underneath the row" loading="lazy" /></figure>
+            <figure class="shot after reveal"><span class="label">after</span><img src="images/trevor/details_from_side_zoom.png" alt="After: every row has its own toggle button in a column to the left of the case number" loading="lazy" /></figure>
           </div>
         </section>
 

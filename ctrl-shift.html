@@ -14,8 +14,8 @@
     #evolution    how the design changed stage to stage
     #paper        paper prototype
     #hifi         wireframes → hi-fi + usability testing
-    #final        final design screens, flow by flow
     #system       design system / style guide
+    #final        final design screens, flow by flow
     #features     feature descriptions
     #defects      top defects table
     #reflection   what I learned
@@ -124,8 +124,8 @@
           <li><a href="#evolution">Design evolution</a></li>
           <li><a href="#paper">Paper prototype</a></li>
           <li><a href="#hifi">Hi-fi &amp; testing</a></li>
-          <li><a href="#final">Final design</a></li>
           <li><a href="#system">Design system</a></li>
+          <li><a href="#final">Final design</a></li>
           <li><a href="#features">Features</a></li>
           <li><a href="#defects">Top defects</a></li>
           <li><a href="#reflection">Reflection</a></li>
@@ -138,7 +138,7 @@
         <!-- 01 · OVERVIEW -->
         <section class="cs-section" id="overview">
           <span class="hand-label">01 · overview</span>
-          <h2>About the project</h2>
+          <h2>Social media users no longer have control over their experiences</h2>
 
           <div class="tldr reveal">
             <h3>tl;dr</h3>
@@ -166,7 +166,7 @@
         <!-- 02 · PROCESS -->
         <section class="cs-section" id="process">
           <span class="hand-label">02 · process</span>
-          <h2>From interviews to prototype</h2>
+          <h2>Following the problem from interviews to prototype</h2>
           <ol class="phases phases--6">
             <li class="reveal"><h3>User research</h3><p>In-depth interviews on behaviors, frustrations, and mental models around social media and filter bubbles.</p></li>
             <li class="reveal"><h3>Competitive analysis</h3><p>Ground News, Shinigami Eyes, and manual workarounds: what exists, what works, and where the gaps are.</p></li>
@@ -204,11 +204,11 @@
               <h3>Habit loops resist change</h3>
               <p>"Muscle memory of opening Instagram." Even people who wanted to quit found themselves back without deciding to.</p>
             </div>
-            <div class="card reveal">
+            <!-- <div class="card reveal">
               <span class="tag">finding 4</span>
               <h3>Spreading out as a strategy</h3>
               <p>Tech-savvy users spread their use across platforms on purpose, so no single source controls what they see.</p>
-            </div>
+            </div> -->
           </div>
 
           <blockquote class="quote reveal">
@@ -226,7 +226,8 @@
         <!-- 04 · COMPETITIVE ANALYSIS -->
         <section class="cs-section" id="competitive">
           <span class="hand-label">04 · competitive analysis</span>
-          <h2>What already exists, and where it falls short</h2>
+          <h2>Narrowing in on the gap on current solutions</h2>
+          <!-- <h2>What already exists, and where it falls short</h2> -->
           <p>
             I compared a direct competitor, the manual advice people find when they try to escape
             a filter bubble, and an analogous tool that labels who you're seeing online.
@@ -319,11 +320,12 @@
         <!-- 08 · PAPER PROTOTYPE -->
         <section class="cs-section" id="paper">
           <span class="hand-label">08 · paper prototype</span>
-          <h2>Eight screens on a table</h2>
+          <h2>Engaging with real feedback on the flow of the screens</h2>
+          <!-- <h2>Eight screens on a table</h2> -->
           <p>
             Before any digital wireframes, I drew an eight-screen paper prototype, played the wizard behind the curtain, and tested it with one user in an informal session.
           </p>
-          <div class="screens screens--paper">
+          <div class="screens screens--paper screens--match">
             <figure class="reveal"><img src="images/ctrl-shift/paper_home.png" alt="Paper home screen with groups arranged in a circle around a dial" loading="lazy" /><figcaption>the dial, which later broke navigation</figcaption></figure>
             <figure class="reveal"><img src="images/ctrl-shift/timer.png" alt="Paper Set a Timer screen with schedule, minutes per day, minutes per session, and what the timer affects" loading="lazy" /><figcaption>"timer," which became "schedule"</figcaption></figure>
             <figure class="reveal"><img src="images/ctrl-shift/like_this.png" alt="Paper On This Topic screen splitting posts into Agree and Disagree" loading="lazy" /><figcaption>"on this topic," later renamed</figcaption></figure>
@@ -363,81 +365,9 @@
         </section>
 
 
-        <!-- 10 · FINAL DESIGN
-             Screens exported from Figma. Until a file exists, its slot shows a
-             dashed box with the file name to add to images/ctrl-shift/. -->
-        <section class="cs-section" id="final">
-          <span class="hand-label">10 · final design</span>
-          <h2>The final design, flow by flow</h2>
-          <p>
-            The overall flow didn't change much from the user flow to the hi-fi prototype. What
-            changed was the detail: clearer wording, a longer onboarding, and features moved to
-            where people looked for them.
-          </p>
-
-          <h3 style="margin-top: 28px;">Onboarding</h3>
-          <p>
-            Testing showed that people didn't understand key ideas when they ran into them in the
-            app, so I split one long block of text into short steps: groups, scheduling, and goals.
-            The goals people pick here shape their home screen.
-          </p>
-          <p class="hover-hint" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 3l7 17 2.5-7.5L21 10z" /></svg>hover a screen to zoom in</p>
-          <div class="hifi-collage reveal" role="group" aria-label="Onboarding screens">
-            <figure tabindex="0"><img src="images/ctrl-shift/hifi-welcome.png" alt="Welcome screen explaining the three things ctrl^shift does, with Log In and Get Started buttons" loading="lazy" /><figcaption>welcome</figcaption></figure>
-            <figure tabindex="0"><img src="images/ctrl-shift/hifi-choose-groups.png" alt="Onboarding step explaining content groups like Friends, News, and Fitness" loading="lazy" /><figcaption>choose your groups</figcaption></figure>
-            <figure tabindex="0"><img src="images/ctrl-shift/hifi-schedule-use.png" alt="Onboarding step explaining daily limit, session length, and break duration" loading="lazy" /><figcaption>schedule use</figcaption></figure>
-            <figure tabindex="0"><img src="images/ctrl-shift/hifi-set-goals.png" alt="Onboarding step where users pick what's important to them and their main goal" loading="lazy" /><figcaption>set your goals</figcaption></figure>
-          </div>
-
-          <h3 style="margin-top: 28px;">Home, settings, and tools</h3>
-          <p>
-            Before browsing, people have to pick a group, so the app never opens straight into a
-            feed. Settings and tools sit at the bottom of the home screen, where they're easy to
-            reach. Scheduling sets when and how long people can scroll. The schedule can change
-            once a week, and there's an emergency stop that works three times a month.
-          </p>
-          <p class="hover-hint" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 3l7 17 2.5-7.5L21 10z" /></svg>hover a screen to zoom in</p>
-          <div class="hifi-collage reveal" role="group" aria-label="Home, settings, and tools screens">
-            <figure tabindex="0"><img src="images/ctrl-shift/hifi-home.png" alt="Home screen with group buttons, quick actions, and settings tools" loading="lazy" /><figcaption>home</figcaption></figure>
-            <figure tabindex="0"><img src="images/ctrl-shift/hifi-settings.png" alt="Settings screen with toggles for disabling scroll, dark mode, and reels, plus fact-check preferences" loading="lazy" /><figcaption>settings</figcaption></figure>
-            <figure tabindex="0"><img src="images/ctrl-shift/hifi-schedule.png" alt="Schedule Usage screen with days, minutes per day, session length, breaks, and exclusions" loading="lazy" /><figcaption>schedule</figcaption></figure>
-            <figure tabindex="0"><img src="images/ctrl-shift/hifi-manage-algorithm.png" alt="Manage Algorithm screen with content tags to see and not see, and political and sensitive content toggles" loading="lazy" /><figcaption>manage algorithm</figcaption></figure>
-            <figure tabindex="0"><img src="images/ctrl-shift/hifi-user-analysis.png" alt="User Analysis screen showing usage, ad targeting, data sold to brokers, and a mood chart" loading="lazy" /><figcaption>user analysis</figcaption></figure>
-          </div>
-
-          <h3 style="margin-top: 28px;">Groups</h3>
-          <p>
-            Groups are themed containers for parts of the feed. Friends is built around staying
-            connected. News adds a topic filter. Hidden Content shows posts the algorithm usually
-            keeps from you, and explains why each one was hidden.
-          </p>
-          <p class="hover-hint" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 3l7 17 2.5-7.5L21 10z" /></svg>hover a screen to zoom in</p>
-          <div class="hifi-collage reveal" role="group" aria-label="Group screens">
-            <figure tabindex="0"><img src="images/ctrl-shift/hifi-friends.png" alt="Friends group showing a friend's post with comments" loading="lazy" /><figcaption>friends</figcaption></figure>
-            <figure tabindex="0"><img src="images/ctrl-shift/hifi-news.png" alt="News group with a Filter Topics button and Fact Check and Similar Posts buttons under a post" loading="lazy" /><figcaption>news</figcaption></figure>
-            <figure tabindex="0"><img src="images/ctrl-shift/hifi-hidden-content.png" alt="Hidden Content group with a note explaining why the post was hidden" loading="lazy" /><figcaption>hidden content</figcaption></figure>
-          </div>
-
-          <h3 style="margin-top: 28px;">Discovery and reflection</h3>
-          <p>
-            Fact Check and Similar Posts sit under posts in most groups. Similar Posts shows
-            matching and contrasting opinions together. I briefly split them apart after one tester
-            said they didn't want to see opinions they disagreed with, but I went back to showing
-            both, because seeing both sides is the point. When a session ends, people can log how
-            they feel, and that mood shows up later in User Analysis.
-          </p>
-          <p class="hover-hint" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 3l7 17 2.5-7.5L21 10z" /></svg>hover a screen to zoom in</p>
-          <div class="hifi-collage reveal" role="group" aria-label="Discovery and reflection screens">
-            <figure tabindex="0"><img src="images/ctrl-shift/hifi-fact-check.png" alt="Fact Check opening a browser search on the post's claim" loading="lazy" /><figcaption>fact check</figcaption></figure>
-            <figure tabindex="0"><img src="images/ctrl-shift/hifi-similar-posts.png" alt="Similar Posts screen showing same-opinion and contrasting-opinion posts together" loading="lazy" /><figcaption>similar posts</figcaption></figure>
-            <figure tabindex="0"><img src="images/ctrl-shift/hifi-session-complete.png" alt="Session Complete screen with a session summary and mood buttons" loading="lazy" /><figcaption>session complete</figcaption></figure>
-          </div>
-        </section>
-
-
-        <!-- 11 · DESIGN SYSTEM -->
+        <!-- 10 · DESIGN SYSTEM -->
         <section class="cs-section" id="system">
-          <span class="hand-label">11 · design system</span>
+          <span class="hand-label">10 · design system</span>
           <h2>A brand about shifting control</h2>
           <p>
             The style guide sets up ctrl^shift as a brand about shifting control from social media
@@ -469,6 +399,74 @@
               <h3>Tech in the garden</h3>
               <p>A moodboard of retro computers set in overgrown greenery and glowing green textures.</p>
             </div>
+          </div>
+        </section>
+
+
+        <!-- 11 · FINAL DESIGN
+             Screens exported from Figma. Until a file exists, its slot shows a
+             dashed box with the file name to add to images/ctrl-shift/. -->
+        <section class="cs-section" id="final">
+          <span class="hand-label">11 · final design</span>
+          <h2>The final design, flow by flow</h2>
+          <p>
+            The overall flow didn't change much from the user flow to the hi-fi prototype. What
+            changed was the detail: clearer wording, a longer onboarding, and features moved to
+            where people looked for them.
+          </p>
+
+          <h3 style="margin-top: 28px;">Onboarding</h3>
+          <p>
+            Testing showed that people didn't understand key ideas when they ran into them in the
+            app, so I split one long block of text into short steps: groups, scheduling, and goals.
+            The goals people pick here shape their home screen.
+          </p>
+          <div class="hifi-collage reveal" role="group" aria-label="Onboarding screens">
+            <figure tabindex="0"><img src="images/ctrl-shift/hifi-welcome.png" alt="Welcome screen explaining the three things ctrl^shift does, with Log In and Get Started buttons" loading="lazy" /><figcaption>welcome</figcaption></figure>
+            <figure tabindex="0"><img src="images/ctrl-shift/hifi-choose-groups.png" alt="Onboarding step explaining content groups like Friends, News, and Fitness" loading="lazy" /><figcaption>choose your groups</figcaption></figure>
+            <figure tabindex="0"><img src="images/ctrl-shift/hifi-schedule-use.png" alt="Onboarding step explaining daily limit, session length, and break duration" loading="lazy" /><figcaption>schedule use</figcaption></figure>
+            <figure tabindex="0"><img src="images/ctrl-shift/hifi-set-goals.png" alt="Onboarding step where users pick what's important to them and their main goal" loading="lazy" /><figcaption>set your goals</figcaption></figure>
+          </div>
+
+          <h3 style="margin-top: 28px;">Home, settings, and tools</h3>
+          <p>
+            Before browsing, people have to pick a group, so the app never opens straight into a
+            feed. Settings and tools sit at the bottom of the home screen, where they're easy to
+            reach. Scheduling sets when and how long people can scroll. The schedule can change
+            once a week, and there's an emergency stop that works three times a month.
+          </p>
+          <div class="hifi-collage reveal" role="group" aria-label="Home, settings, and tools screens">
+            <figure tabindex="0"><img src="images/ctrl-shift/hifi-home.png" alt="Home screen with group buttons, quick actions, and settings tools" loading="lazy" /><figcaption>home</figcaption></figure>
+            <figure tabindex="0"><img src="images/ctrl-shift/hifi-settings.png" alt="Settings screen with toggles for disabling scroll, dark mode, and reels, plus fact-check preferences" loading="lazy" /><figcaption>settings</figcaption></figure>
+            <figure tabindex="0"><img src="images/ctrl-shift/hifi-schedule.png" alt="Schedule Usage screen with days, minutes per day, session length, breaks, and exclusions" loading="lazy" /><figcaption>schedule</figcaption></figure>
+            <figure tabindex="0"><img src="images/ctrl-shift/hifi-manage-algorithm.png" alt="Manage Algorithm screen with content tags to see and not see, and political and sensitive content toggles" loading="lazy" /><figcaption>manage algorithm</figcaption></figure>
+            <figure tabindex="0"><img src="images/ctrl-shift/hifi-user-analysis.png" alt="User Analysis screen showing usage, ad targeting, data sold to brokers, and a mood chart" loading="lazy" /><figcaption>user analysis</figcaption></figure>
+          </div>
+
+          <h3 style="margin-top: 28px;">Groups</h3>
+          <p>
+            Groups are themed containers for parts of the feed. Friends is built around staying
+            connected. News adds a topic filter. Hidden Content shows posts the algorithm usually
+            keeps from you, and explains why each one was hidden.
+          </p>
+          <div class="hifi-collage reveal" role="group" aria-label="Group screens">
+            <figure tabindex="0"><img src="images/ctrl-shift/hifi-friends.png" alt="Friends group showing a friend's post with comments" loading="lazy" /><figcaption>friends</figcaption></figure>
+            <figure tabindex="0"><img src="images/ctrl-shift/hifi-news.png" alt="News group with a Filter Topics button and Fact Check and Similar Posts buttons under a post" loading="lazy" /><figcaption>news</figcaption></figure>
+            <figure tabindex="0"><img src="images/ctrl-shift/hifi-hidden-content.png" alt="Hidden Content group with a note explaining why the post was hidden" loading="lazy" /><figcaption>hidden content</figcaption></figure>
+          </div>
+
+          <h3 style="margin-top: 28px;">Discovery and reflection</h3>
+          <p>
+            Fact Check and Similar Posts sit under posts in most groups. Similar Posts shows
+            matching and contrasting opinions together. I briefly split them apart after one tester
+            said they didn't want to see opinions they disagreed with, but I went back to showing
+            both, because seeing both sides is the point. When a session ends, people can log how
+            they feel, and that mood shows up later in User Analysis.
+          </p>
+          <div class="hifi-collage reveal" role="group" aria-label="Discovery and reflection screens">
+            <figure tabindex="0"><img src="images/ctrl-shift/hifi-fact-check.png" alt="Fact Check opening a browser search on the post's claim" loading="lazy" /><figcaption>fact check</figcaption></figure>
+            <figure tabindex="0"><img src="images/ctrl-shift/hifi-similar-posts.png" alt="Similar Posts screen showing same-opinion and contrasting-opinion posts together" loading="lazy" /><figcaption>similar posts</figcaption></figure>
+            <figure tabindex="0"><img src="images/ctrl-shift/hifi-session-complete.png" alt="Session Complete screen with a session summary and mood buttons" loading="lazy" /><figcaption>session complete</figcaption></figure>
           </div>
         </section>
 

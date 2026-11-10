@@ -12,7 +12,7 @@
      7. Tabs (e.g. Lo-fi / Mid-fi wireframes)
      8. Image carousels (arrow buttons, dots, counter)
      9. Click-to-load embeds (e.g. the Figma prototype)
-    10. Hover hints (fade once someone has tried the hi-fi collage)
+   10. Screen lightbox (click a hi-fi screen to open it full size)
     11. Sakura petals (nav link hover, or opening the phone menu)
     12. Copy-email button
    ========================================================================== */
@@ -217,16 +217,151 @@
 
 
   /* ------------------------------------------------------------------------
-     10. HOVER HINTS
-     The "hover a screen to zoom in" hints fade out for good once someone has
-     hovered or focused a screen in any .hifi-collage.
+     10. SCREEN LIGHTBOX
+     Every <figure> inside a .hifi-collage opens full size in an overlay.
+       open   : click, or Enter / Space on a focused screen
+       close  : the X, a click on the backdrop, Delete, or Escape
+       browse : the arrow buttons, the arrow keys, or the space bar
+     Screens from every collage on the page form one list, so you can page
+     through all of them without closing. Focus is trapped while open and
+     restored to the screen you came from on close.
      ------------------------------------------------------------------------ */
-  const collages = document.querySelectorAll(".hifi-collage");
-  const hintSeen = () => document.body.classList.add("hint-seen");
-  collages.forEach((collage) => {
-    collage.addEventListener("pointerenter", hintSeen, { once: true });
-    collage.addEventListener("focusin", hintSeen, { once: true });
-  });
+  const shots = [...document.querySelectorAll(".hifi-collage figure")].filter(
+    (fig) => fig.querySelector("img")
+  );
+
+  if (shots.length) {
+    const EXPAND_ICON =
+      '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" ' +
+      'stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">' +
+      '<path d="M15 3h6v6M21 3l-7 7M9 21H3v-6M3 21l7-7" /></svg>';
+
+    /* Badge + button semantics on each screen. */
+    shots.forEach((fig, i) => {
+      const img = fig.querySelector("img");
+      const cap = fig.querySelector("figcaption");
+      fig.tabIndex = 0;
+      fig.setAttribute("role", "button");
+      fig.setAttribute(
+        "aria-label",
+        "Open " + (cap ? cap.textContent.trim() : img.alt || "screen") + " full size"
+      );
+      const badge = document.createElement("span");
+      badge.className = "hifi-expand";
+      badge.innerHTML = EXPAND_ICON;
+      fig.insertBefore(badge, fig.firstChild);
+      fig.addEventListener("click", () => open(i));
+      fig.addEventListener("keydown", (e) => {
+        if (e.key === "Enter" || e.key === " " || e.key === "Spacebar") {
+          e.preventDefault();
+          /* Stop here: otherwise this same keypress reaches the document
+             handler below, which would read the now-open box and page on. */
+          e.stopPropagation();
+          open(i);
+        }
+      });
+    });
+
+    /* Overlay markup, built once. */
+    const box = document.createElement("div");
+    box.className = "lightbox";
+    box.hidden = true;
+    box.setAttribute("role", "dialog");
+    box.setAttribute("aria-modal", "true");
+    box.setAttribute("aria-label", "Screen viewer");
+    box.innerHTML =
+      '<div class="lightbox-bar">' +
+        '<button class="lightbox-close" type="button" aria-label="Close viewer">&times;</button>' +
+      "</div>" +
+      '<div class="lightbox-stage">' +
+        '<button class="lightbox-nav lightbox-prev" type="button" aria-label="Previous screen">&#8592;</button>' +
+        '<img class="lightbox-img" alt="" />' +
+        '<button class="lightbox-nav lightbox-next" type="button" aria-label="Next screen">&#8594;</button>' +
+      "</div>" +
+      '<div class="lightbox-foot">' +
+        '<p class="lightbox-caption"></p>' +
+        '<p class="lightbox-count" aria-live="polite"></p>' +
+      "</div>";
+    document.body.appendChild(box);
+
+    const lbImg   = box.querySelector(".lightbox-img");
+    const lbCap   = box.querySelector(".lightbox-caption");
+    const lbCount = box.querySelector(".lightbox-count");
+    const btnPrev = box.querySelector(".lightbox-prev");
+    const btnNext = box.querySelector(".lightbox-next");
+    const btnClose= box.querySelector(".lightbox-close");
+
+    let current = 0;
+    let lastFocus = null;
+
+    function show(i) {
+      current = (i + shots.length) % shots.length;
+      const fig = shots[current];
+      const img = fig.querySelector("img");
+      const cap = fig.querySelector("figcaption");
+      lbImg.src = img.currentSrc || img.src;
+      lbImg.alt = img.alt || "";
+      lbCap.textContent = cap ? cap.textContent.trim() : "";
+      lbCount.textContent = current + 1 + " of " + shots.length;
+    }
+
+    function open(i) {
+      lastFocus = document.activeElement;
+      show(i);
+      box.hidden = false;
+      document.body.classList.add("lightbox-open");
+      requestAnimationFrame(() => box.classList.add("is-open"));
+      btnClose.focus();
+    }
+
+    function close() {
+      box.classList.remove("is-open");
+      box.hidden = true;
+      document.body.classList.remove("lightbox-open");
+      /* Land on the screen they were last looking at, so the page and the
+         keyboard agree about where you are. Falls back to whatever had focus. */
+      const back = shots[current] || lastFocus;
+      if (back && back.focus) back.focus({ preventScroll: false });
+    }
+
+    btnClose.addEventListener("click", close);
+    btnPrev.addEventListener("click", () => show(current - 1));
+    btnNext.addEventListener("click", () => show(current + 1));
+
+    /* A click on the backdrop closes; a click on the image or a button does not. */
+    box.addEventListener("click", (e) => {
+      if (!e.target.closest(".lightbox-img, .lightbox-nav, .lightbox-close")) close();
+    });
+
+    document.addEventListener("keydown", (e) => {
+      if (box.hidden) return;
+      switch (e.key) {
+        case "Escape":
+        case "Delete":
+        case "Del":
+          e.preventDefault(); close(); break;
+        case "ArrowLeft":
+          e.preventDefault(); show(current - 1); break;
+        case "ArrowRight":
+          e.preventDefault(); show(current + 1); break;
+        case " ":
+        case "Spacebar":
+          /* Space pages forward, and must not scroll the page behind. */
+          e.preventDefault();
+          show(current + (e.shiftKey ? -1 : 1));
+          break;
+        case "Tab": {
+          /* Keep focus inside the overlay. */
+          const stops = [btnClose, btnPrev, btnNext];
+          const at = stops.indexOf(document.activeElement);
+          e.preventDefault();
+          const next = e.shiftKey ? at - 1 : at + 1;
+          stops[(next + stops.length) % stops.length].focus();
+          break;
+        }
+      }
+    });
+  }
 
 
   /* ------------------------------------------------------------------------
